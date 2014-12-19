@@ -1,0 +1,27 @@
+ #baseurl: "http://yoursite.example.com/"
+title: "Javascript Standards"
+MetaDataFormat: "yaml"
+footnotereturnlinkcontents: "↩"
+ #permalinks:
+ #  post: /:year/:month/:title/
+params:
+  Subtitle: Coding standards for Javascript applications
+  AuthorName: Brendan Graetz
+  GitHubUser: bguiz
+  GitHubRepo: js-standards
+indexes:
+  category: "categories"
+  tag: "tags"
+
+menu:
+  main:
+    - Name: Getting Started
+      Weight: 1000
+      Identifier: top
+    - Name: ES5
+      Weight: 2000
+      Identifier: es5
+    - Name: ES6
+      Weight: 3000
+      Identifier: es6
+
