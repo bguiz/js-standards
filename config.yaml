@@ -1,8 +1,10 @@
- #baseurl: http://yoursite.example.com/
 title: Javascript Standards
+version: 0.0.0
+ #baseurl: http://yoursite.example.com/
 MetaDataFormat: yaml
-theme: techdocshugotheme
 footnotereturnlinkcontents: "↩"
+
+theme: techdocshugotheme
 
  #permalinks:
  #  post: /:year/:month/:title/
@@ -16,8 +18,8 @@ params:
   GoogleAnalyticsDomain: bguiz.com
 
 indexes:
-  category: "categories"
-  tag: "tags"
+  category: categories
+  tag: tags
 
 menu:
   main:
