@@ -9,8 +9,8 @@ menu:
   main:
     parent: top
 next: /es5/comments
+prev: /es6/comments
 notoc: true
- #prev: /overview/usage
 weight: 1010
 ---
 

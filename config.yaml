@@ -1,14 +1,20 @@
- #baseurl: "http://yoursite.example.com/"
-title: "Javascript Standards"
-MetaDataFormat: "yaml"
+ #baseurl: http://yoursite.example.com/
+title: Javascript Standards
+MetaDataFormat: yaml
+theme: techdocshugotheme
 footnotereturnlinkcontents: "↩"
+
  #permalinks:
  #  post: /:year/:month/:title/
+
 params:
   Subtitle: Coding standards for Javascript applications
   AuthorName: Brendan Graetz
   GitHubUser: bguiz
   GitHubRepo: js-standards
+  GoogleAnalyticsId: UA-37884921-1
+  GoogleAnalyticsDomain: bguiz.com
+
 indexes:
   category: "categories"
   tag: "tags"

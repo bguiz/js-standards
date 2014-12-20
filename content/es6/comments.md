@@ -9,8 +9,8 @@ tags:
 menu:
   main:
     parent: es6
- #next: /es5/comments
- #prev: /intro
+next: /es5/comments
+prev: /intro
 notoc: true
 weight: 3010
 ---
