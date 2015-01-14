@@ -9,7 +9,6 @@ menu:
   main:
     parent: top
 next: /es5/comments
-prev: /es6/comments
 notoc: true
 weight: 1010
 ---

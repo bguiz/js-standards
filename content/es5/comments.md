@@ -9,8 +9,8 @@ tags:
 menu:
   main:
     parent: es5
-next: /es5/comments
 prev: /intro
+next: /es5/files
 notoc: true
 weight: 2010
 ---

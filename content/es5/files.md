@@ -8,8 +8,8 @@ tags:
 menu:
   main:
     parent: es5
-next: /es5/comments
-prev: /intro
+prev: /es5/comments
+next: /es5/hoisting
 notoc: true
 weight: 2020
 ---
