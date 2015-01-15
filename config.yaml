@@ -16,6 +16,9 @@ params:
   GitHubRepo: js-standards
   GoogleAnalyticsId: UA-37884921-1
   GoogleAnalyticsDomain: bguiz.com
+  RootRedirect:
+    Url: /intro
+    Name: Introduction
 
 indexes:
   category: categories
