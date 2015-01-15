@@ -1,6 +1,6 @@
 ---
 title: ES5 Files
-linktitle: Files (ES5)
+linktitle: Files
 date: 2014-12-21T11:38:22+11:00
 tags:
   - ES5

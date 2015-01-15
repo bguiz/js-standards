@@ -1,6 +1,6 @@
 ---
 title: ES5 Comments
-linktitle: Comments (ES5)
+linktitle: Comments
 date: 2014-12-19T21:36:34+11:00
 tags:
   - ES5
