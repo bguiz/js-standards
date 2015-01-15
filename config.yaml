@@ -1,0 +1,35 @@
+title: Javascript Standards
+version: 0.0.1
+ #baseurl: http://yoursite.example.com/
+MetaDataFormat: yaml
+footnotereturnlinkcontents: "↩"
+
+theme: techdocshugotheme
+
+ #permalinks:
+ #  post: /:year/:month/:title/
+
+params:
+  Subtitle: Coding standards for Javascript applications
+  AuthorName: Brendan Graetz
+  GitHubUser: bguiz
+  GitHubRepo: js-standards
+  GoogleAnalyticsId: UA-37884921-1
+  GoogleAnalyticsDomain: bguiz.com
+
+indexes:
+  category: categories
+  tag: tags
+
+menu:
+  main:
+    - Name: Getting Started
+      Weight: 1000
+      Identifier: top
+    - Name: ES5
+      Weight: 2000
+      Identifier: es5
+    - Name: ES6
+      Weight: 3000
+      Identifier: es6
+
