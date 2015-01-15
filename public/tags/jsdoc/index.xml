@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jsdoc on Javascript Standards</title>
-    <link>/tags/jsdoc/</link>
+    <link>http://bguiz.github.io/js-standards/tags/jsdoc/</link>
     <description>Recent content in Jsdoc on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Fri, 19 Dec 2014 21:36:34 EST</lastBuildDate>
-    <atom:link href="/tags/jsdoc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/jsdoc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Comments</title>
-      <link>/es5/comments/</link>
+      <link>http://bguiz.github.io/js-standards/es5/comments/</link>
       <pubDate>Fri, 19 Dec 2014 21:36:34 EST</pubDate>
       
-      <guid>/es5/comments/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
       <description>&lt;p&gt;Comment your code generously.
 As a rule of thumb, you should &lt;em&gt;not&lt;/em&gt; have a comment for every line of code.
 Rather you should have a comment per function,

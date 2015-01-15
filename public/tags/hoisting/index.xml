@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hoisting on Javascript Standards</title>
-    <link>/tags/hoisting/</link>
+    <link>http://bguiz.github.io/js-standards/tags/hoisting/</link>
     <description>Recent content in Hoisting on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</lastBuildDate>
-    <atom:link href="/tags/hoisting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/hoisting/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Variable Hoisting</title>
-      <link>/es5/hoisting/</link>
+      <link>http://bguiz.github.io/js-standards/es5/hoisting/</link>
       <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
       
-      <guid>/es5/hoisting/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/hoisting/</guid>
       <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
 other programming languages that have a C-style syntax:
 C, C++, Java, Actionscript, just to name a few.&lt;/p&gt;

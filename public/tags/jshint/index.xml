@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Jshint on Javascript Standards</title>
-    <link>/tags/jshint/</link>
+    <link>http://bguiz.github.io/js-standards/tags/jshint/</link>
     <description>Recent content in Jshint on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Thu, 15 Jan 2015 17:20:09 EST</lastBuildDate>
-    <atom:link href="/tags/jshint/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/jshint/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Linting</title>
-      <link>/es5/lint/</link>
+      <link>http://bguiz.github.io/js-standards/es5/lint/</link>
       <pubDate>Thu, 15 Jan 2015 17:20:09 EST</pubDate>
       
-      <guid>/es5/lint/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/lint/</guid>
       <description>
 
 &lt;h3 id=&#34;jshint:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;JsHint&lt;/h3&gt;
@@ -51,7 +51,7 @@ whioch usually sits at the root directory of a project.&lt;/p&gt;
 &lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bguiz.github.io/js-standards/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Essentially all the default JsHint options are used,
 with a few exceptions.&lt;/p&gt;

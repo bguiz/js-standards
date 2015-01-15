@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Do on Javascript Standards</title>
-    <link>/tags/do/</link>
+    <link>http://bguiz.github.io/js-standards/tags/do/</link>
     <description>Recent content in Do on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Wed, 14 Jan 2015 22:25:16 EST</lastBuildDate>
-    <atom:link href="/tags/do/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/do/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Control Structures</title>
-      <link>/es5/control/</link>
+      <link>http://bguiz.github.io/js-standards/es5/control/</link>
       <pubDate>Wed, 14 Jan 2015 22:25:16 EST</pubDate>
       
-      <guid>/es5/control/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/control/</guid>
       <description>
 
 &lt;h3 id=&#34;blocks:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Blocks&lt;/h3&gt;

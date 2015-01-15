@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Objects on Javascript Standards</title>
-    <link>/tags/objects/</link>
+    <link>http://bguiz.github.io/js-standards/tags/objects/</link>
     <description>Recent content in Objects on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Wed, 14 Jan 2015 22:52:22 EST</lastBuildDate>
-    <atom:link href="/tags/objects/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/objects/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Built In Types</title>
-      <link>/es5/types/</link>
+      <link>http://bguiz.github.io/js-standards/es5/types/</link>
       <pubDate>Wed, 14 Jan 2015 22:52:22 EST</pubDate>
       
-      <guid>/es5/types/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/types/</guid>
       <description>
 
 &lt;h3 id=&#34;arrays:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Arrays&lt;/h3&gt;

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Naming on Javascript Standards</title>
-    <link>/tags/naming/</link>
+    <link>http://bguiz.github.io/js-standards/tags/naming/</link>
     <description>Recent content in Naming on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Wed, 14 Jan 2015 22:13:18 EST</lastBuildDate>
-    <atom:link href="/tags/naming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/naming/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Naming Conventions</title>
-      <link>/es5/naming/</link>
+      <link>http://bguiz.github.io/js-standards/es5/naming/</link>
       <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
       
-      <guid>/es5/naming/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>
 
 &lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
