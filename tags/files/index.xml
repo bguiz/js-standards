@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Files on Javascript Standards</title>
-    <link>/tags/files/</link>
+    <link>http://bguiz.github.io/js-standards/tags/files/</link>
     <description>Recent content in Files on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Sun, 21 Dec 2014 11:38:22 EST</lastBuildDate>
-    <atom:link href="/tags/files/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/tags/files/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Files</title>
-      <link>/es5/files/</link>
+      <link>http://bguiz.github.io/js-standards/es5/files/</link>
       <pubDate>Sun, 21 Dec 2014 11:38:22 EST</pubDate>
       
-      <guid>/es5/files/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/files/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
 
 &lt;p&gt;Javascript files should be served with the file name extension &lt;code&gt;.js&lt;/code&gt;,

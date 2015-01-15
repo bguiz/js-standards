@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Javascript Standards</title>
-    <link>/</link>
+    <link>http://bguiz.github.io/js-standards/</link>
     <description>Recent content on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
     
@@ -10,14 +10,14 @@
     
     
     <lastBuildDate>Fri, 19 Dec 2014 20:58:42 EST</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://bguiz.github.io/js-standards/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ECMAScript 5.1 and ECMAScript 6</title>
-      <link>/intro/</link>
+      <link>http://bguiz.github.io/js-standards/intro/</link>
       <pubDate>Fri, 19 Dec 2014 20:58:42 EST</pubDate>
       
-      <guid>/intro/</guid>
+      <guid>http://bguiz.github.io/js-standards/intro/</guid>
       <description>&lt;p&gt;ECMAScript 5.1, or ES5, is currently the older version of the specification
 upon which the Javascript language is implemented.&lt;/p&gt;
 
@@ -38,10 +38,10 @@ and are designed to be integrated into front end web development toolchains.&lt;
     
     <item>
       <title>ES5 Comments</title>
-      <link>/es5/comments/</link>
+      <link>http://bguiz.github.io/js-standards/es5/comments/</link>
       <pubDate>Fri, 19 Dec 2014 21:36:34 EST</pubDate>
       
-      <guid>/es5/comments/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
       <description>&lt;p&gt;Comment your code generously.
 As a rule of thumb, you should &lt;em&gt;not&lt;/em&gt; have a comment for every line of code.
 Rather you should have a comment per function,
@@ -152,10 +152,10 @@ then these are permissible.&lt;/p&gt;
     
     <item>
       <title>ES5 Files</title>
-      <link>/es5/files/</link>
+      <link>http://bguiz.github.io/js-standards/es5/files/</link>
       <pubDate>Sun, 21 Dec 2014 11:38:22 EST</pubDate>
       
-      <guid>/es5/files/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/files/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
 
 &lt;p&gt;Javascript files should be served with the file name extension &lt;code&gt;.js&lt;/code&gt;,
@@ -232,10 +232,10 @@ Better yet, use promises.&lt;/p&gt;
     
     <item>
       <title>ES5 Variable Hoisting</title>
-      <link>/es5/hoisting/</link>
+      <link>http://bguiz.github.io/js-standards/es5/hoisting/</link>
       <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
       
-      <guid>/es5/hoisting/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/hoisting/</guid>
       <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
 other programming languages that have a C-style syntax:
 C, C++, Java, Actionscript, just to name a few.&lt;/p&gt;
@@ -324,10 +324,10 @@ and will not confuse developers with a background in another C-style language.&l
     
     <item>
       <title>ES5 Functions</title>
-      <link>/es5/functions/</link>
+      <link>http://bguiz.github.io/js-standards/es5/functions/</link>
       <pubDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</pubDate>
       
-      <guid>/es5/functions/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/functions/</guid>
       <description>
 
 &lt;h3 id=&#34;anonymous-and-named-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Anonymous and named functions&lt;/h3&gt;
@@ -442,10 +442,10 @@ but immediately below these variable declarations for clarity.&lt;/p&gt;
     
     <item>
       <title>ES5 Naming Conventions</title>
-      <link>/es5/naming/</link>
+      <link>http://bguiz.github.io/js-standards/es5/naming/</link>
       <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
       
-      <guid>/es5/naming/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>
 
 &lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
@@ -492,10 +492,10 @@ in addition to the ones described here.&lt;/p&gt;
     
     <item>
       <title>ES5 Control Structures</title>
-      <link>/es5/control/</link>
+      <link>http://bguiz.github.io/js-standards/es5/control/</link>
       <pubDate>Wed, 14 Jan 2015 22:25:16 EST</pubDate>
       
-      <guid>/es5/control/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/control/</guid>
       <description>
 
 &lt;h3 id=&#34;blocks:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Blocks&lt;/h3&gt;
@@ -567,10 +567,10 @@ Avoid this!&lt;/p&gt;
     
     <item>
       <title>ES5 Equality</title>
-      <link>/es5/equality/</link>
+      <link>http://bguiz.github.io/js-standards/es5/equality/</link>
       <pubDate>Wed, 14 Jan 2015 22:41:41 EST</pubDate>
       
-      <guid>/es5/equality/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
       <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
 
 &lt;p&gt;This is because the former (double equals) attempts to do type coercion before comparison,
@@ -580,7 +580,7 @@ whereas the latter (triple equals) simply compares as-is.&lt;/p&gt;
 &lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;notoriously difficult to comprehend&lt;/a&gt;
 so it is best to avoid it!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/img/js-double-equals-truth-table.png&#34; alt=&#34;Javascript double equals truth table. Source: http://dorey.github.io/JavaScript-Equality-Table/&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/js-double-equals-truth-table.png&#34; alt=&#34;Javascript double equals truth table. Source: http://dorey.github.io/JavaScript-Equality-Table/&#34; /&gt;
 &lt;/p&gt;
 
 &lt;p&gt;If you cannot memorise this chart easily,
@@ -590,10 +590,10 @@ you are probably much better off using the triple equals form.&lt;/p&gt;
     
     <item>
       <title>ES5 Built In Types</title>
-      <link>/es5/types/</link>
+      <link>http://bguiz.github.io/js-standards/es5/types/</link>
       <pubDate>Wed, 14 Jan 2015 22:52:22 EST</pubDate>
       
-      <guid>/es5/types/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/types/</guid>
       <description>
 
 &lt;h3 id=&#34;arrays:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Arrays&lt;/h3&gt;
@@ -637,10 +637,10 @@ but generally speaking, unless you are developing a low level library, this is a
     
     <item>
       <title>ES5 Linting</title>
-      <link>/es5/lint/</link>
+      <link>http://bguiz.github.io/js-standards/es5/lint/</link>
       <pubDate>Thu, 15 Jan 2015 17:20:09 EST</pubDate>
       
-      <guid>/es5/lint/</guid>
+      <guid>http://bguiz.github.io/js-standards/es5/lint/</guid>
       <description>
 
 &lt;h3 id=&#34;jshint:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;JsHint&lt;/h3&gt;
@@ -674,7 +674,7 @@ whioch usually sits at the root directory of a project.&lt;/p&gt;
 &lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://bguiz.github.io/js-standards/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Essentially all the default JsHint options are used,
 with a few exceptions.&lt;/p&gt;
