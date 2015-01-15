@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naming on Javascript Standards</title>
+    <link>/tags/naming/</link>
+    <description>Recent content in Naming on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 14 Jan 2015 22:13:18 EST</lastBuildDate>
+    <atom:link href="/tags/naming/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Naming Conventions</title>
+      <link>/es5/naming/</link>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
+      
+      <guid>/es5/naming/</guid>
+      <description>
+
+&lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;strong&gt;camelCase&lt;/strong&gt; when naming variables and functions&lt;/p&gt;
+
+&lt;p&gt;When a function is intended to be called as a constructor function (i.e. with the &lt;code&gt;new&lt;/code&gt; keyword),
+use the &lt;strong&gt;PascalCase&lt;/strong&gt; instead.
+Pascal case is simply camel case, except that the first letter is capitalised.&lt;/p&gt;
+
+&lt;h3 id=&#34;legal-characters:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Legal characters&lt;/h3&gt;
+
+&lt;p&gt;Javascript is quite relaxed in which characters it allows in legal variable or function names,
+use instead what would be normal variable naming conventions other C-style syntax languages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First character can be an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Second and subsequent characters can be a digit or an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Avoid using &lt;code&gt;_&lt;/code&gt;, &lt;code&gt;$&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Avoid any characters with an ASCII code of over 127&lt;/li&gt;
+&lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
+
+&lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
+that may not be applicable across different projects.
+However, it always makes sense to ensure consistency within an entire project.&lt;/p&gt;
+
+&lt;p&gt;For example, because Javascript does not natively support the concept of private variables,
+or support the concept of constants,
+many developers adopt conventions such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private variables&amp;rsquo; names must be preceded with &lt;code&gt;_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Constants&amp;rsquo; names must be is &lt;strong&gt;ALL_CAPS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These additional naming conventions are not necessary,
+but can be beneficial to adopt acorss the entire project,
+in addition to the ones described here.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Variables on Javascript Standards</title>
+    <link>/tags/variables/</link>
+    <description>Recent content in Variables on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</lastBuildDate>
+    <atom:link href="/tags/variables/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Variable Hoisting</title>
+      <link>/es5/hoisting/</link>
+      <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
+      
+      <guid>/es5/hoisting/</guid>
+      <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
+other programming languages that have a C-style syntax:
+C, C++, Java, Actionscript, just to name a few.&lt;/p&gt;
+
+&lt;p&gt;Hoisting of variable and function definitions does not happen in these other languages,
+but does happen in Javascript.
+In a similar vein, these other languages have block scope as well as functions scope,
+whereas Javascript only has function scope.&lt;/p&gt;
+
+&lt;p&gt;Given that many Javascript programmers have programmed in one or more of these other languages before,
+the combination of a lack of block scope,
+together with the presence hoisting,
+is the cause of much frustration and programming errors when developing with Javascript.&lt;/p&gt;
+
+&lt;p&gt;Let us take the following example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	var a = 1;
+	{
+		var a = 2;
+	}
+	console.log(&#39;a is&#39;, a);
+}
+//actual output: a is 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here, a developer used to C-style syntax might assume that the output is 1.
+After all, the second declaration of &lt;code&gt;var a&lt;/code&gt; is only valid within the block inside the function, right?&lt;/p&gt;
+
+&lt;p&gt;However, what really happens here is that second declaration of &lt;code&gt;var a&lt;/code&gt;
+gets &lt;em&gt;hoisted&lt;/em&gt; to the top of the function after the first declaration of &lt;code&gt;a&lt;/code&gt;.
+Essentially &lt;code&gt;a&lt;/code&gt; is being declared twice, and assigned to twice, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	var a = 1;
+	var a;
+	{
+		a = 2;
+	}
+	console.log(&#39;a is&#39;, a);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As a general guideline for coding standards,
+it is best to avoid confusion where possible.&lt;/p&gt;
+
+&lt;p&gt;The recommended approach would be to avoid declaring variables within blocks inside of functions,
+and instead declare them at the top of each function.&lt;/p&gt;
+
+&lt;p&gt;In addition, avoid creating unnecessary blocks.
+An non-control structure block, such as the one above, should be avoided.&lt;/p&gt;
+
+&lt;p&gt;Sometimes blocks are necessary, such as when there is a control structure that requires it.&lt;/p&gt;
+
+&lt;p&gt;This function declares a variable, &lt;code&gt;var y&lt;/code&gt;,
+within an block, as it it is within the &lt;code&gt;if&lt;/code&gt; control structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function() {
+	var x = 2;
+	if (x &amp;lt; 10) {
+		var y = 10;
+	}
+	console.log(&#39;y is&#39;, y);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A better way to write the same function,
+would be to move the declaration for &lt;code&gt;var y&lt;/code&gt; outside of the block,
+but leave the assignment within the block.
+This makes the the scope of the variables much more explicit,
+and will not confuse developers with a background in another C-style language.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function() {
+	var x = 2;
+	var y;
+	if (x &amp;lt; 10) {
+		y = 10;
+	}
+	console.log(&#39;y is&#39;, y);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tl;dr= Hoisting is great, but being explicit is better.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Naming Conventions</title>
+      <link>/es5/naming/</link>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
+      
+      <guid>/es5/naming/</guid>
+      <description>
+
+&lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;strong&gt;camelCase&lt;/strong&gt; when naming variables and functions&lt;/p&gt;
+
+&lt;p&gt;When a function is intended to be called as a constructor function (i.e. with the &lt;code&gt;new&lt;/code&gt; keyword),
+use the &lt;strong&gt;PascalCase&lt;/strong&gt; instead.
+Pascal case is simply camel case, except that the first letter is capitalised.&lt;/p&gt;
+
+&lt;h3 id=&#34;legal-characters:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Legal characters&lt;/h3&gt;
+
+&lt;p&gt;Javascript is quite relaxed in which characters it allows in legal variable or function names,
+use instead what would be normal variable naming conventions other C-style syntax languages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First character can be an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Second and subsequent characters can be a digit or an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Avoid using &lt;code&gt;_&lt;/code&gt;, &lt;code&gt;$&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Avoid any characters with an ASCII code of over 127&lt;/li&gt;
+&lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
+
+&lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
+that may not be applicable across different projects.
+However, it always makes sense to ensure consistency within an entire project.&lt;/p&gt;
+
+&lt;p&gt;For example, because Javascript does not natively support the concept of private variables,
+or support the concept of constants,
+many developers adopt conventions such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private variables&amp;rsquo; names must be preceded with &lt;code&gt;_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Constants&amp;rsquo; names must be is &lt;strong&gt;ALL_CAPS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These additional naming conventions are not necessary,
+but can be beneficial to adopt acorss the entire project,
+in addition to the ones described here.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

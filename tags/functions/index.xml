@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functions on Javascript Standards</title>
+    <link>/tags/functions/</link>
+    <description>Recent content in Functions on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</lastBuildDate>
+    <atom:link href="/tags/functions/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Functions</title>
+      <link>/es5/functions/</link>
+      <pubDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</pubDate>
+      
+      <guid>/es5/functions/</guid>
+      <description>
+
+&lt;h3 id=&#34;anonymous-and-named-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Anonymous and named functions&lt;/h3&gt;
+
+&lt;p&gt;Anonymous function are functions without a name,
+and named function are those with a name.
+Note, however, that assigning an anonymous function to a variable
+does &lt;em&gt;not&lt;/em&gt; make that function a named function.
+A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/code&gt; keyword, and its parameter list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function namedFunction() {
+	/* this is a named function, and its name is &amp;quot;namedFunction&amp;quot; */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	/* This is an anonymous function, and it does not have a name */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var namedFunctionReference = function () {
+	/* This is an anonymous function, and it does not have a name 
+	   &amp;quot;namedFunctionReference&amp;quot; is *not* its name.
+	*/
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For anonymous functions, include a space between the &lt;code&gt;function&lt;/code&gt; keyword and the parameter list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function (param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For named functions, do not include a space between the function name and the parameter list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function doStuff(param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;trailing-semicolons:904d9cf85d985550c869e6d9741448cc&#34;&gt;Trailing semicolons&lt;/h3&gt;
+
+&lt;p&gt;For functions assigned to variables, place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var doStuff = function (param, param2) {
+	/* do stuff */
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For functions that are &lt;em&gt;not&lt;/em&gt; assigned to variables, do &lt;em&gt;not&lt;/em&gt; place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function doStuff(param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;iifes:904d9cf85d985550c869e6d9741448cc&#34;&gt;IIFEs&lt;/h3&gt;
+
+&lt;p&gt;Immediately invoked function expressions (IIFEs)
+are anonymous functions that are surrounded by parentheses,
+and called as soon as they are declared;
+and thus by definition can only ever be called once:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;(function (param, param2) {
+	/* do stuff */
+})(&#39;param&#39;, 1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where possible, avoid using IIFEs.
+As a rule of thumb, if it can be done without using an IIFE, use that other approach instead.
+Legitimate uses of IIFEs would be scenarios where there is a need to contain code from &amp;ldquo;leaking&amp;rdquo; out,
+and there is no way to know ahead of time what the input code will be
+For example, when one is writing a tool or pre-processor that outputs generated or transformed code.&lt;/p&gt;
+
+&lt;h3 id=&#34;function-hoisting:904d9cf85d985550c869e6d9741448cc&#34;&gt;Function hoisting&lt;/h3&gt;
+
+&lt;p&gt;Hoistiong was covered in detail previously,
+however, it was done in terms of hoisting of variable declarations.
+Hoisting of function declarations works in very much the same way
+as hoisting of variables.
+This is most pertinent when considering inner functions.&lt;/p&gt;
+
+&lt;p&gt;Inner functions are functions that are declared within another function.
+In this scenario, variables within the scope of the outer function
+are made available for use within the inner function by means of closure.
+Thus, following the guidelines for variable declarations at the top of each function,
+inner functions should always be declared at the top of each function too,
+but immediately below these variable declarations for clarity.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var outerFunction = function () {
+	var variableAvailableThroughClosure = 1;
+
+	var innerFunction = function () {
+		++variableAvailableThroughClosure;
+	}
+
+	innerFunction();
+	console.log(&#39;variableAvailableThroughClosure is&#39;, variableAvailableThroughClosure);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The sequence should be:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;All variable declarations&lt;/li&gt;
+&lt;li&gt;All inner function declarations&lt;/li&gt;
+&lt;li&gt;Outer function instructions&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Naming Conventions</title>
+      <link>/es5/naming/</link>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
+      
+      <guid>/es5/naming/</guid>
+      <description>
+
+&lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;strong&gt;camelCase&lt;/strong&gt; when naming variables and functions&lt;/p&gt;
+
+&lt;p&gt;When a function is intended to be called as a constructor function (i.e. with the &lt;code&gt;new&lt;/code&gt; keyword),
+use the &lt;strong&gt;PascalCase&lt;/strong&gt; instead.
+Pascal case is simply camel case, except that the first letter is capitalised.&lt;/p&gt;
+
+&lt;h3 id=&#34;legal-characters:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Legal characters&lt;/h3&gt;
+
+&lt;p&gt;Javascript is quite relaxed in which characters it allows in legal variable or function names,
+use instead what would be normal variable naming conventions other C-style syntax languages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First character can be an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Second and subsequent characters can be a digit or an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Avoid using &lt;code&gt;_&lt;/code&gt;, &lt;code&gt;$&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Avoid any characters with an ASCII code of over 127&lt;/li&gt;
+&lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
+
+&lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
+that may not be applicable across different projects.
+However, it always makes sense to ensure consistency within an entire project.&lt;/p&gt;
+
+&lt;p&gt;For example, because Javascript does not natively support the concept of private variables,
+or support the concept of constants,
+many developers adopt conventions such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private variables&amp;rsquo; names must be preceded with &lt;code&gt;_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Constants&amp;rsquo; names must be is &lt;strong&gt;ALL_CAPS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These additional naming conventions are not necessary,
+but can be beneficial to adopt acorss the entire project,
+in addition to the ones described here.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

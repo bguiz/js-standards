@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Files on Javascript Standards</title>
+    <link>/tags/files/</link>
+    <description>Recent content in Files on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Sun, 21 Dec 2014 11:38:22 EST</lastBuildDate>
+    <atom:link href="/tags/files/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Files</title>
+      <link>/es5/files/</link>
+      <pubDate>Sun, 21 Dec 2014 11:38:22 EST</pubDate>
+      
+      <guid>/es5/files/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
+
+&lt;p&gt;Javascript files should be served with the file name extension &lt;code&gt;.js&lt;/code&gt;,
+and should be included in a HTML using a script tag.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;myfile.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags should be placed &lt;em&gt;not&lt;/em&gt; within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag,
+but rather within the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.
+They should also be the last tags within the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.
+This is because browsers load script tags synchronously,
+and makes the HTML document appear to load more slowly to the end user.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript inline within HTML.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags containing Javascript are a bad idea,
+as it fails to separate the concerns of behaviour and content.
+This in a similar vein to why we should place CSS in a separate
+file instead of inline within DOM elements.&lt;/p&gt;
+
+&lt;p&gt;Another place that Javascript is commonly found in HTML
+is within &lt;code&gt;on*&lt;/code&gt; attribute tags on DOM elements,
+for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div onclick=&amp;quot;myclicklistener();&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead of doing this, use pure Javascript to bind to events on the DOM element.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div id=&amp;quot;clickme&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.getElementById(&#39;clickme&#39;).addEventListener(&#39;click&#39;, myclicklistener);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; make assumptions about the order in which the DOM is rendered
+and the Javascript execution.&lt;/p&gt;
+
+&lt;p&gt;Instead, use the &lt;code&gt;DOMContentLoaded&lt;/code&gt; event:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) { 
+  //initialise stuff
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or jQuery:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) { 
+  //initialise stuff
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use a standard line length and indentation format&lt;/p&gt;
+
+&lt;p&gt;Set your text editor to replace &lt;code&gt;tab&lt;/code&gt; characters with two space characters,
+and use this for indentation.&lt;/p&gt;
+
+&lt;p&gt;Additionally set your text editor to draw a line as a visual indicator
+to show where the 120 character column is.
+This visual indicator will help you to avoid lines that are way too long.&lt;/p&gt;
+
+&lt;p&gt;Many others will recommend that 80 character columns should be used here,
+however, that is a little outdated with current day screen sizes and resolutions,
+and is unnecesarily restrictive.&lt;/p&gt;
+
+&lt;p&gt;Another reason for placing a restriction on the maximum line length,
+is that it is a great indicator of pyramid of doom -
+when there is an overly high level of nesting of callback functions.
+Extract the innermost callback functions to somewhere outside.
+Better yet, use promises.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Switch on Javascript Standards</title>
+    <link>/tags/switch/</link>
+    <description>Recent content in Switch on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 14 Jan 2015 22:25:16 EST</lastBuildDate>
+    <atom:link href="/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Control Structures</title>
+      <link>/es5/control/</link>
+      <pubDate>Wed, 14 Jan 2015 22:25:16 EST</pubDate>
+      
+      <guid>/es5/control/</guid>
+      <description>
+
+&lt;h3 id=&#34;blocks:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Blocks&lt;/h3&gt;
+
+&lt;p&gt;The following keywords control the flow of execution in a program:
+&lt;code&gt;if&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;do&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The code block which follows these keywords
+(sometimes with a set of instructions enclosed in parentheses in between)
+must be surrounded with &lt;code&gt;{&lt;/code&gt; and &lt;code&gt;}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, this &lt;code&gt;if&lt;/code&gt; statement is &lt;strong&gt;bad&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (x &amp;gt; y)
+	++x;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip; and this &lt;code&gt;if&lt;/code&gt; statement is much better:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (x &amp;gt; y) {
+	++x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;switch-statements:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Switch statements&lt;/h3&gt;
+
+&lt;p&gt;The block of the switch statement typically contains several &lt;code&gt;case&lt;/code&gt;s and one &lt;code&gt;default&lt;/code&gt;,
+each of which should contain a group of statements to execute.
+Each of these groups of statements must either &lt;code&gt;break&lt;/code&gt;, &lt;code&gt;throw&lt;/code&gt;, or &lt;code&gt;return&lt;/code&gt; in order to avoid unintentionally falling through to the next group of statements.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;switch (myVar) {
+case 2:
+	console.log(&#39;Exiting function because myVar is two&#39;);
+	return;
+case 1:
+	console.log(&#39;myVar is one&#39;);
+	break;
+case 0:
+	throw &#39;myVar has an illegal value&#39;;
+default:
+	console.log(&#39;Nothing special about myVar&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The fopllwoing example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javscript&#34;&gt;switch (myVar) {
+case 2:
+	console.log(&#39;myVar is two&#39;);
+case 1:
+	console.log(&#39;myVar is one&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When &lt;code&gt;myVar&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;, it works as expected.
+However, when &lt;code&gt;myVar&lt;/code&gt; is &lt;code&gt;2&lt;/code&gt;, the output is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myVar is two
+myVar is one
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happened here was the &lt;code&gt;case 2&lt;/code&gt; was entered correctly,
+but after executing its only statement,
+there was no &lt;code&gt;break&lt;/code&gt; statement,
+and therefore, the execution &lt;em&gt;fell through&lt;/em&gt; to the next case.
+Avoid this!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

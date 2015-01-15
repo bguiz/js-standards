@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lint on Javascript Standards</title>
+    <link>/tags/lint/</link>
+    <description>Recent content in Lint on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Thu, 15 Jan 2015 17:20:09 EST</lastBuildDate>
+    <atom:link href="/tags/lint/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Linting</title>
+      <link>/es5/lint/</link>
+      <pubDate>Thu, 15 Jan 2015 17:20:09 EST</pubDate>
+      
+      <guid>/es5/lint/</guid>
+      <description>
+
+&lt;h3 id=&#34;jshint:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;JsHint&lt;/h3&gt;
+
+&lt;p&gt;While reading this set of ECMAScript 5 coding standards is a step in the right direction,
+it does not get you all of the way.
+Some rules are easier to remember and stick to than others.
+It is best to have a tool that programmatically checks your sources code for
+violations of coding standards as you develop,
+and highlights them within your IDE,
+and gives you detailed output as part of your build process.&lt;/p&gt;
+
+&lt;p&gt;There are several tools out there that do this,
+and &lt;a href=&#34;http://jshint.com/&#34;&gt;JsHint&lt;/a&gt; is one of the more popular ones.
+JsHint is most commonly used as a Javascript preprocessor as part of build tools,
+and most IDEs popular with web developers&lt;/p&gt;
+
+&lt;h3 id=&#34;jshintrc:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;&lt;code&gt;.jshintrc&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;It is deifnitely worth reviewing the
+&lt;a href=&#34;http://jshint.com/docs/options/&#34;&gt;list of configuration options&lt;/a&gt;
+available on JsHint.
+Looking at which rules are enabled by default (and can be turned off),
+and which rules are disabled by default (and can be turned on),
+gives you an good idea of how extremely relaxed the Javascript language specification can be;
+and thus the importance of using something like JsHint.&lt;/p&gt;
+
+&lt;p&gt;These options are configurable using a file named &lt;code&gt;.jshintrc&lt;/code&gt;,
+whioch usually sits at the root directory of a project.&lt;/p&gt;
+
+&lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
+that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Essentially all the default JsHint options are used,
+with a few exceptions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

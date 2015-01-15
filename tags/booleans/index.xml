@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Booleans on Javascript Standards</title>
+    <link>/tags/booleans/</link>
+    <description>Recent content in Booleans on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 14 Jan 2015 22:52:22 EST</lastBuildDate>
+    <atom:link href="/tags/booleans/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Built In Types</title>
+      <link>/es5/types/</link>
+      <pubDate>Wed, 14 Jan 2015 22:52:22 EST</pubDate>
+      
+      <guid>/es5/types/</guid>
+      <description>
+
+&lt;h3 id=&#34;arrays:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Arrays&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;[val, val2]&lt;/code&gt; syntax instead of &lt;code&gt;new Array(len)&lt;/code&gt;, because preallocating memory for an array is not guaranteed, and the former is less verbose&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;objects:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Objects&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;{ key: &#39;val&#39;, key2: &#39;val2&#39; }&lt;/code&gt; instead of &lt;code&gt;new Object()&lt;/code&gt;, as it is less verbose&lt;/li&gt;
+&lt;li&gt;Do not quote keys of object literals, unless they must contain non-alphabet characters&lt;/li&gt;
+&lt;li&gt;Try to use keys in objects which conform to variable naming conventions&lt;/li&gt;
+&lt;li&gt;When iterating over all properties in an object, and accessing keys from the object&amp;rsquo;s prototype is undesirable, be sure to use the &lt;code&gt;hasOwnProperty&lt;/code&gt; check&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;booleans:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Booleans&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Do not compare to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;, simply use the value of the value directly: Either &lt;code&gt;if (myBool) { /*...*/ }&lt;/code&gt;, or &lt;code&gt;if (!myBool) { /*...*/ }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Be aware of the difference between &lt;code&gt;true&lt;/code&gt; and &lt;em&gt;truthy&lt;/em&gt;. &lt;a href=&#34;http://james.padolsey.com/javascript/truthy-falsey/&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;strings:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Strings&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;&#39;&lt;/code&gt; to quote string literals, as a preference over &lt;code&gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;&amp;quot;&lt;/code&gt; to quote strings literals which would otherwise contain many escapes single quote marks (&lt;code&gt;\&#39;&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;modifying-the-prototypes-of-built-in-types:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Modifying the prototypes of built in types&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;rsquo;t!&lt;/li&gt;
+&lt;li&gt;It may be convenient to add your own custom implementation of &lt;code&gt;Array.prototype.forEach&lt;/code&gt;, and the like,
+but generally speaking, unless you are developing a low level library, this is a bad idea&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
