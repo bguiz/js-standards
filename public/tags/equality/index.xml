@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Equality on Javascript Standards</title>
+    <link>/tags/equality/</link>
+    <description>Recent content in Equality on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 14 Jan 2015 22:41:41 EST</lastBuildDate>
+    <atom:link href="/tags/equality/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Equality</title>
+      <link>/es5/equality/</link>
+      <pubDate>Wed, 14 Jan 2015 22:41:41 EST</pubDate>
+      
+      <guid>/es5/equality/</guid>
+      <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
+
+&lt;p&gt;This is because the former (double equals) attempts to do type coercion before comparison,
+whereas the latter (triple equals) simply compares as-is.&lt;/p&gt;
+
+&lt;p&gt;The equality comparison which occurs with a type coercion is
+&lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;notoriously difficult to comprehend&lt;/a&gt;
+so it is best to avoid it!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/js-double-equals-truth-table.png&#34; alt=&#34;Javascript double equals truth table. Source: http://dorey.github.io/JavaScript-Equality-Table/&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you cannot memorise this chart easily,
+you are probably much better off using the triple equals form.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

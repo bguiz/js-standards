@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>ES5 Comments</title>
+
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style-responsive.css" rel="stylesheet" />
+    <link href="/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="/" class="logo"><img src="/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> ES5 Comments </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li class="active"><a href="/es5/comments/"> Comments </a> </li>
+                    
+                    <li><a href="/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="/es5/naming/"> Naming </a> </li>
+                    
+                    <li><a href="/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/es5/comments.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="/intro">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+<p>Comment your code generously.
+As a rule of thumb, you should <em>not</em> have a comment for every line of code.
+Rather you should have a comment per function,
+where the function is non-trivial.</p>
+
+<p>Examples:</p>
+
+<p><strong>Do not</strong> comment every line,
+especially when it is obvious what is happening.</p>
+
+<pre><code class="language-javascript">//declare a new variable called x, and assign its initial value
+var x = 0;
+//increment x by one
+++x;
+</code></pre>
+
+<p><strong>Do not</strong> comment trivial functions, such as getters and setters with no special logic.</p>
+
+<pre><code class="language-javascript">var x = 0;
+
+//gets value of x
+function getX() {
+	return x;
+}
+</code></pre>
+
+<p><strong>Do</strong> comment complex functions.
+As a rule of thumb,
+if it is not immediately obvious what the function does based on its name,
+or if it has special implementation details that cannot be expected unless inspecting the function body,
+or any other complicating factor,
+that function needs a comment</p>
+
+<p>When a function is commented, adhere to a standard format throughout the code base.
+The standard should be decided based on the choice of documentation pre-processor chosen.
+If no documentation pre-processor has been chosen,
+default to adhering to the format expeected by
+<a href="http://usejsdoc.org/about-getting-started.html">JSDoc</a></p>
+
+<pre><code class="language-javascript">/**
+ * Model class representing a Person
+ * @constructor
+ * @param {string} first - first name
+ * @param {string} last - last name
+ **/
+function Person(first, last) { /* implementation goes here */ }
+</code></pre>
+
+<p><strong>Do</strong> comment complex code snippets</p>
+
+<pre><code class="language-javascript">//allows us to use a 1D array to store a 2D grid of data
+return arr[y * width + x];
+</code></pre>
+
+<p><strong>Do</strong> use multiline comments instead of single line comments,
+for comments that are three lines or more.</p>
+
+<pre><code class="language-javascript">/* 
+ * This comment is quite long,
+ * and it spans multiple lines,
+ * so we use a different type of syntax
+ */
+
+ // This is a short comment, just one line
+</code></pre>
+
+<p>Note that subtle difference such as the number of <code>*</code>s
+is significant.
+JSDoc interpret multiline comments that begin with exactly two <code>*</code>s
+as a commnet that should be parsed and added to the documentation,
+and ignores any other multiline commnents</p>
+
+<p><strong>Avoid</strong> checking in commented out lines of code.</p>
+
+<p>Committing or checking in commented out lines of code
+into version control systems is OK.
+However, if doing so, add a comment with <code>TODO</code> or <code>NOTE</code>
+to indicate what this is being left like this.</p>
+
+<pre><code class="language-javascript">//TODO disabling zeroing out of array due to ___
+// revisit once resolved
+//for (var x = 0; x &lt; t; ++x) {
+//	arr[x] = 0;
+//}
+</code></pre>
+
+<p>Commenting out by means of an impossible conditional branch
+is also likewise OK to commit or check in.
+However, they should also be commented out likewise.</p>
+
+<pre><code class="language-javascript">//TODO disabling zeroing out of array due to ___
+// revisit once resolved
+if (false) {
+	for (var x = 0; x &lt; t; ++x) {
+		arr[x] = 0;
+	}
+}
+</code></pre>
+
+<p>Note that these are both <em>undesirable</em>,
+and should be avoided where possible.
+However, if it happens that leaving in the disabled or commented out code
+improves the ability of the next developer to comprehend what is going on
+or the original intent of the code,
+then these are permissible.</p>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="/es5/files">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/jquery.scrollTo.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

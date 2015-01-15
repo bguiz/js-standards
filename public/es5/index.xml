@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Es5s on Javascript Standards</title>
+    <link>/es5/</link>
+    <description>Recent content in Es5s on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Fri, 19 Dec 2014 21:36:34 EST</lastBuildDate>
+    <atom:link href="/es5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES5 Comments</title>
+      <link>/es5/comments/</link>
+      <pubDate>Fri, 19 Dec 2014 21:36:34 EST</pubDate>
+      
+      <guid>/es5/comments/</guid>
+      <description>&lt;p&gt;Comment your code generously.
+As a rule of thumb, you should &lt;em&gt;not&lt;/em&gt; have a comment for every line of code.
+Rather you should have a comment per function,
+where the function is non-trivial.&lt;/p&gt;
+
+&lt;p&gt;Examples:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; comment every line,
+especially when it is obvious what is happening.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//declare a new variable called x, and assign its initial value
+var x = 0;
+//increment x by one
+++x;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; comment trivial functions, such as getters and setters with no special logic.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 0;
+
+//gets value of x
+function getX() {
+	return x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; comment complex functions.
+As a rule of thumb,
+if it is not immediately obvious what the function does based on its name,
+or if it has special implementation details that cannot be expected unless inspecting the function body,
+or any other complicating factor,
+that function needs a comment&lt;/p&gt;
+
+&lt;p&gt;When a function is commented, adhere to a standard format throughout the code base.
+The standard should be decided based on the choice of documentation pre-processor chosen.
+If no documentation pre-processor has been chosen,
+default to adhering to the format expeected by
+&lt;a href=&#34;http://usejsdoc.org/about-getting-started.html&#34;&gt;JSDoc&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
+ * Model class representing a Person
+ * @constructor
+ * @param {string} first - first name
+ * @param {string} last - last name
+ **/
+function Person(first, last) { /* implementation goes here */ }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; comment complex code snippets&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//allows us to use a 1D array to store a 2D grid of data
+return arr[y * width + x];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multiline comments instead of single line comments,
+for comments that are three lines or more.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* 
+ * This comment is quite long,
+ * and it spans multiple lines,
+ * so we use a different type of syntax
+ */
+
+ // This is a short comment, just one line
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that subtle difference such as the number of &lt;code&gt;*&lt;/code&gt;s
+is significant.
+JSDoc interpret multiline comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
+as a commnet that should be parsed and added to the documentation,
+and ignores any other multiline commnents&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Avoid&lt;/strong&gt; checking in commented out lines of code.&lt;/p&gt;
+
+&lt;p&gt;Committing or checking in commented out lines of code
+into version control systems is OK.
+However, if doing so, add a comment with &lt;code&gt;TODO&lt;/code&gt; or &lt;code&gt;NOTE&lt;/code&gt;
+to indicate what this is being left like this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//TODO disabling zeroing out of array due to ___
+// revisit once resolved
+//for (var x = 0; x &amp;lt; t; ++x) {
+//	arr[x] = 0;
+//}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Commenting out by means of an impossible conditional branch
+is also likewise OK to commit or check in.
+However, they should also be commented out likewise.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//TODO disabling zeroing out of array due to ___
+// revisit once resolved
+if (false) {
+	for (var x = 0; x &amp;lt; t; ++x) {
+		arr[x] = 0;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that these are both &lt;em&gt;undesirable&lt;/em&gt;,
+and should be avoided where possible.
+However, if it happens that leaving in the disabled or commented out code
+improves the ability of the next developer to comprehend what is going on
+or the original intent of the code,
+then these are permissible.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Files</title>
+      <link>/es5/files/</link>
+      <pubDate>Sun, 21 Dec 2014 11:38:22 EST</pubDate>
+      
+      <guid>/es5/files/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
+
+&lt;p&gt;Javascript files should be served with the file name extension &lt;code&gt;.js&lt;/code&gt;,
+and should be included in a HTML using a script tag.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script src=&amp;quot;myfile.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags should be placed &lt;em&gt;not&lt;/em&gt; within the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag,
+but rather within the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.
+They should also be the last tags within the &lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt; tag.
+This is because browsers load script tags synchronously,
+and makes the HTML document appear to load more slowly to the end user.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript inline within HTML.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags containing Javascript are a bad idea,
+as it fails to separate the concerns of behaviour and content.
+This in a similar vein to why we should place CSS in a separate
+file instead of inline within DOM elements.&lt;/p&gt;
+
+&lt;p&gt;Another place that Javascript is commonly found in HTML
+is within &lt;code&gt;on*&lt;/code&gt; attribute tags on DOM elements,
+for example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div onclick=&amp;quot;myclicklistener();&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead of doing this, use pure Javascript to bind to events on the DOM element.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div id=&amp;quot;clickme&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.getElementById(&#39;clickme&#39;).addEventListener(&#39;click&#39;, myclicklistener);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; make assumptions about the order in which the DOM is rendered
+and the Javascript execution.&lt;/p&gt;
+
+&lt;p&gt;Instead, use the &lt;code&gt;DOMContentLoaded&lt;/code&gt; event:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) { 
+  //initialise stuff
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or jQuery:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) { 
+  //initialise stuff
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use a standard line length and indentation format&lt;/p&gt;
+
+&lt;p&gt;Set your text editor to replace &lt;code&gt;tab&lt;/code&gt; characters with two space characters,
+and use this for indentation.&lt;/p&gt;
+
+&lt;p&gt;Additionally set your text editor to draw a line as a visual indicator
+to show where the 120 character column is.
+This visual indicator will help you to avoid lines that are way too long.&lt;/p&gt;
+
+&lt;p&gt;Many others will recommend that 80 character columns should be used here,
+however, that is a little outdated with current day screen sizes and resolutions,
+and is unnecesarily restrictive.&lt;/p&gt;
+
+&lt;p&gt;Another reason for placing a restriction on the maximum line length,
+is that it is a great indicator of pyramid of doom -
+when there is an overly high level of nesting of callback functions.
+Extract the innermost callback functions to somewhere outside.
+Better yet, use promises.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Variable Hoisting</title>
+      <link>/es5/hoisting/</link>
+      <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
+      
+      <guid>/es5/hoisting/</guid>
+      <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
+other programming languages that have a C-style syntax:
+C, C++, Java, Actionscript, just to name a few.&lt;/p&gt;
+
+&lt;p&gt;Hoisting of variable and function definitions does not happen in these other languages,
+but does happen in Javascript.
+In a similar vein, these other languages have block scope as well as functions scope,
+whereas Javascript only has function scope.&lt;/p&gt;
+
+&lt;p&gt;Given that many Javascript programmers have programmed in one or more of these other languages before,
+the combination of a lack of block scope,
+together with the presence hoisting,
+is the cause of much frustration and programming errors when developing with Javascript.&lt;/p&gt;
+
+&lt;p&gt;Let us take the following example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	var a = 1;
+	{
+		var a = 2;
+	}
+	console.log(&#39;a is&#39;, a);
+}
+//actual output: a is 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here, a developer used to C-style syntax might assume that the output is 1.
+After all, the second declaration of &lt;code&gt;var a&lt;/code&gt; is only valid within the block inside the function, right?&lt;/p&gt;
+
+&lt;p&gt;However, what really happens here is that second declaration of &lt;code&gt;var a&lt;/code&gt;
+gets &lt;em&gt;hoisted&lt;/em&gt; to the top of the function after the first declaration of &lt;code&gt;a&lt;/code&gt;.
+Essentially &lt;code&gt;a&lt;/code&gt; is being declared twice, and assigned to twice, like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	var a = 1;
+	var a;
+	{
+		a = 2;
+	}
+	console.log(&#39;a is&#39;, a);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As a general guideline for coding standards,
+it is best to avoid confusion where possible.&lt;/p&gt;
+
+&lt;p&gt;The recommended approach would be to avoid declaring variables within blocks inside of functions,
+and instead declare them at the top of each function.&lt;/p&gt;
+
+&lt;p&gt;In addition, avoid creating unnecessary blocks.
+An non-control structure block, such as the one above, should be avoided.&lt;/p&gt;
+
+&lt;p&gt;Sometimes blocks are necessary, such as when there is a control structure that requires it.&lt;/p&gt;
+
+&lt;p&gt;This function declares a variable, &lt;code&gt;var y&lt;/code&gt;,
+within an block, as it it is within the &lt;code&gt;if&lt;/code&gt; control structure:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function() {
+	var x = 2;
+	if (x &amp;lt; 10) {
+		var y = 10;
+	}
+	console.log(&#39;y is&#39;, y);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A better way to write the same function,
+would be to move the declaration for &lt;code&gt;var y&lt;/code&gt; outside of the block,
+but leave the assignment within the block.
+This makes the the scope of the variables much more explicit,
+and will not confuse developers with a background in another C-style language.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function() {
+	var x = 2;
+	var y;
+	if (x &amp;lt; 10) {
+		y = 10;
+	}
+	console.log(&#39;y is&#39;, y);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tl;dr= Hoisting is great, but being explicit is better.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Functions</title>
+      <link>/es5/functions/</link>
+      <pubDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</pubDate>
+      
+      <guid>/es5/functions/</guid>
+      <description>
+
+&lt;h3 id=&#34;anonymous-and-named-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Anonymous and named functions&lt;/h3&gt;
+
+&lt;p&gt;Anonymous function are functions without a name,
+and named function are those with a name.
+Note, however, that assigning an anonymous function to a variable
+does &lt;em&gt;not&lt;/em&gt; make that function a named function.
+A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/code&gt; keyword, and its parameter list.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function namedFunction() {
+	/* this is a named function, and its name is &amp;quot;namedFunction&amp;quot; */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function () {
+	/* This is an anonymous function, and it does not have a name */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var namedFunctionReference = function () {
+	/* This is an anonymous function, and it does not have a name 
+	   &amp;quot;namedFunctionReference&amp;quot; is *not* its name.
+	*/
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For anonymous functions, include a space between the &lt;code&gt;function&lt;/code&gt; keyword and the parameter list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function (param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For named functions, do not include a space between the function name and the parameter list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function doStuff(param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;trailing-semicolons:904d9cf85d985550c869e6d9741448cc&#34;&gt;Trailing semicolons&lt;/h3&gt;
+
+&lt;p&gt;For functions assigned to variables, place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var doStuff = function (param, param2) {
+	/* do stuff */
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For functions that are &lt;em&gt;not&lt;/em&gt; assigned to variables, do &lt;em&gt;not&lt;/em&gt; place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function doStuff(param, param2) {
+	/* do stuff */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;iifes:904d9cf85d985550c869e6d9741448cc&#34;&gt;IIFEs&lt;/h3&gt;
+
+&lt;p&gt;Immediately invoked function expressions (IIFEs)
+are anonymous functions that are surrounded by parentheses,
+and called as soon as they are declared;
+and thus by definition can only ever be called once:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;(function (param, param2) {
+	/* do stuff */
+})(&#39;param&#39;, 1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where possible, avoid using IIFEs.
+As a rule of thumb, if it can be done without using an IIFE, use that other approach instead.
+Legitimate uses of IIFEs would be scenarios where there is a need to contain code from &amp;ldquo;leaking&amp;rdquo; out,
+and there is no way to know ahead of time what the input code will be
+For example, when one is writing a tool or pre-processor that outputs generated or transformed code.&lt;/p&gt;
+
+&lt;h3 id=&#34;function-hoisting:904d9cf85d985550c869e6d9741448cc&#34;&gt;Function hoisting&lt;/h3&gt;
+
+&lt;p&gt;Hoistiong was covered in detail previously,
+however, it was done in terms of hoisting of variable declarations.
+Hoisting of function declarations works in very much the same way
+as hoisting of variables.
+This is most pertinent when considering inner functions.&lt;/p&gt;
+
+&lt;p&gt;Inner functions are functions that are declared within another function.
+In this scenario, variables within the scope of the outer function
+are made available for use within the inner function by means of closure.
+Thus, following the guidelines for variable declarations at the top of each function,
+inner functions should always be declared at the top of each function too,
+but immediately below these variable declarations for clarity.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var outerFunction = function () {
+	var variableAvailableThroughClosure = 1;
+
+	var innerFunction = function () {
+		++variableAvailableThroughClosure;
+	}
+
+	innerFunction();
+	console.log(&#39;variableAvailableThroughClosure is&#39;, variableAvailableThroughClosure);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The sequence should be:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;All variable declarations&lt;/li&gt;
+&lt;li&gt;All inner function declarations&lt;/li&gt;
+&lt;li&gt;Outer function instructions&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Naming Conventions</title>
+      <link>/es5/naming/</link>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
+      
+      <guid>/es5/naming/</guid>
+      <description>
+
+&lt;h3 id=&#34;case:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Case&lt;/h3&gt;
+
+&lt;p&gt;Use &lt;strong&gt;camelCase&lt;/strong&gt; when naming variables and functions&lt;/p&gt;
+
+&lt;p&gt;When a function is intended to be called as a constructor function (i.e. with the &lt;code&gt;new&lt;/code&gt; keyword),
+use the &lt;strong&gt;PascalCase&lt;/strong&gt; instead.
+Pascal case is simply camel case, except that the first letter is capitalised.&lt;/p&gt;
+
+&lt;h3 id=&#34;legal-characters:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Legal characters&lt;/h3&gt;
+
+&lt;p&gt;Javascript is quite relaxed in which characters it allows in legal variable or function names,
+use instead what would be normal variable naming conventions other C-style syntax languages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;First character can be an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Second and subsequent characters can be a digit or an alphabet (upper case or lower case)&lt;/li&gt;
+&lt;li&gt;Avoid using &lt;code&gt;_&lt;/code&gt;, &lt;code&gt;$&lt;/code&gt;, &lt;code&gt;\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Avoid any characters with an ASCII code of over 127&lt;/li&gt;
+&lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
+
+&lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
+that may not be applicable across different projects.
+However, it always makes sense to ensure consistency within an entire project.&lt;/p&gt;
+
+&lt;p&gt;For example, because Javascript does not natively support the concept of private variables,
+or support the concept of constants,
+many developers adopt conventions such as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Private variables&amp;rsquo; names must be preceded with &lt;code&gt;_&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Constants&amp;rsquo; names must be is &lt;strong&gt;ALL_CAPS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These additional naming conventions are not necessary,
+but can be beneficial to adopt acorss the entire project,
+in addition to the ones described here.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Control Structures</title>
+      <link>/es5/control/</link>
+      <pubDate>Wed, 14 Jan 2015 22:25:16 EST</pubDate>
+      
+      <guid>/es5/control/</guid>
+      <description>
+
+&lt;h3 id=&#34;blocks:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Blocks&lt;/h3&gt;
+
+&lt;p&gt;The following keywords control the flow of execution in a program:
+&lt;code&gt;if&lt;/code&gt;, &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;while&lt;/code&gt;, &lt;code&gt;do&lt;/code&gt;, &lt;code&gt;switch&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The code block which follows these keywords
+(sometimes with a set of instructions enclosed in parentheses in between)
+must be surrounded with &lt;code&gt;{&lt;/code&gt; and &lt;code&gt;}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example, this &lt;code&gt;if&lt;/code&gt; statement is &lt;strong&gt;bad&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (x &amp;gt; y)
+	++x;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip; and this &lt;code&gt;if&lt;/code&gt; statement is much better:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (x &amp;gt; y) {
+	++x;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;switch-statements:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Switch statements&lt;/h3&gt;
+
+&lt;p&gt;The block of the switch statement typically contains several &lt;code&gt;case&lt;/code&gt;s and one &lt;code&gt;default&lt;/code&gt;,
+each of which should contain a group of statements to execute.
+Each of these groups of statements must either &lt;code&gt;break&lt;/code&gt;, &lt;code&gt;throw&lt;/code&gt;, or &lt;code&gt;return&lt;/code&gt; in order to avoid unintentionally falling through to the next group of statements.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;switch (myVar) {
+case 2:
+	console.log(&#39;Exiting function because myVar is two&#39;);
+	return;
+case 1:
+	console.log(&#39;myVar is one&#39;);
+	break;
+case 0:
+	throw &#39;myVar has an illegal value&#39;;
+default:
+	console.log(&#39;Nothing special about myVar&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The fopllwoing example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javscript&#34;&gt;switch (myVar) {
+case 2:
+	console.log(&#39;myVar is two&#39;);
+case 1:
+	console.log(&#39;myVar is one&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When &lt;code&gt;myVar&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;, it works as expected.
+However, when &lt;code&gt;myVar&lt;/code&gt; is &lt;code&gt;2&lt;/code&gt;, the output is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myVar is two
+myVar is one
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What happened here was the &lt;code&gt;case 2&lt;/code&gt; was entered correctly,
+but after executing its only statement,
+there was no &lt;code&gt;break&lt;/code&gt; statement,
+and therefore, the execution &lt;em&gt;fell through&lt;/em&gt; to the next case.
+Avoid this!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Equality</title>
+      <link>/es5/equality/</link>
+      <pubDate>Wed, 14 Jan 2015 22:41:41 EST</pubDate>
+      
+      <guid>/es5/equality/</guid>
+      <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
+
+&lt;p&gt;This is because the former (double equals) attempts to do type coercion before comparison,
+whereas the latter (triple equals) simply compares as-is.&lt;/p&gt;
+
+&lt;p&gt;The equality comparison which occurs with a type coercion is
+&lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;notoriously difficult to comprehend&lt;/a&gt;
+so it is best to avoid it!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/js-double-equals-truth-table.png&#34; alt=&#34;Javascript double equals truth table. Source: http://dorey.github.io/JavaScript-Equality-Table/&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you cannot memorise this chart easily,
+you are probably much better off using the triple equals form.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Built In Types</title>
+      <link>/es5/types/</link>
+      <pubDate>Wed, 14 Jan 2015 22:52:22 EST</pubDate>
+      
+      <guid>/es5/types/</guid>
+      <description>
+
+&lt;h3 id=&#34;arrays:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Arrays&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;[val, val2]&lt;/code&gt; syntax instead of &lt;code&gt;new Array(len)&lt;/code&gt;, because preallocating memory for an array is not guaranteed, and the former is less verbose&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;objects:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Objects&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;{ key: &#39;val&#39;, key2: &#39;val2&#39; }&lt;/code&gt; instead of &lt;code&gt;new Object()&lt;/code&gt;, as it is less verbose&lt;/li&gt;
+&lt;li&gt;Do not quote keys of object literals, unless they must contain non-alphabet characters&lt;/li&gt;
+&lt;li&gt;Try to use keys in objects which conform to variable naming conventions&lt;/li&gt;
+&lt;li&gt;When iterating over all properties in an object, and accessing keys from the object&amp;rsquo;s prototype is undesirable, be sure to use the &lt;code&gt;hasOwnProperty&lt;/code&gt; check&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;booleans:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Booleans&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Do not compare to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;, simply use the value of the value directly: Either &lt;code&gt;if (myBool) { /*...*/ }&lt;/code&gt;, or &lt;code&gt;if (!myBool) { /*...*/ }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Be aware of the difference between &lt;code&gt;true&lt;/code&gt; and &lt;em&gt;truthy&lt;/em&gt;. &lt;a href=&#34;http://james.padolsey.com/javascript/truthy-falsey/&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;strings:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Strings&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;&#39;&lt;/code&gt; to quote string literals, as a preference over &lt;code&gt;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;&amp;quot;&lt;/code&gt; to quote strings literals which would otherwise contain many escapes single quote marks (&lt;code&gt;\&#39;&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;modifying-the-prototypes-of-built-in-types:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Modifying the prototypes of built in types&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;rsquo;t!&lt;/li&gt;
+&lt;li&gt;It may be convenient to add your own custom implementation of &lt;code&gt;Array.prototype.forEach&lt;/code&gt;, and the like,
+but generally speaking, unless you are developing a low level library, this is a bad idea&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ES5 Linting</title>
+      <link>/es5/lint/</link>
+      <pubDate>Thu, 15 Jan 2015 17:20:09 EST</pubDate>
+      
+      <guid>/es5/lint/</guid>
+      <description>
+
+&lt;h3 id=&#34;jshint:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;JsHint&lt;/h3&gt;
+
+&lt;p&gt;While reading this set of ECMAScript 5 coding standards is a step in the right direction,
+it does not get you all of the way.
+Some rules are easier to remember and stick to than others.
+It is best to have a tool that programmatically checks your sources code for
+violations of coding standards as you develop,
+and highlights them within your IDE,
+and gives you detailed output as part of your build process.&lt;/p&gt;
+
+&lt;p&gt;There are several tools out there that do this,
+and &lt;a href=&#34;http://jshint.com/&#34;&gt;JsHint&lt;/a&gt; is one of the more popular ones.
+JsHint is most commonly used as a Javascript preprocessor as part of build tools,
+and most IDEs popular with web developers&lt;/p&gt;
+
+&lt;h3 id=&#34;jshintrc:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;&lt;code&gt;.jshintrc&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;It is deifnitely worth reviewing the
+&lt;a href=&#34;http://jshint.com/docs/options/&#34;&gt;list of configuration options&lt;/a&gt;
+available on JsHint.
+Looking at which rules are enabled by default (and can be turned off),
+and which rules are disabled by default (and can be turned on),
+gives you an good idea of how extremely relaxed the Javascript language specification can be;
+and thus the importance of using something like JsHint.&lt;/p&gt;
+
+&lt;p&gt;These options are configurable using a file named &lt;code&gt;.jshintrc&lt;/code&gt;,
+whioch usually sits at the root directory of a project.&lt;/p&gt;
+
+&lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
+that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Essentially all the default JsHint options are used,
+with a few exceptions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
