@@ -9,13 +9,13 @@
     
     
     
-    <lastBuildDate>Fri, 19 Dec 2014 20:58:42 EST</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2014 20:58:42 AEDT</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ECMAScript 5.1 and ECMAScript 6</title>
       <link>http://bguiz.github.io/js-standards/intro/</link>
-      <pubDate>Fri, 19 Dec 2014 20:58:42 EST</pubDate>
+      <pubDate>Fri, 19 Dec 2014 20:58:42 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/intro/</guid>
       <description>&lt;p&gt;ECMAScript 5.1, or ES5, is currently the older version of the specification
@@ -39,7 +39,7 @@ and are designed to be integrated into front end web development toolchains.&lt;
     <item>
       <title>ES5 Comments</title>
       <link>http://bguiz.github.io/js-standards/es5/comments/</link>
-      <pubDate>Fri, 19 Dec 2014 21:36:34 EST</pubDate>
+      <pubDate>Fri, 19 Dec 2014 21:36:34 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
       <description>&lt;p&gt;Comment your code generously.
@@ -153,7 +153,7 @@ then these are permissible.&lt;/p&gt;
     <item>
       <title>ES5 Files</title>
       <link>http://bguiz.github.io/js-standards/es5/files/</link>
-      <pubDate>Sun, 21 Dec 2014 11:38:22 EST</pubDate>
+      <pubDate>Sun, 21 Dec 2014 11:38:22 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/files/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
@@ -443,7 +443,7 @@ but immediately below these variable declarations for clarity.&lt;/p&gt;
     <item>
       <title>ES5 Naming Conventions</title>
       <link>http://bguiz.github.io/js-standards/es5/naming/</link>
-      <pubDate>Wed, 14 Jan 2015 22:13:18 EST</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>
@@ -493,7 +493,7 @@ in addition to the ones described here.&lt;/p&gt;
     <item>
       <title>ES5 Control Structures</title>
       <link>http://bguiz.github.io/js-standards/es5/control/</link>
-      <pubDate>Wed, 14 Jan 2015 22:25:16 EST</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:25:16 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/control/</guid>
       <description>
@@ -568,7 +568,7 @@ Avoid this!&lt;/p&gt;
     <item>
       <title>ES5 Equality</title>
       <link>http://bguiz.github.io/js-standards/es5/equality/</link>
-      <pubDate>Wed, 14 Jan 2015 22:41:41 EST</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:41:41 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
       <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
@@ -591,7 +591,7 @@ you are probably much better off using the triple equals form.&lt;/p&gt;
     <item>
       <title>ES5 Built In Types</title>
       <link>http://bguiz.github.io/js-standards/es5/types/</link>
-      <pubDate>Wed, 14 Jan 2015 22:52:22 EST</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:52:22 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/types/</guid>
       <description>
@@ -638,7 +638,7 @@ but generally speaking, unless you are developing a low level library, this is a
     <item>
       <title>ES5 Linting</title>
       <link>http://bguiz.github.io/js-standards/es5/lint/</link>
-      <pubDate>Thu, 15 Jan 2015 17:20:09 EST</pubDate>
+      <pubDate>Thu, 15 Jan 2015 17:20:09 AEDT</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/lint/</guid>
       <description>
