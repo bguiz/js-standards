@@ -50,3 +50,54 @@ that have been described in the ES5 specifications will be made available soon.
 
 Essentially all the default JsHint options are used,
 with a few exceptions.
+
+
+###Using WebStorm with JSHint
+
+JSHint is integrated into the WebStorm code quality tooling, it offers realtime feedback and analysis reports. The real time feedback can greatly accelerate a developer's familiarity in complying with JSHint and preventing errors.
+
+Setting it up in the IDE is done in the menu:
+
+```
+    Preferences -> Javascript -> Code Quality Tools -> JSHint
+```
+
+
+In the JSHint configuration click the `Use config files` and set the `Custom configuration file` path to the provided `.jshintrc` file above.
+
+![WebStorm JSHint](/img/jshint-webstorm.png "WebStorm JSHint")
+
+
+Now you need to verify the JSHint Inspection is also enabled in the Inspections menu, it may previously be enabled on your system.
+
+
+```
+    Preferences -> Inspections -> Javascript -> Code Quality Tools -> JSHint
+```
+
+
+![WebStorm JSHint-Preferences](/img/jshint-webstorm-preferences.png)
+
+
+When your JSHint configuration is working, you will see jshint output as you code. The jshint issues appear in the line gutter in red and an underline on relevant the code. Hover the gutter to view the error message to see the 
+popup like in the example.
+
+![WebStorm JSHint Example](/img/jshint-webstorm-example.png "WebStorm JSHint Example")
+
+WebStorm also integrates JSHint in it's inspection tools. This is useful for checking and updating multiple files 
+quickly and using the rest of WebStorm's code quality tools.
+
+In the main WebStorm menu run Inspection.
+
+```
+    Code -> Inspect Code...
+```
+    
+Choose a scope to inspect in the window that pops up. You can recursively inspect a project of choose a particular file.
+
+![WebStorm JSHint Inspection Scope](/img/jshint-webstorm-inspection-scope.png "WebStorm JSHint Inspection Scope")
+
+After clicking ok the ui will provide populate a list of inspection results. Clicking the items let you jump to files 
+to resole any issues.
+
+![WebStorm JSHint Inspections](/img/jshint-webstorm-inspection.png "WebStorm JSHint Inspections")
