@@ -636,7 +636,7 @@ and most IDEs popular with web developers&lt;/p&gt;
 
 &lt;h3 id=&#34;jshintrc:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;&lt;code&gt;.jshintrc&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;It is deifnitely worth reviewing the
+&lt;p&gt;It is definitely worth reviewing the
 &lt;a href=&#34;http://jshint.com/docs/options/&#34;&gt;list of configuration options&lt;/a&gt;
 available on JsHint.
 Looking at which rules are enabled by default (and can be turned off),
@@ -645,7 +645,7 @@ gives you an good idea of how extremely relaxed the Javascript language specific
 and thus the importance of using something like JsHint.&lt;/p&gt;
 
 &lt;p&gt;These options are configurable using a file named &lt;code&gt;.jshintrc&lt;/code&gt;,
-whioch usually sits at the root directory of a project.&lt;/p&gt;
+which usually sits at the root directory of a project.&lt;/p&gt;
 
 &lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
@@ -654,6 +654,59 @@ that have been described in the ES5 specifications will be made available soon.&
 
 &lt;p&gt;Essentially all the default JsHint options are used,
 with a few exceptions.&lt;/p&gt;
+
+&lt;h3 id=&#34;using-webstorm-with-jshint:f5f6695e38a1388843fd53bcb0bb4bee&#34;&gt;Using WebStorm with JSHint&lt;/h3&gt;
+
+&lt;p&gt;JSHint is integrated into the WebStorm code quality tooling, it offers realtime feedback and analysis reports.
+The real time feedback can greatly accelerate a developer&amp;rsquo;s familiarity in complying with JSHint and preventing errors.&lt;/p&gt;
+
+&lt;p&gt;Setting it up in the IDE is done in the menu:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Preferences -&amp;gt; Javascript -&amp;gt; Code Quality Tools -&amp;gt; JSHint
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the JSHint configuration click the &lt;code&gt;Use config files&lt;/code&gt; and set the &lt;code&gt;Custom configuration file&lt;/code&gt; path
+to the provided &lt;code&gt;.jshintrc&lt;/code&gt; file above.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/jshint-webstorm.png&#34; alt=&#34;WebStorm JSHint&#34; title=&#34;WebStorm JSHint&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now you need to verify the JSHint Inspection is also enabled in the Inspections menu,
+it may previously be enabled on your system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Preferences -&amp;gt; Inspections -&amp;gt; Javascript -&amp;gt; Code Quality Tools -&amp;gt; JSHint
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/jshint-webstorm-preferences.png&#34; alt=&#34;WebStorm JSHint-Preferences&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;When your JSHint configuration is working, you will see JSHint output as you code.
+The jshint issues appear in the line gutter in red and an underline on relevant the code.
+Hover the gutter to view the error message to see the pop-up like in the example.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/jshint-webstorm-example.png&#34; alt=&#34;WebStorm JSHint Example&#34; title=&#34;WebStorm JSHint Example&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;WebStorm also integrates JSHint in it&amp;rsquo;s inspection tools.
+This is useful for checking and updating multiple files
+quickly and using the rest of WebStorm&amp;rsquo;s code quality tools.&lt;/p&gt;
+
+&lt;p&gt;In the main WebStorm menu run Inspection.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Code -&amp;gt; Inspect Code...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Choose a scope to inspect in the window that pops up.
+You can recursively inspect a project of choose a particular file.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/jshint-webstorm-inspection-scope.png&#34; alt=&#34;WebStorm JSHint Inspection Scope&#34; title=&#34;WebStorm JSHint Inspection Scope&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;After clicking &lt;code&gt;OK&lt;/code&gt; the UI will provide populate a list of inspection results.
+Clicking the items let you jump to files to resole any issues.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bguiz.github.io/js-standards/img/jshint-webstorm-inspection.png&#34; alt=&#34;WebStorm JSHint Inspections&#34; title=&#34;WebStorm JSHint Inspections&#34; /&gt;
+&lt;/p&gt;
 </description>
     </item>
     
