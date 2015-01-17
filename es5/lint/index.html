@@ -163,7 +163,7 @@ and most IDEs popular with web developers</p>
 
 <h3 id="jshintrc:f5f6695e38a1388843fd53bcb0bb4bee"><code>.jshintrc</code></h3>
 
-<p>It is deifnitely worth reviewing the
+<p>It is definitely worth reviewing the
 <a href="http://jshint.com/docs/options/">list of configuration options</a>
 available on JsHint.
 Looking at which rules are enabled by default (and can be turned off),
@@ -172,7 +172,7 @@ gives you an good idea of how extremely relaxed the Javascript language specific
 and thus the importance of using something like JsHint.</p>
 
 <p>These options are configurable using a file named <code>.jshintrc</code>,
-whioch usually sits at the root directory of a project.</p>
+which usually sits at the root directory of a project.</p>
 
 <p>A sample <code>.jshintrc</code> file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.</p>
@@ -181,6 +181,59 @@ that have been described in the ES5 specifications will be made available soon.<
 
 <p>Essentially all the default JsHint options are used,
 with a few exceptions.</p>
+
+<h3 id="using-webstorm-with-jshint:f5f6695e38a1388843fd53bcb0bb4bee">Using WebStorm with JSHint</h3>
+
+<p>JSHint is integrated into the WebStorm code quality tooling, it offers realtime feedback and analysis reports.
+The real time feedback can greatly accelerate a developer&rsquo;s familiarity in complying with JSHint and preventing errors.</p>
+
+<p>Setting it up in the IDE is done in the menu:</p>
+
+<pre><code>Preferences -&gt; Javascript -&gt; Code Quality Tools -&gt; JSHint
+</code></pre>
+
+<p>In the JSHint configuration click the <code>Use config files</code> and set the <code>Custom configuration file</code> path
+to the provided <code>.jshintrc</code> file above.</p>
+
+<p><img src="/img/jshint-webstorm.png" alt="WebStorm JSHint" title="WebStorm JSHint" />
+</p>
+
+<p>Now you need to verify the JSHint Inspection is also enabled in the Inspections menu,
+it may previously be enabled on your system.</p>
+
+<pre><code>Preferences -&gt; Inspections -&gt; Javascript -&gt; Code Quality Tools -&gt; JSHint
+</code></pre>
+
+<p><img src="/img/jshint-webstorm-preferences.png" alt="WebStorm JSHint-Preferences" />
+</p>
+
+<p>When your JSHint configuration is working, you will see JSHint output as you code.
+The jshint issues appear in the line gutter in red and an underline on relevant the code.
+Hover the gutter to view the error message to see the pop-up like in the example.</p>
+
+<p><img src="/img/jshint-webstorm-example.png" alt="WebStorm JSHint Example" title="WebStorm JSHint Example" />
+</p>
+
+<p>WebStorm also integrates JSHint in it&rsquo;s inspection tools.
+This is useful for checking and updating multiple files
+quickly and using the rest of WebStorm&rsquo;s code quality tools.</p>
+
+<p>In the main WebStorm menu run Inspection.</p>
+
+<pre><code>Code -&gt; Inspect Code...
+</code></pre>
+
+<p>Choose a scope to inspect in the window that pops up.
+You can recursively inspect a project of choose a particular file.</p>
+
+<p><img src="/img/jshint-webstorm-inspection-scope.png" alt="WebStorm JSHint Inspection Scope" title="WebStorm JSHint Inspection Scope" />
+</p>
+
+<p>After clicking <code>OK</code> the UI will provide populate a list of inspection results.
+Clicking the items let you jump to files to resole any issues.</p>
+
+<p><img src="/img/jshint-webstorm-inspection.png" alt="WebStorm JSHint Inspections" title="WebStorm JSHint Inspections" />
+</p>
 
                     </div> 
                     </section> 
