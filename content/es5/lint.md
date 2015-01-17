@@ -28,20 +28,20 @@ and gives you detailed output as part of your build process.
 There are several tools out there that do this,
 and [JsHint](http://jshint.com/) is one of the more popular ones.
 JsHint is most commonly used as a Javascript preprocessor as part of build tools,
-and most IDEs popular with web developers 
+and most IDEs popular with web developers
 
 ### `.jshintrc`
 
-It is deifnitely worth reviewing the
+It is definitely worth reviewing the
 [list of configuration options](http://jshint.com/docs/options/)
 available on JsHint.
 Looking at which rules are enabled by default (and can be turned off),
 and which rules are disabled by default (and can be turned on),
 gives you an good idea of how extremely relaxed the Javascript language specification can be;
-and thus the importance of using something like JsHint. 
+and thus the importance of using something like JsHint.
 
 These options are configurable using a file named `.jshintrc`,
-whioch usually sits at the root directory of a project.
+which usually sits at the root directory of a project.
 
 A sample `.jshintrc` file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.

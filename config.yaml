@@ -1,6 +1,6 @@
 title: Javascript Standards
 version: 0.0.1
- #baseurl: http://yoursite.example.com/
+# baseurl: http://bguiz.github.io/js-standards
 MetaDataFormat: yaml
 footnotereturnlinkcontents: "↩"
 
@@ -14,6 +14,7 @@ params:
   AuthorName: Brendan Graetz
   GitHubUser: bguiz
   GitHubRepo: js-standards
+  GitHubPagesBaseUrl: /js-standards
   GoogleAnalyticsId: UA-37884921-1
   GoogleAnalyticsDomain: bguiz.com
   RootRedirect:
