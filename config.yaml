@@ -1,6 +1,7 @@
 title: Javascript Standards
 version: 0.0.1
-# baseurl: http://bguiz.github.io/js-standards
+# baseurl: http://bguiz.github.io/js-standards/
+canonifyurls: true
 MetaDataFormat: yaml
 footnotereturnlinkcontents: "↩"
 
