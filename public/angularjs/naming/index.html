@@ -75,12 +75,12 @@
               <li class="sub-menu">
                 <a href="javascript:;" class="">
                     
-                    <span>ES5</span>
+                    <span>Javascript</span>
                     <span class="menu-arrow fa fa-angle-right"></span>
                 </a>
                 <ul class="sub">
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments (JS) </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
                     
@@ -88,7 +88,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
@@ -99,15 +99,6 @@
                     <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
                     
                 </ul>
-            
-              </li>
-          
-            
-              <li>
-                <a class="" href="">
-                    
-                    <span>ES6</span>
-                </a>
             
               </li>
           
@@ -162,8 +153,6 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
-                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
@@ -175,6 +164,8 @@
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
@@ -241,68 +232,57 @@
 <h6 id="style-y121-style-y121:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y121">Y121</a>]</h6>
 
 <ul>
-<li><p>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>.</p>
+<li>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>.</li>
+</ul>
 
 <p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
 
 <p><em>Why?</em>: Provides pattern matching for any automated tasks.</p>
 
-<p>```javascript
-/**</p>
+<pre><code class="language-javascript">  /**
+   * common options
+   */
 
-<ul>
-<li>common options
-*/</li>
-</ul>
+  // Controllers
+  avengers.js
+  avengers.controller.js
+  avengersController.js
 
-<p>// Controllers
-avengers.js
-avengers.controller.js
-avengersController.js</p>
+  // Services/Factories
+  logger.js
+  logger.service.js
+  loggerService.js
+</code></pre>
 
-<p>// Services/Factories
-logger.js
-logger.service.js
-loggerService.js
-```</p>
+<pre><code class="language-javascript">  /**
+   * recommended
+   */
 
-<pre><code class="language-javascript">/**
- * recommended
- */
+  // controllers
+  avengers.controller.js
+  avengers.controller.spec.js
 
+  // services/factories
+  logger.service.js
+  logger.service.spec.js
 
-// controllers
-avengers.controller.js
-avengers.controller.spec.js
+  // constants
+  constants.js
 
+  // module definition
+  avengers.module.js
 
-// services/factories
-logger.service.js
-logger.service.spec.js
+  // routes
+  avengers.routes.js
+  avengers.routes.spec.js
 
+  // configuration
+  avengers.config.js
 
-// constants
-constants.js
-
-
-// module definition
-avengers.module.js
-
-
-// routes
-avengers.routes.js
-avengers.routes.spec.js
-
-
-// configuration
-avengers.config.js
-
-
-// directives
-avenger-profile.directive.js
-avenger-profile.directive.spec.js
-</code></pre></li>
-</ul>
+  // directives
+  avenger-profile.directive.js
+  avenger-profile.directive.spec.js
+</code></pre>
 
 <p>Note: Another common convention is naming controller files without the word <code>controller</code> in the file name such as <code>avengers.js</code> instead of <code>avengers.controller.js</code>. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team.</p>
 
@@ -321,149 +301,127 @@ avengers.spec.js
 <h6 id="style-y122-style-y122:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y122">Y122</a>]</h6>
 
 <ul>
-<li><p>Name test specifications similar to the component they test with a suffix of <code>spec</code>.</p>
+<li>Name test specifications similar to the component they test with a suffix of <code>spec</code>.</li>
+</ul>
 
 <p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
 
 <p><em>Why?</em>: Provides pattern matching for <a href="http://karma-runner.github.io/">karma</a> or other test runners.</p>
 
-<p>```javascript
-/**</p>
-
-<ul>
-<li>recommended
-*/
-avengers.controller.spec.js
-logger.service.spec.js
-avengers.routes.spec.js
-avenger-profile.directive.spec.js
-```</li>
-</ul></li>
-</ul>
+<pre><code class="language-javascript">  /**
+   * recommended
+   */
+  avengers.controller.spec.js
+  logger.service.spec.js
+  avengers.routes.spec.js
+  avenger-profile.directive.spec.js
+</code></pre>
 
 <h3 id="controller-names:c71c34a7bb0db96f87def312ae0a673e">Controller Names</h3>
 
 <h6 id="style-y123-style-y123:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y123">Y123</a>]</h6>
 
 <ul>
-<li><p>Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.</p>
+<li>Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.</li>
+</ul>
 
 <p><em>Why?</em>: Provides a consistent way to quickly identify and reference controllers.</p>
 
 <p><em>Why?</em>: UpperCamelCase is conventional for identifying object that can be instantiated using a constructor.</p>
 
-<p>```javascript
-/**</p>
+<pre><code class="language-javascript">  /**
+   * recommended
+   */
 
-<ul>
-<li>recommended
-*/</li>
-</ul>
+  // avengers.controller.js
+  angular
+      .module
+      .controller('HeroAvengers', HeroAvengers);
 
-<p>// avengers.controller.js
-angular
-    .module
-    .controller(&lsquo;HeroAvengers&rsquo;, HeroAvengers);</p>
-
-<p>function HeroAvengers() { }
-```</p></li>
-</ul>
+  function HeroAvengers() { }
+</code></pre>
 
 <h3 id="controller-name-suffix:c71c34a7bb0db96f87def312ae0a673e">Controller Name Suffix</h3>
 
 <h6 id="style-y124-style-y124:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y124">Y124</a>]</h6>
 
 <ul>
-<li><p>Append the controller name with the suffix <code>Controller</code> or with no suffix. Choose 1, not both.</p>
+<li>Append the controller name with the suffix <code>Controller</code> or with no suffix. Choose 1, not both.</li>
+</ul>
 
 <p><em>Why?</em>: The <code>Controller</code> suffix is more commonly used and is more explicitly descriptive.</p>
 
 <p><em>Why?</em>: Omitting the suffix is more succinct and the controller is often easily identifiable even without the suffix.</p>
 
-<p>```javascript
-/**</p>
+<pre><code class="language-javascript">  /**
+   * recommended: Option 1
+   */
 
-<ul>
-<li>recommended: Option 1
-*/</li>
-</ul>
+  // avengers.controller.js
+  angular
+      .module
+      .controller('Avengers', Avengers);
 
-<p>// avengers.controller.js
-angular
-    .module
-    .controller(&lsquo;Avengers&rsquo;, Avengers);</p>
+  function Avengers() { }
+</code></pre>
 
-<p>function Avengers() { }
-```</p>
+<pre><code class="language-javascript">  /**
+   * recommended: Option 2
+   */
 
-<pre><code class="language-javascript">/**
- * recommended: Option 2
- */
+  // avengers.controller.js
+  angular
+      .module
+      .controller('AvengersController', AvengersController);
 
-
-// avengers.controller.js
-angular
-    .module
-    .controller('AvengersController', AvengersController);
-
-
-function AvengersController() { }
-</code></pre></li>
-</ul>
+  function AvengersController() { }
+</code></pre>
 
 <h3 id="factory-names:c71c34a7bb0db96f87def312ae0a673e">Factory Names</h3>
 
 <h6 id="style-y125-style-y125:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y125">Y125</a>]</h6>
 
 <ul>
-<li><p>Use consistent names for all factories named after their feature. Use camel-casing for services and factories.</p>
+<li>Use consistent names for all factories named after their feature. Use camel-casing for services and factories.</li>
+</ul>
 
 <p><em>Why?</em>: Provides a consistent way to quickly identify and reference factories.</p>
 
-<p>```javascript
-/**</p>
+<pre><code class="language-javascript">  /**
+   * recommended
+   */
 
-<ul>
-<li>recommended
-*/</li>
-</ul>
+  // logger.service.js
+  angular
+      .module
+      .factory('logger', logger);
 
-<p>// logger.service.js
-angular
-    .module
-    .factory(&lsquo;logger&rsquo;, logger);</p>
-
-<p>function logger() { }
-```</p></li>
-</ul>
+  function logger() { }
+</code></pre>
 
 <h3 id="directive-component-names:c71c34a7bb0db96f87def312ae0a673e">Directive Component Names</h3>
 
 <h6 id="style-y126-style-y126:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y126">Y126</a>]</h6>
 
 <ul>
-<li><p>Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).</p>
+<li>Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).</li>
+</ul>
 
 <p><em>Why?</em>: Provides a consistent way to quickly identify and reference components.</p>
 
-<p>```javascript
-/**</p>
+<pre><code class="language-javascript">  /**
+   * recommended
+   */
 
-<ul>
-<li>recommended
-*/</li>
-</ul>
+  // avenger-profile.directive.js
+  angular
+      .module
+      .directive('xxAvengerProfile', xxAvengerProfile);
 
-<p>// avenger-profile.directive.js
-angular
-    .module
-    .directive(&lsquo;xxAvengerProfile&rsquo;, xxAvengerProfile);</p>
+  // usage is &lt;xx-avenger-profile&gt; &lt;/xx-avenger-profile&gt;
 
-<p>// usage is <xx-avenger-profile> </xx-avenger-profile></p>
-
-<p>function xxAvengerProfile() { }
-```</p></li>
-</ul>
+  function xxAvengerProfile() { }
+</code></pre>
 
 <h3 id="modules:c71c34a7bb0db96f87def312ae0a673e">Modules</h3>
 

@@ -197,14 +197,14 @@ and the Javascript execution.&lt;/p&gt;
 
 &lt;p&gt;Instead, use the &lt;code&gt;DOMContentLoaded&lt;/code&gt; event:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) { 
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) {
   //initialise stuff
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;or jQuery:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) { 
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) {
   //initialise stuff
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -349,7 +349,7 @@ A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var namedFunctionReference = function () {
-	/* This is an anonymous function, and it does not have a name 
+	/* This is an anonymous function, and it does not have a name
 	   &amp;quot;namedFunctionReference&amp;quot; is *not* its name.
 	*/
 }
