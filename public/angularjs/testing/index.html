@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://bguiz.github.io/js-standards">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
+
+    <title>AngularJs Testing</title>
+
+    <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/style.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/css/style-responsive.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="http://bguiz.github.io/js-standards/" class="logo"><img src="http://bguiz.github.io/js-standards/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> AngularJs Testing </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>AngularJs</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/single-responsibility/"> Single Responsibility </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/iife/"> IIFE </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modules/"> Modules </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/controllers/"> Controllers </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/services/"> Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/"> Resolving Promises for a Controller </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/"> Manual Annotating for Dependency Injection </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/"> Minification and Annotation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure/"> Application Structure </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modularity/"> Modularity </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/startup-logic/"> Startup Logic </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/"> Angular $ Wrapper Services </a> </li>
+                    
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/testing/"> Testing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/animations/"> Animations </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/yeoman-generator/"> Yeoman Generator </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/routing/"> Routing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/testing.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+
+
+<h2 id="testing:3047d71ccf1370a2898eb92c70273f56">Testing</h2>
+
+<p>Unit testing helps maintain clean code, as such I included some of my recommendations for unit testing foundations with links for more information.</p>
+
+<h3 id="write-tests-with-stories:3047d71ccf1370a2898eb92c70273f56">Write Tests with Stories</h3>
+
+<h6 id="style-y190-style-y190:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y190">Y190</a>]</h6>
+
+<ul>
+<li><p>Write a set of tests for every story. Start with an empty test and fill them in as you write the code for the story.</p>
+
+<p><em>Why?</em>: Writing the test descriptions helps clearly define what your story will do, will not do, and how you can measure success.</p>
+
+<pre><code class="language-javascript">it('should have Avengers controller', function() {
+    // TODO
+});
+
+
+it('should find 1 Avenger when filtered by name', function() {
+    // TODO
+});
+
+
+it('should have 10 Avengers', function() {
+    // TODO (mock data?)
+});
+
+
+it('should return Avengers via XHR', function() {
+    // TODO ($httpBackend?)
+});
+
+
+// and so on
+</code></pre></li>
+</ul>
+
+<h3 id="testing-library:3047d71ccf1370a2898eb92c70273f56">Testing Library</h3>
+
+<h6 id="style-y191-style-y191:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y191">Y191</a>]</h6>
+
+<ul>
+<li><p>Use <a href="http://jasmine.github.io/">Jasmine</a> or <a href="http://mochajs.org">Mocha</a> for unit testing.</p>
+
+<p><em>Why?</em>: Both Jasmine and Mocha are widely used in the AngularJS community. Both are stable, well maintained, and provide robust testing features.</p>
+
+<p>Note: When using Mocha, also consider choosing an assert library such as <a href="http://chaijs.com">Chai</a>.</p></li>
+</ul>
+
+<h3 id="test-runner:3047d71ccf1370a2898eb92c70273f56">Test Runner</h3>
+
+<h6 id="style-y192-style-y192:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y192">Y192</a>]</h6>
+
+<ul>
+<li><p>Use <a href="http://karma-runner.github.io">Karma</a> as a test runner.</p>
+
+<p><em>Why?</em>: Karma is easy to configure to run once or automatically when you change your code.</p>
+
+<p><em>Why?</em>: Karma hooks into your Continuous Integration process easily on its own or through Grunt or Gulp.</p>
+
+<p><em>Why?</em>: Some IDE&rsquo;s are beginning to integrate with Karma, such as <a href="http://www.jetbrains.com/webstorm/">WebStorm</a> and <a href="http://visualstudiogallery.msdn.microsoft.com/02f47876-0e7a-4f6c-93f8-1af5d5189225">Visual Studio</a>.</p>
+
+<p><em>Why?</em>: Karma works well with task automation leaders such as <a href="http://www.gruntjs.com">Grunt</a> (with <a href="https://github.com/karma-runner/grunt-karma">grunt-karma</a>) and <a href="http://www.gulpjs.com">Gulp</a> (with <a href="https://github.com/lazd/gulp-karma">gulp-karma</a>).</p></li>
+</ul>
+
+<h3 id="stubbing-and-spying:3047d71ccf1370a2898eb92c70273f56">Stubbing and Spying</h3>
+
+<h6 id="style-y193-style-y193:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y193">Y193</a>]</h6>
+
+<ul>
+<li><p>Use <a href="http://sinonjs.org/">Sinon</a> for stubbing and spying.</p>
+
+<p><em>Why?</em>: Sinon works well with both Jasmine and Mocha and extends the stubbing and spying features they offer.</p>
+
+<p><em>Why?</em>: Sinon makes it easier to toggle between Jasmine and Mocha, if you want to try both.</p></li>
+</ul>
+
+<h3 id="headless-browser:3047d71ccf1370a2898eb92c70273f56">Headless Browser</h3>
+
+<h6 id="style-y194-style-y194:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y194">Y194</a>]</h6>
+
+<ul>
+<li><p>Use <a href="http://phantomjs.org/">PhantomJS</a> to run your tests on a server.</p>
+
+<p><em>Why?</em>: PhantomJS is a headless browser that helps run your tests without needing a &ldquo;visual&rdquo; browser. So you do not have to install Chrome, Safari, IE, or other browsers on your server.</p>
+
+<p>Note: You should still test on all browsers in your environment, as appropriate for your target audience.</p></li>
+</ul>
+
+<h3 id="code-analysis:3047d71ccf1370a2898eb92c70273f56">Code Analysis</h3>
+
+<h6 id="style-y195-style-y195:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y195">Y195</a>]</h6>
+
+<ul>
+<li><p>Run JSHint on your tests.</p>
+
+<p><em>Why?</em>: Tests are code. JSHint can help identify code quality issues that may cause the test to work improperly.</p></li>
+</ul>
+
+<h3 id="alleviate-globals-for-jshint-rules-on-tests:3047d71ccf1370a2898eb92c70273f56">Alleviate Globals for JSHint Rules on Tests</h3>
+
+<h6 id="style-y196-style-y196:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y196">Y196</a>]</h6>
+
+<ul>
+<li><p>Relax the rules on your test code to allow for common globals such as <code>describe</code> and <code>expect</code>.</p>
+
+<p><em>Why?</em>: Your tests are code and require the same attention and code quality rules as all of your production code. However, global variables used by the testing framework, for example, can be relaxed by including this in your test specs.</p>
+
+<pre><code class="language-javascript">/* global sinon, describe, it, afterEach, beforeEach, expect, inject */
+</code></pre></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/testing-tools.png" alt="Testing Tools" />
+</p>
+
+<h3 id="organizing-tests:3047d71ccf1370a2898eb92c70273f56">Organizing Tests</h3>
+
+<h6 id="style-y197-style-y197:3047d71ccf1370a2898eb92c70273f56">[Style <a href="#style-y197">Y197</a>]</h6>
+
+<ul>
+<li><p>Place unit test files (specs) side-by-side with your client code. Place specs that cover server integration or test multiple components in a separate <code>tests</code> folder.</p>
+
+<p><em>Why?</em>: Unit tests have a direct correlation to a specific component and file in source code.</p>
+
+<p><em>Why?</em>: It is easier to keep them up to date since they are always in sight. When coding whether you do TDD or test during development or test after development, the specs are side-by-side and never out of sight nor mind, and thus more likely to be maintained which also helps maintain code coverage.</p>
+
+<p><em>Why?</em>: When you update source code it is easier to go update the tests at the same time.</p>
+
+<p><em>Why?</em>: Placing them side-by-side makes it easy to find them and easy to move them with the source code if you move the source.</p>
+
+<p><em>Why?</em>: Having the spec nearby makes it easier for the source code reader to learn how the component is supposed to be used and to discover its known limitations.</p>
+
+<p><em>Why?</em>: Separating specs so they are not in a distributed build is easy with grunt or gulp.</p>
+
+<pre><code>/src/client/app/customers/customer-detail.controller.js
+                         /customer-detail.controller.spec.js
+                         /customers.controller.spec.js
+                         /customers.controller-detail.spec.js
+                         /customers.module.js
+                         /customers.route.js
+                         /customers.route.spec.js
+</code></pre></li>
+</ul>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/animations">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="http://bguiz.github.io/js-standards/js/jquery-2.1.1.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/jquery.scrollTo.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/bootstrap.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://bguiz.github.io/js-standards/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="http://bguiz.github.io/js-standards/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+
