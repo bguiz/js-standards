@@ -1,6 +1,6 @@
 ---
 title: ES5 Comments
-linktitle: Comments
+linktitle: Comments JS
 date: 2014-12-19T21:36:34+11:00
 tags:
   - ES5
@@ -77,7 +77,7 @@ return arr[y * width + x];
 for comments that are three lines or more.
 
 ```javascript
-/* 
+/*
  * This comment is quite long,
  * and it spans multiple lines,
  * so we use a different type of syntax

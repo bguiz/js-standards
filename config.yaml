@@ -37,4 +37,7 @@ menu:
     - Name: ES6
       Weight: 3000
       Identifier: es6
+    - Name: AngularJs
+      Weight: 4000
+      Identifier: angularjs
 

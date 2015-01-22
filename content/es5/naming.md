@@ -1,6 +1,6 @@
 ---
 title: ES5 Naming Conventions
-linktitle: Naming
+linktitle: Naming Conventions
 date: 2015-01-14T22:13:18+11:00
 tags:
   - ES5
