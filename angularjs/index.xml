@@ -88,6 +88,13 @@
 
 &lt;h6 id=&#34;style-y010-style-y010:c3469ff74608aebd6bfca993258ca664&#34;&gt;[Style &lt;a href=&#34;#style-y010&#34;&gt;Y010&lt;/a&gt;]&lt;/h6&gt;
 
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using IIFEs is &lt;strong&gt;not&lt;/strong&gt; necessary when using a bundling system which understands Javascript modules,
+such as &lt;strong&gt;angualrity&lt;/strong&gt;, &lt;strong&gt;browserify&lt;/strong&gt;, or &lt;strong&gt;require.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
 &lt;ul&gt;
 &lt;li&gt;Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE).&lt;/li&gt;
 &lt;/ul&gt;
@@ -1954,68 +1961,57 @@ function handleRoutingErrors() {
 &lt;h6 id=&#34;style-y121-style-y121:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y121&#34;&gt;Y121&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use consistent names for all components following a pattern that describes the component&amp;rsquo;s feature then (optionally) its type. My recommended pattern is &lt;code&gt;feature.type.js&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;Use consistent names for all components following a pattern that describes the component&amp;rsquo;s feature then (optionally) its type. My recommended pattern is &lt;code&gt;feature.type.js&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify components.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides pattern matching for any automated tasks.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * common options
+   */
 
-&lt;ul&gt;
-&lt;li&gt;common options
-*/&lt;/li&gt;
-&lt;/ul&gt;
+  // Controllers
+  avengers.js
+  avengers.controller.js
+  avengersController.js
 
-&lt;p&gt;// Controllers
-avengers.js
-avengers.controller.js
-avengersController.js&lt;/p&gt;
+  // Services/Factories
+  logger.js
+  logger.service.js
+  loggerService.js
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;// Services/Factories
-logger.js
-logger.service.js
-loggerService.js
-```&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   */
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
- * recommended
- */
+  // controllers
+  avengers.controller.js
+  avengers.controller.spec.js
 
+  // services/factories
+  logger.service.js
+  logger.service.spec.js
 
-// controllers
-avengers.controller.js
-avengers.controller.spec.js
+  // constants
+  constants.js
 
+  // module definition
+  avengers.module.js
 
-// services/factories
-logger.service.js
-logger.service.spec.js
+  // routes
+  avengers.routes.js
+  avengers.routes.spec.js
 
+  // configuration
+  avengers.config.js
 
-// constants
-constants.js
-
-
-// module definition
-avengers.module.js
-
-
-// routes
-avengers.routes.js
-avengers.routes.spec.js
-
-
-// configuration
-avengers.config.js
-
-
-// directives
-avenger-profile.directive.js
-avenger-profile.directive.spec.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  // directives
+  avenger-profile.directive.js
+  avenger-profile.directive.spec.js
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Note: Another common convention is naming controller files without the word &lt;code&gt;controller&lt;/code&gt; in the file name such as &lt;code&gt;avengers.js&lt;/code&gt; instead of &lt;code&gt;avengers.controller.js&lt;/code&gt;. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team.&lt;/p&gt;
 
@@ -2034,149 +2030,127 @@ avengers.spec.js
 &lt;h6 id=&#34;style-y122-style-y122:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y122&#34;&gt;Y122&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Name test specifications similar to the component they test with a suffix of &lt;code&gt;spec&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;Name test specifications similar to the component they test with a suffix of &lt;code&gt;spec&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify components.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides pattern matching for &lt;a href=&#34;http://karma-runner.github.io/&#34;&gt;karma&lt;/a&gt; or other test runners.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;recommended
-*/
-avengers.controller.spec.js
-logger.service.spec.js
-avengers.routes.spec.js
-avenger-profile.directive.spec.js
-```&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   */
+  avengers.controller.spec.js
+  logger.service.spec.js
+  avengers.routes.spec.js
+  avenger-profile.directive.spec.js
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;controller-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Controller Names&lt;/h3&gt;
 
 &lt;h6 id=&#34;style-y123-style-y123:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y123&#34;&gt;Y123&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.&lt;/p&gt;
+&lt;li&gt;Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference controllers.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: UpperCamelCase is conventional for identifying object that can be instantiated using a constructor.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   */
 
-&lt;ul&gt;
-&lt;li&gt;recommended
-*/&lt;/li&gt;
-&lt;/ul&gt;
+  // avengers.controller.js
+  angular
+      .module
+      .controller(&#39;HeroAvengers&#39;, HeroAvengers);
 
-&lt;p&gt;// avengers.controller.js
-angular
-    .module
-    .controller(&amp;lsquo;HeroAvengers&amp;rsquo;, HeroAvengers);&lt;/p&gt;
-
-&lt;p&gt;function HeroAvengers() { }
-```&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  function HeroAvengers() { }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;controller-name-suffix:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Controller Name Suffix&lt;/h3&gt;
 
 &lt;h6 id=&#34;style-y124-style-y124:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y124&#34;&gt;Y124&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Append the controller name with the suffix &lt;code&gt;Controller&lt;/code&gt; or with no suffix. Choose 1, not both.&lt;/p&gt;
+&lt;li&gt;Append the controller name with the suffix &lt;code&gt;Controller&lt;/code&gt; or with no suffix. Choose 1, not both.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The &lt;code&gt;Controller&lt;/code&gt; suffix is more commonly used and is more explicitly descriptive.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Omitting the suffix is more succinct and the controller is often easily identifiable even without the suffix.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended: Option 1
+   */
 
-&lt;ul&gt;
-&lt;li&gt;recommended: Option 1
-*/&lt;/li&gt;
-&lt;/ul&gt;
+  // avengers.controller.js
+  angular
+      .module
+      .controller(&#39;Avengers&#39;, Avengers);
 
-&lt;p&gt;// avengers.controller.js
-angular
-    .module
-    .controller(&amp;lsquo;Avengers&amp;rsquo;, Avengers);&lt;/p&gt;
+  function Avengers() { }
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;function Avengers() { }
-```&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended: Option 2
+   */
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
- * recommended: Option 2
- */
+  // avengers.controller.js
+  angular
+      .module
+      .controller(&#39;AvengersController&#39;, AvengersController);
 
-
-// avengers.controller.js
-angular
-    .module
-    .controller(&#39;AvengersController&#39;, AvengersController);
-
-
-function AvengersController() { }
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  function AvengersController() { }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;factory-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Factory Names&lt;/h3&gt;
 
 &lt;h6 id=&#34;style-y125-style-y125:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y125&#34;&gt;Y125&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use consistent names for all factories named after their feature. Use camel-casing for services and factories.&lt;/p&gt;
+&lt;li&gt;Use consistent names for all factories named after their feature. Use camel-casing for services and factories.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference factories.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   */
 
-&lt;ul&gt;
-&lt;li&gt;recommended
-*/&lt;/li&gt;
-&lt;/ul&gt;
+  // logger.service.js
+  angular
+      .module
+      .factory(&#39;logger&#39;, logger);
 
-&lt;p&gt;// logger.service.js
-angular
-    .module
-    .factory(&amp;lsquo;logger&amp;rsquo;, logger);&lt;/p&gt;
-
-&lt;p&gt;function logger() { }
-```&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  function logger() { }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;directive-component-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Directive Component Names&lt;/h3&gt;
 
 &lt;h6 id=&#34;style-y126-style-y126:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y126&#34;&gt;Y126&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).&lt;/p&gt;
+&lt;li&gt;Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference components.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   */
 
-&lt;ul&gt;
-&lt;li&gt;recommended
-*/&lt;/li&gt;
-&lt;/ul&gt;
+  // avenger-profile.directive.js
+  angular
+      .module
+      .directive(&#39;xxAvengerProfile&#39;, xxAvengerProfile);
 
-&lt;p&gt;// avenger-profile.directive.js
-angular
-    .module
-    .directive(&amp;lsquo;xxAvengerProfile&amp;rsquo;, xxAvengerProfile);&lt;/p&gt;
+  // usage is &amp;lt;xx-avenger-profile&amp;gt; &amp;lt;/xx-avenger-profile&amp;gt;
 
-&lt;p&gt;// usage is &lt;xx-avenger-profile&gt; &lt;/xx-avenger-profile&gt;&lt;/p&gt;
-
-&lt;p&gt;function xxAvengerProfile() { }
-```&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+  function xxAvengerProfile() { }
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;modules:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Modules&lt;/h3&gt;
 

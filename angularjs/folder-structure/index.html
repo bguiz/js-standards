@@ -10,7 +10,7 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
 
-    <title>AngularJs Data Services</title>
+    <title>AngularJs Folder Structure</title>
 
     <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
     <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -44,7 +44,7 @@
             </div>
 
             <div class="nav title-row" id="top_menu">
-                <h1 class="nav top-menu"> AngularJs Data Services </h1>
+                <h1 class="nav top-menu"> AngularJs Folder Structure </h1>
             </div>
       </header>
       
@@ -123,7 +123,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
                     
-                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
                     
@@ -165,7 +165,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
@@ -180,7 +180,7 @@
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/data-services.md" target="blank">
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/folder-structure.md" target="blank">
                         <i class='fa fa-edit'></i> Refine this Page
                     </a> 
                 </li>
@@ -198,7 +198,7 @@
 
               <div class="row">
                   <div class="row-nav-prev col-md-1">
-                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/factories">
+                      <a class="navigation prev" href="">
                       <i class="fa fa-angle-left"></i>
                       </a>
                   </div>
@@ -208,138 +208,48 @@
 
 
 
-<h2 id="data-services:c23b254274d58492f0e9fb923dcd3cfc">Data Services</h2>
+<h2 id="feature-centric:97e33aa12ce5e284c569be9193b3b517">Feature Centric</h2>
 
-<h3 id="separate-data-calls:c23b254274d58492f0e9fb923dcd3cfc">Separate Data Calls</h3>
-
-<h6 id="style-y060-style-y060:c23b254274d58492f0e9fb923dcd3cfc">[Style <a href="#style-y060">Y060</a>]</h6>
-
-<ul>
-<li><p>Refactor logic for making data operations and interacting with data to a factory. Make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.</p>
-
-<p><em>Why?</em>: The controller&rsquo;s responsibility is for the presentation and gathering of information for the view. It should not care how it gets the data, just that it knows who to ask for it. Separating the data services moves the logic on how to get it to the data service, and lets the controller be simpler and more focused on the view.</p>
-
-<p><em>Why?</em>: This makes it easier to test (mock or real) the data calls when testing a controller that uses a data service.</p>
-
-<p><em>Why?</em>: Data service implementation may have very specific code to handle the data repository. This may include headers, how to talk to the data, or other services such as $http. Separating the logic into a data service encapsulates this logic in a single place hiding the implementation from the outside consumers (perhaps a controller), also making it easier to change the implementation.</p></li>
-</ul>
-
-<pre><code class="language-javascript">  /* recommended */
-
-  // dataservice factory
-  angular
-      .module('app.core')
-      .factory('dataservice', dataservice);
-
-  dataservice.$inject = ['$http', 'logger'];
-
-  function dataservice($http, logger) {
-      return {
-          getAvengers: getAvengers
-      };
-
-      function getAvengers() {
-          return $http.get('/api/maa')
-              .then(getAvengersComplete)
-              .catch(getAvengersFailed);
-
-          function getAvengersComplete(response) {
-              return response.data.results;
-          }
-
-          function getAvengersFailed(error) {
-              logger.error('XHR Failed for getAvengers.' + error.data);
-          }
-      }
-  }
-</code></pre>
-
-<pre><code>Note: The data service is called from consumers, such as a controller, hiding the implementation from the consumers, as shown below.
-</code></pre>
-
-<pre><code class="language-javascript">  /* recommended */
-
-  // controller calling the dataservice factory
-  angular
-      .module('app.avengers')
-      .controller('Avengers', Avengers);
-
-  Avengers.$inject = ['dataservice', 'logger'];
-
-  function Avengers(dataservice, logger) {
-      var vm = this;
-      vm.avengers = [];
-
-      activate();
-
-      function activate() {
-          return getAvengers().then(function() {
-              logger.info('Activated Avengers View');
-          });
-      }
-
-      function getAvengers() {
-          return dataservice.getAvengers()
-              .then(function(data) {
-                  vm.avengers = data;
-                  return vm.avengers;
-              });
-      }
-  }
-</code></pre>
-
-<h3 id="return-a-promise-from-data-calls:c23b254274d58492f0e9fb923dcd3cfc">Return a Promise from Data Calls</h3>
-
-<h6 id="style-y061-style-y061:c23b254274d58492f0e9fb923dcd3cfc">[Style <a href="#style-y061">Y061</a>]</h6>
+<p>Arrange the project folders such that the top level directories are the names of each feature.
+The directory for each feature should contain sub-directories for:</p>
 
 <ul>
-<li><p>When calling a data service that returns a promise such as $http, return a promise in your calling function too.</p>
-
-<p><em>Why?</em>: You can chain the promises together and take further action after the data call completes and resolves or rejects the promise.</p></li>
+<li>directive</li>
+<li>controller</li>
+<li>view</li>
+<li>service</li>
+<li>factory</li>
 </ul>
 
-<pre><code class="language-javascript">  /* recommended */
-
-  activate();
-
-  function activate() {
-      /**
-       * Step 1
-       * Ask the getAvengers function for the
-       * avenger data and wait for the promise
-       */
-      return getAvengers().then(function() {
-          /**
-           * Step 4
-           * Perform an action on resolve of final promise
-           */
-          logger.info('Activated Avengers View');
-      });
-  }
-
-  function getAvengers() {
-        /**
-         * Step 2
-         * Ask the data service for the data and wait
-         * for the promise
-         */
-        return dataservice.getAvengers()
-            .then(function(data) {
-                /**
-                 * Step 3
-                 * set the data and resolve the promise
-                 */
-                vm.avengers = data;
-                return vm.avengers;
-        });
-  }
+<pre><code>my-project/
+  login/
+    (...)
+  todo/
+    directive/
+      todo-item-directive.js
+      todo-item-directive.html
+      todo-item-directive.spec.js
+    controller/
+      todo-controller.js
+      todo-controller.spec.js
+    view/
+      todo-page.html
+    service/
+      (...)
+    factory/
+      (...)
+  app.js
+  index.html
 </code></pre>
+
+<p>Take a look at <a href="https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06">this article</a>,
+which explains this concept in greater detail.</p>
 
                     </div> 
                     </section> 
                 </div> 
                 <div class="row-nav-next col-md-1">
-                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/directives">
+                    <a class="navigation prev" href="">
                     <i class="fa fa-angle-right"></i>
                     </a>
                 </div>

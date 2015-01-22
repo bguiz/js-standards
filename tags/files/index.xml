@@ -59,14 +59,14 @@ and the Javascript execution.&lt;/p&gt;
 
 &lt;p&gt;Instead, use the &lt;code&gt;DOMContentLoaded&lt;/code&gt; event:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) { 
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function(event) {
   //initialise stuff
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;or jQuery:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) { 
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;jQuery(document).ready(function(event) {
   //initialise stuff
 });
 &lt;/code&gt;&lt;/pre&gt;

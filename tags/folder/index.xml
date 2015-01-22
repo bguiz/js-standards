@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Folder on Javascript Standards</title>
+    <link>http://bguiz.github.io/js-standards/tags/folder/</link>
+    <description>Recent content in Folder on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</lastBuildDate>
+    <atom:link href="http://bguiz.github.io/js-standards/tags/folder/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AngularJs Folder Structure</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/folder-structure/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/folder-structure/</guid>
+      <description>
+
+&lt;h2 id=&#34;feature-centric:97e33aa12ce5e284c569be9193b3b517&#34;&gt;Feature Centric&lt;/h2&gt;
+
+&lt;p&gt;Arrange the project folders such that the top level directories are the names of each feature.
+The directory for each feature should contain sub-directories for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;directive&lt;/li&gt;
+&lt;li&gt;controller&lt;/li&gt;
+&lt;li&gt;view&lt;/li&gt;
+&lt;li&gt;service&lt;/li&gt;
+&lt;li&gt;factory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;my-project/
+  login/
+    (...)
+  todo/
+    directive/
+      todo-item-directive.js
+      todo-item-directive.html
+      todo-item-directive.spec.js
+    controller/
+      todo-controller.js
+      todo-controller.spec.js
+    view/
+      todo-page.html
+    service/
+      (...)
+    factory/
+      (...)
+  app.js
+  index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Take a look at &lt;a href=&#34;https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06&#34;&gt;this article&lt;/a&gt;,
+which explains this concept in greater detail.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

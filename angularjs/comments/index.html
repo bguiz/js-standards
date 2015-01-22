@@ -75,12 +75,12 @@
               <li class="sub-menu">
                 <a href="javascript:;" class="">
                     
-                    <span>ES5</span>
+                    <span>Javascript</span>
                     <span class="menu-arrow fa fa-angle-right"></span>
                 </a>
                 <ul class="sub">
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments (JS) </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
                     
@@ -88,7 +88,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
@@ -99,15 +99,6 @@
                     <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
                     
                 </ul>
-            
-              </li>
-          
-            
-              <li>
-                <a class="" href="">
-                    
-                    <span>ES6</span>
-                </a>
             
               </li>
           
@@ -162,8 +153,6 @@
                     
                     <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
-                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
@@ -175,6 +164,8 @@
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
@@ -224,57 +215,50 @@
 <h6 id="style-y220-style-y220:03e7713c1e56da666eeab8dfbbf51091">[Style <a href="#style-y220">Y220</a>]</h6>
 
 <ul>
-<li><p>If planning to produce documentation, use <a href="http://usejsdoc.org/"><code>jsDoc</code></a> syntax to document function names, description, params and returns. Use <code>@namespace</code> and <code>@memberOf</code> to match your app structure.</p>
+<li>If planning to produce documentation, use <a href="http://usejsdoc.org/"><code>jsDoc</code></a> syntax to document function names, description, params and returns. Use <code>@namespace</code> and <code>@memberOf</code> to match your app structure.</li>
+</ul>
 
 <p><em>Why?</em>: You can generate (and regenerate) documentation from your code, instead of writing it from scratch.</p>
 
 <p><em>Why?</em>: Provides consistency using a common industry tool.</p>
 
-<p>```javascript
-/**</p>
-
-<ul>
-<li>Logger Factory</li>
-<li>@namespace Factories
-*/
-(function() {
-angular
-  .module(&lsquo;app&rsquo;)
-  .factory(&lsquo;logger&rsquo;, logger);</li>
-</ul>
-
-<p>/**
-   * @namespace Logger
-   * @desc Application wide logger
-   * @memberOf Factories
+<pre><code class="language-javascript">  /**
+   * Logger Factory
+   * @namespace Factories
    */
-  function logger($log) {
-      var service = {
-         logError: logError
-      };
-      return service;</p>
+  (function() {
+    angular
+        .module('app')
+        .factory('logger', logger);
 
-<pre><code>  ////////////
+    /**
+     * @namespace Logger
+     * @desc Application wide logger
+     * @memberOf Factories
+     */
+    function logger($log) {
+        var service = {
+           logError: logError
+        };
+        return service;
 
+        ////////////
 
-  /**
-   * @name logError
-   * @desc Logs errors
-   * @param {String} msg Message to log
-   * @returns {String}
-   * @memberOf Factories.Logger
-   */
-  function logError(msg) {
-      var loggedMsg = 'Error: ' + msg;
-      $log.error(loggedMsg);
-      return loggedMsg;
-  };
+        /**
+         * @name logError
+         * @desc Logs errors
+         * @param {String} msg Message to log
+         * @returns {String}
+         * @memberOf Factories.Logger
+         */
+        function logError(msg) {
+            var loggedMsg = 'Error: ' + msg;
+            $log.error(loggedMsg);
+            return loggedMsg;
+        };
+    }
+  })();
 </code></pre>
-
-<p>}
-})();
-```</p></li>
-</ul>
 
                     </div> 
                     </section> 

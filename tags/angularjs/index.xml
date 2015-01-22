@@ -344,57 +344,50 @@ app/
 &lt;h6 id=&#34;style-y220-style-y220:03e7713c1e56da666eeab8dfbbf51091&#34;&gt;[Style &lt;a href=&#34;#style-y220&#34;&gt;Y220&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;If planning to produce documentation, use &lt;a href=&#34;http://usejsdoc.org/&#34;&gt;&lt;code&gt;jsDoc&lt;/code&gt;&lt;/a&gt; syntax to document function names, description, params and returns. Use &lt;code&gt;@namespace&lt;/code&gt; and &lt;code&gt;@memberOf&lt;/code&gt; to match your app structure.&lt;/p&gt;
+&lt;li&gt;If planning to produce documentation, use &lt;a href=&#34;http://usejsdoc.org/&#34;&gt;&lt;code&gt;jsDoc&lt;/code&gt;&lt;/a&gt; syntax to document function names, description, params and returns. Use &lt;code&gt;@namespace&lt;/code&gt; and &lt;code&gt;@memberOf&lt;/code&gt; to match your app structure.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: You can generate (and regenerate) documentation from your code, instead of writing it from scratch.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides consistency using a common industry tool.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Logger Factory&lt;/li&gt;
-&lt;li&gt;@namespace Factories
-*/
-(function() {
-angular
-  .module(&amp;lsquo;app&amp;rsquo;)
-  .factory(&amp;lsquo;logger&amp;rsquo;, logger);&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;/**
-   * @namespace Logger
-   * @desc Application wide logger
-   * @memberOf Factories
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * Logger Factory
+   * @namespace Factories
    */
-  function logger($log) {
-      var service = {
-         logError: logError
-      };
-      return service;&lt;/p&gt;
+  (function() {
+    angular
+        .module(&#39;app&#39;)
+        .factory(&#39;logger&#39;, logger);
 
-&lt;pre&gt;&lt;code&gt;  ////////////
+    /**
+     * @namespace Logger
+     * @desc Application wide logger
+     * @memberOf Factories
+     */
+    function logger($log) {
+        var service = {
+           logError: logError
+        };
+        return service;
 
+        ////////////
 
-  /**
-   * @name logError
-   * @desc Logs errors
-   * @param {String} msg Message to log
-   * @returns {String}
-   * @memberOf Factories.Logger
-   */
-  function logError(msg) {
-      var loggedMsg = &#39;Error: &#39; + msg;
-      $log.error(loggedMsg);
-      return loggedMsg;
-  };
+        /**
+         * @name logError
+         * @desc Logs errors
+         * @param {String} msg Message to log
+         * @returns {String}
+         * @memberOf Factories.Logger
+         */
+        function logError(msg) {
+            var loggedMsg = &#39;Error: &#39; + msg;
+            $log.error(loggedMsg);
+            return loggedMsg;
+        };
+    }
+  })();
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;}
-})();
-```&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
@@ -1636,7 +1629,7 @@ function handleRoutingErrors() {
 &lt;li&gt;&lt;p&gt;AngularJS snippets that follow these styles and guidelines.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Download the &lt;a href=&#34;assets/sublime-angular-snippets.zip?raw=true&#34;&gt;Sublime Angular snippets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download the &lt;a href=&#34;https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/sublime-angular-snippets.zip?raw=true&#34;&gt;Sublime Angular snippets&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Place it in your Packages folder&lt;/li&gt;
 &lt;li&gt;Restart Sublime&lt;/li&gt;
 &lt;li&gt;In a JavaScript file type these commands followed by a &lt;code&gt;TAB&lt;/code&gt;&lt;/li&gt;
@@ -1671,7 +1664,7 @@ ngmodule // creates an Angular module
 &lt;li&gt;&lt;p&gt;AngularJS snippets and file templates that follow these styles and guidelines. You can import them into your WebStorm settings:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Download the &lt;a href=&#34;assets/webstorm-angular-file-template.settings.jar?raw=true&#34;&gt;WebStorm AngularJS file templates and snippets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Download the &lt;a href=&#34;https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/webstorm-angular-file-template.settings.jar?raw=true&#34;&gt;WebStorm AngularJS file templates and snippets&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Open WebStorm and go to the &lt;code&gt;File&lt;/code&gt; menu&lt;/li&gt;
 &lt;li&gt;Choose the &lt;code&gt;Import Settings&lt;/code&gt; menu option&lt;/li&gt;
 &lt;li&gt;Select the file and click &lt;code&gt;OK&lt;/code&gt;&lt;/li&gt;
@@ -1683,6 +1676,53 @@ ng-f // creates an Angular factory
 ng-m // creates an Angular module
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Folder Structure</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/folder-structure/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/folder-structure/</guid>
+      <description>
+
+&lt;h2 id=&#34;feature-centric:97e33aa12ce5e284c569be9193b3b517&#34;&gt;Feature Centric&lt;/h2&gt;
+
+&lt;p&gt;Arrange the project folders such that the top level directories are the names of each feature.
+The directory for each feature should contain sub-directories for:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;directive&lt;/li&gt;
+&lt;li&gt;controller&lt;/li&gt;
+&lt;li&gt;view&lt;/li&gt;
+&lt;li&gt;service&lt;/li&gt;
+&lt;li&gt;factory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;my-project/
+  login/
+    (...)
+  todo/
+    directive/
+      todo-item-directive.js
+      todo-item-directive.html
+      todo-item-directive.spec.js
+    controller/
+      todo-controller.js
+      todo-controller.spec.js
+    view/
+      todo-page.html
+    service/
+      (...)
+    factory/
+      (...)
+  app.js
+  index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Take a look at &lt;a href=&#34;https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06&#34;&gt;this article&lt;/a&gt;,
+which explains this concept in greater detail.&lt;/p&gt;
 </description>
     </item>
     
@@ -1699,6 +1739,13 @@ ng-m // creates an Angular module
 &lt;h3 id=&#34;javascript-closures:c3469ff74608aebd6bfca993258ca664&#34;&gt;JavaScript Closures&lt;/h3&gt;
 
 &lt;h6 id=&#34;style-y010-style-y010:c3469ff74608aebd6bfca993258ca664&#34;&gt;[Style &lt;a href=&#34;#style-y010&#34;&gt;Y010&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Using IIFEs is &lt;strong&gt;not&lt;/strong&gt; necessary when using a bundling system which understands Javascript modules,
+such as &lt;strong&gt;angualrity&lt;/strong&gt;, &lt;strong&gt;browserify&lt;/strong&gt;, or &lt;strong&gt;require.js&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE).&lt;/li&gt;
@@ -1759,96 +1806,6 @@ ng-m // creates an Angular module
 &lt;li&gt;&lt;p&gt;Note: For brevity only, the rest of the examples in this guide may omit the IIFE syntax.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Note: IIFE&amp;rsquo;s prevent test code from reaching private members like regular expressions or helper functions which are often good to unit test directly on their own. However you can test these through accessible members or by exposing them through their own component. For example placing helper functions, regular expressions or constants in their own factory or constant.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>AngularJs JS Hint</title>
-      <link>http://bguiz.github.io/js-standards/angularjs/js-hint/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
-      
-      <guid>http://bguiz.github.io/js-standards/angularjs/js-hint/</guid>
-      <description>
-
-&lt;h2 id=&#34;js-hint:85dc8b523fc97f6442cba619c1918a45&#34;&gt;JS Hint&lt;/h2&gt;
-
-&lt;h3 id=&#34;use-an-options-file:85dc8b523fc97f6442cba619c1918a45&#34;&gt;Use an Options File&lt;/h3&gt;
-
-&lt;h6 id=&#34;style-y230-style-y230:85dc8b523fc97f6442cba619c1918a45&#34;&gt;[Style &lt;a href=&#34;#style-y230&#34;&gt;Y230&lt;/a&gt;]&lt;/h6&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use JS Hint for linting your JavaScript and be sure to customize the JS Hint options file and include in source control. See the &lt;a href=&#34;http://www.jshint.com/docs/&#34;&gt;JS Hint docs&lt;/a&gt; for details on the options.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a first alert prior to committing any code to source control.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides consistency across your team.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
-    &amp;quot;bitwise&amp;quot;: true,
-    &amp;quot;camelcase&amp;quot;: true,
-    &amp;quot;curly&amp;quot;: true,
-    &amp;quot;eqeqeq&amp;quot;: true,
-    &amp;quot;es3&amp;quot;: false,
-    &amp;quot;forin&amp;quot;: true,
-    &amp;quot;freeze&amp;quot;: true,
-    &amp;quot;immed&amp;quot;: true,
-    &amp;quot;indent&amp;quot;: 4,
-    &amp;quot;latedef&amp;quot;: &amp;quot;nofunc&amp;quot;,
-    &amp;quot;newcap&amp;quot;: true,
-    &amp;quot;noarg&amp;quot;: true,
-    &amp;quot;noempty&amp;quot;: true,
-    &amp;quot;nonbsp&amp;quot;: true,
-    &amp;quot;nonew&amp;quot;: true,
-    &amp;quot;plusplus&amp;quot;: false,
-    &amp;quot;quotmark&amp;quot;: &amp;quot;single&amp;quot;,
-    &amp;quot;undef&amp;quot;: true,
-    &amp;quot;unused&amp;quot;: false,
-    &amp;quot;strict&amp;quot;: false,
-    &amp;quot;maxparams&amp;quot;: 10,
-    &amp;quot;maxdepth&amp;quot;: 5,
-    &amp;quot;maxstatements&amp;quot;: 40,
-    &amp;quot;maxcomplexity&amp;quot;: 8,
-    &amp;quot;maxlen&amp;quot;: 120,
-
-
-    &amp;quot;asi&amp;quot;: false,
-    &amp;quot;boss&amp;quot;: false,
-    &amp;quot;debug&amp;quot;: false,
-    &amp;quot;eqnull&amp;quot;: true,
-    &amp;quot;esnext&amp;quot;: false,
-    &amp;quot;evil&amp;quot;: false,
-    &amp;quot;expr&amp;quot;: false,
-    &amp;quot;funcscope&amp;quot;: false,
-    &amp;quot;globalstrict&amp;quot;: false,
-    &amp;quot;iterator&amp;quot;: false,
-    &amp;quot;lastsemic&amp;quot;: false,
-    &amp;quot;laxbreak&amp;quot;: false,
-    &amp;quot;laxcomma&amp;quot;: false,
-    &amp;quot;loopfunc&amp;quot;: true,
-    &amp;quot;maxerr&amp;quot;: false,
-    &amp;quot;moz&amp;quot;: false,
-    &amp;quot;multistr&amp;quot;: false,
-    &amp;quot;notypeof&amp;quot;: false,
-    &amp;quot;proto&amp;quot;: false,
-    &amp;quot;scripturl&amp;quot;: false,
-    &amp;quot;shadow&amp;quot;: false,
-    &amp;quot;sub&amp;quot;: true,
-    &amp;quot;supernew&amp;quot;: false,
-    &amp;quot;validthis&amp;quot;: false,
-    &amp;quot;noyield&amp;quot;: false,
-
-
-    &amp;quot;browser&amp;quot;: true,
-    &amp;quot;node&amp;quot;: true,
-
-
-    &amp;quot;globals&amp;quot;: {
-        &amp;quot;angular&amp;quot;: false,
-        &amp;quot;$&amp;quot;: false
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
