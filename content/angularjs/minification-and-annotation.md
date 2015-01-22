@@ -20,7 +20,7 @@ weight: 4010
 ### ng-annotate
 ###### [Style [Y100](#style-y100)]
 
-  - Use [ng-annotate](//github.com/olov/ng-annotate) for [Gulp](http://gulpjs.com) or [Grunt](http://gruntjs.com) and comment functions that need automated dependency injection using `/** @ngInject */`
+  - Use [ng-annotate](https://github.com/olov/ng-annotate) for [Gulp](http://gulpjs.com) or [Grunt](http://gruntjs.com) and comment functions that need automated dependency injection using `/** @ngInject */`
 
     *Why?*: This safeguards your code from any dependencies that may not be using minification-safe practices.
 

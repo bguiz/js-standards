@@ -16,5 +16,5 @@ weight: 4027
 
 
 ## AngularJS docs
-For anything else, API reference, check the [Angular documentation](//docs.angularjs.org/api).
+For anything else, API reference, check the [Angular documentation](https://docs.angularjs.org/api).
 
