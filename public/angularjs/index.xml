@@ -1684,7 +1684,7 @@ function moviePrepService(movieService) {
 &lt;h6 id=&#34;style-y100-style-y100:5013387ba4e246539fabf170763b5f2e&#34;&gt;[Style &lt;a href=&#34;#style-y100&#34;&gt;Y100&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Use &lt;a href=&#34;//github.com/olov/ng-annotate&#34;&gt;ng-annotate&lt;/a&gt; for &lt;a href=&#34;http://gulpjs.com&#34;&gt;Gulp&lt;/a&gt; or &lt;a href=&#34;http://gruntjs.com&#34;&gt;Grunt&lt;/a&gt; and comment functions that need automated dependency injection using &lt;code&gt;/** @ngInject */&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;a href=&#34;https://github.com/olov/ng-annotate&#34;&gt;ng-annotate&lt;/a&gt; for &lt;a href=&#34;http://gulpjs.com&#34;&gt;Gulp&lt;/a&gt; or &lt;a href=&#34;http://gruntjs.com&#34;&gt;Grunt&lt;/a&gt; and comment functions that need automated dependency injection using &lt;code&gt;/** @ngInject */&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This safeguards your code from any dependencies that may not be using minification-safe practices.&lt;/p&gt;
 
