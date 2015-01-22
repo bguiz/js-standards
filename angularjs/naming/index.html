@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://bguiz.github.io/js-standards">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
+
+    <title>AngularJs Naming</title>
+
+    <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/style.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/css/style-responsive.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="http://bguiz.github.io/js-standards/" class="logo"><img src="http://bguiz.github.io/js-standards/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> AngularJs Naming </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>AngularJs</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/single-responsibility/"> Single Responsibility </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/iife/"> IIFE </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modules/"> Modules </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/controllers/"> Controllers </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/services/"> Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/"> Resolving Promises for a Controller </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/"> Manual Annotating for Dependency Injection </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/"> Minification and Annotation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
+                    
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure/"> Application Structure </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modularity/"> Modularity </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/startup-logic/"> Startup Logic </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/"> Angular $ Wrapper Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/testing/"> Testing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/animations/"> Animations </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/yeoman-generator/"> Yeoman Generator </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/routing/"> Routing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/naming.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/exception-handling">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+
+
+<h2 id="naming:c71c34a7bb0db96f87def312ae0a673e">Naming</h2>
+
+<h3 id="naming-guidelines:c71c34a7bb0db96f87def312ae0a673e">Naming Guidelines</h3>
+
+<h6 id="style-y120-style-y120:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y120">Y120</a>]</h6>
+
+<ul>
+<li><p>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>. There are 2 names for most assets:</p>
+
+<ul>
+<li>the file name (<code>avengers.controller.js</code>)</li>
+<li>the registered component name with Angular (<code>AvengersController</code>)</li>
+</ul>
+
+<p><em>Why?</em>: Naming conventions help provide a consistent way to find content at a glance. Consistency within the project is vital. Consistency with a team is important. Consistency across a company provides tremendous efficiency.</p>
+
+<p><em>Why?</em>: The naming conventions should simply help you find your code faster and make it easier to understand.</p></li>
+</ul>
+
+<h3 id="feature-file-names:c71c34a7bb0db96f87def312ae0a673e">Feature File Names</h3>
+
+<h6 id="style-y121-style-y121:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y121">Y121</a>]</h6>
+
+<ul>
+<li><p>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>.</p>
+
+<p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
+
+<p><em>Why?</em>: Provides pattern matching for any automated tasks.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>common options
+*/</li>
+</ul>
+
+<p>// Controllers
+avengers.js
+avengers.controller.js
+avengersController.js</p>
+
+<p>// Services/Factories
+logger.js
+logger.service.js
+loggerService.js
+```</p>
+
+<pre><code class="language-javascript">/**
+ * recommended
+ */
+
+
+// controllers
+avengers.controller.js
+avengers.controller.spec.js
+
+
+// services/factories
+logger.service.js
+logger.service.spec.js
+
+
+// constants
+constants.js
+
+
+// module definition
+avengers.module.js
+
+
+// routes
+avengers.routes.js
+avengers.routes.spec.js
+
+
+// configuration
+avengers.config.js
+
+
+// directives
+avenger-profile.directive.js
+avenger-profile.directive.spec.js
+</code></pre></li>
+</ul>
+
+<p>Note: Another common convention is naming controller files without the word <code>controller</code> in the file name such as <code>avengers.js</code> instead of <code>avengers.controller.js</code>. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team.</p>
+
+<pre><code>```javascript
+/**
+ * recommended
+ */
+// Controllers
+avengers.js
+avengers.spec.js
+```
+</code></pre>
+
+<h3 id="test-file-names:c71c34a7bb0db96f87def312ae0a673e">Test File Names</h3>
+
+<h6 id="style-y122-style-y122:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y122">Y122</a>]</h6>
+
+<ul>
+<li><p>Name test specifications similar to the component they test with a suffix of <code>spec</code>.</p>
+
+<p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
+
+<p><em>Why?</em>: Provides pattern matching for <a href="http://karma-runner.github.io/">karma</a> or other test runners.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>recommended
+*/
+avengers.controller.spec.js
+logger.service.spec.js
+avengers.routes.spec.js
+avenger-profile.directive.spec.js
+```</li>
+</ul></li>
+</ul>
+
+<h3 id="controller-names:c71c34a7bb0db96f87def312ae0a673e">Controller Names</h3>
+
+<h6 id="style-y123-style-y123:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y123">Y123</a>]</h6>
+
+<ul>
+<li><p>Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.</p>
+
+<p><em>Why?</em>: Provides a consistent way to quickly identify and reference controllers.</p>
+
+<p><em>Why?</em>: UpperCamelCase is conventional for identifying object that can be instantiated using a constructor.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>recommended
+*/</li>
+</ul>
+
+<p>// avengers.controller.js
+angular
+    .module
+    .controller(&lsquo;HeroAvengers&rsquo;, HeroAvengers);</p>
+
+<p>function HeroAvengers() { }
+```</p></li>
+</ul>
+
+<h3 id="controller-name-suffix:c71c34a7bb0db96f87def312ae0a673e">Controller Name Suffix</h3>
+
+<h6 id="style-y124-style-y124:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y124">Y124</a>]</h6>
+
+<ul>
+<li><p>Append the controller name with the suffix <code>Controller</code> or with no suffix. Choose 1, not both.</p>
+
+<p><em>Why?</em>: The <code>Controller</code> suffix is more commonly used and is more explicitly descriptive.</p>
+
+<p><em>Why?</em>: Omitting the suffix is more succinct and the controller is often easily identifiable even without the suffix.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>recommended: Option 1
+*/</li>
+</ul>
+
+<p>// avengers.controller.js
+angular
+    .module
+    .controller(&lsquo;Avengers&rsquo;, Avengers);</p>
+
+<p>function Avengers() { }
+```</p>
+
+<pre><code class="language-javascript">/**
+ * recommended: Option 2
+ */
+
+
+// avengers.controller.js
+angular
+    .module
+    .controller('AvengersController', AvengersController);
+
+
+function AvengersController() { }
+</code></pre></li>
+</ul>
+
+<h3 id="factory-names:c71c34a7bb0db96f87def312ae0a673e">Factory Names</h3>
+
+<h6 id="style-y125-style-y125:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y125">Y125</a>]</h6>
+
+<ul>
+<li><p>Use consistent names for all factories named after their feature. Use camel-casing for services and factories.</p>
+
+<p><em>Why?</em>: Provides a consistent way to quickly identify and reference factories.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>recommended
+*/</li>
+</ul>
+
+<p>// logger.service.js
+angular
+    .module
+    .factory(&lsquo;logger&rsquo;, logger);</p>
+
+<p>function logger() { }
+```</p></li>
+</ul>
+
+<h3 id="directive-component-names:c71c34a7bb0db96f87def312ae0a673e">Directive Component Names</h3>
+
+<h6 id="style-y126-style-y126:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y126">Y126</a>]</h6>
+
+<ul>
+<li><p>Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).</p>
+
+<p><em>Why?</em>: Provides a consistent way to quickly identify and reference components.</p>
+
+<p>```javascript
+/**</p>
+
+<ul>
+<li>recommended
+*/</li>
+</ul>
+
+<p>// avenger-profile.directive.js
+angular
+    .module
+    .directive(&lsquo;xxAvengerProfile&rsquo;, xxAvengerProfile);</p>
+
+<p>// usage is <xx-avenger-profile> </xx-avenger-profile></p>
+
+<p>function xxAvengerProfile() { }
+```</p></li>
+</ul>
+
+<h3 id="modules:c71c34a7bb0db96f87def312ae0a673e">Modules</h3>
+
+<h6 id="style-y127-style-y127:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y127">Y127</a>]</h6>
+
+<ul>
+<li><p>When there are multiple modules, the main module file is named <code>app.module.js</code> while other dependent modules are named after what they represent. For example, an admin module is named <code>admin.module.js</code>. The respective registered module names would be <code>app</code> and <code>admin</code>.</p>
+
+<p><em>Why?</em>: Provides consistency for multiple module apps, and for expanding to large applications.</p>
+
+<p><em>Why?</em>: Provides easy way to use task automation to load all module definitions first, then all other angular files (for bundling).</p></li>
+</ul>
+
+<h3 id="configuration:c71c34a7bb0db96f87def312ae0a673e">Configuration</h3>
+
+<h6 id="style-y128-style-y128:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y128">Y128</a>]</h6>
+
+<ul>
+<li><p>Separate configuration for a module into its own file named after the module. A configuration file for the main <code>app</code> module is named <code>app.config.js</code> (or simply <code>config.js</code>). A configuration for a module named <code>admin.module.js</code> is named <code>admin.config.js</code>.</p>
+
+<p><em>Why?</em>: Separates configuration from module definition, components, and active code.</p>
+
+<p><em>Why?</em>: Provides a identifiable place to set configuration for a module.</p></li>
+</ul>
+
+<h3 id="routes:c71c34a7bb0db96f87def312ae0a673e">Routes</h3>
+
+<h6 id="style-y129-style-y129:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y129">Y129</a>]</h6>
+
+<ul>
+<li>Separate route configuration into its own file. Examples might be <code>app.route.js</code> for the main module and <code>admin.route.js</code> for the <code>admin</code> module. Even in smaller apps I prefer this separation from the rest of the configuration.</li>
+</ul>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="http://bguiz.github.io/js-standards/js/jquery-2.1.1.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/jquery.scrollTo.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/bootstrap.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://bguiz.github.io/js-standards/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="http://bguiz.github.io/js-standards/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

@@ -9,13 +9,13 @@
     
     
     
-    <lastBuildDate>Wed, 14 Jan 2015 22:41:41 AEDT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jan 2015 22:41:41 &#43;1100</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/equality/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Equality</title>
       <link>http://bguiz.github.io/js-standards/es5/equality/</link>
-      <pubDate>Wed, 14 Jan 2015 22:41:41 AEDT</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:41:41 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
       <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://bguiz.github.io/js-standards">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
+
+    <title>AngularJs Directives</title>
+
+    <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/style.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/css/style-responsive.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="http://bguiz.github.io/js-standards/" class="logo"><img src="http://bguiz.github.io/js-standards/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> AngularJs Directives </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>AngularJs</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/single-responsibility/"> Single Responsibility </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/iife/"> IIFE </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modules/"> Modules </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/controllers/"> Controllers </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/services/"> Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/"> Resolving Promises for a Controller </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/"> Manual Annotating for Dependency Injection </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/"> Minification and Annotation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure/"> Application Structure </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modularity/"> Modularity </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/startup-logic/"> Startup Logic </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/"> Angular $ Wrapper Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/testing/"> Testing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/animations/"> Animations </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/yeoman-generator/"> Yeoman Generator </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/routing/"> Routing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/directives.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/data-services">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+
+
+<h2 id="directives:a3dfdd458318385288a3855f48586dfe">Directives</h2>
+
+<h3 id="limit-1-per-file:a3dfdd458318385288a3855f48586dfe">Limit 1 Per File</h3>
+
+<h6 id="style-y070-style-y070:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y070">Y070</a>]</h6>
+
+<ul>
+<li><p>Create one directive per file. Name the file for the directive.</p>
+
+<p><em>Why?</em>: It is easy to mash all the directives in one file, but difficult to then break those out so some are shared across apps, some across modules, some just for one module.</p>
+
+<p><em>Why?</em>: One directive per file is easy to maintain.</p></li>
+</ul>
+
+<pre><code class="language-javascript">  /* avoid */
+  /* directives.js */
+
+  angular
+      .module('app.widgets')
+
+      /* order directive that is specific to the order module */
+      .directive('orderCalendarRange', orderCalendarRange)
+
+      /* sales directive that can be used anywhere across the sales app */
+      .directive('salesCustomerInfo', salesCustomerInfo)
+
+      /* spinner directive that can be used anywhere across apps */
+      .directive('sharedSpinner', sharedSpinner);
+
+  function orderCalendarRange() {
+      /* implementation details */
+  }
+
+  function salesCustomerInfo() {
+      /* implementation details */
+  }
+
+  function sharedSpinner() {
+      /* implementation details */
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  /* calendarRange.directive.js */
+
+  /**
+   * @desc order directive that is specific to the order module at a company named Acme
+   * @example &lt;div acme-order-calendar-range&gt;&lt;/div&gt;
+   */
+  angular
+      .module('sales.order')
+      .directive('acmeOrderCalendarRange', orderCalendarRange);
+
+  function orderCalendarRange() {
+      /* implementation details */
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  /* customerInfo.directive.js */
+
+  /**
+   * @desc spinner directive that can be used anywhere across the sales app at a company named Acme
+   * @example &lt;div acme-sales-customer-info&gt;&lt;/div&gt;
+   */
+  angular
+      .module('sales.widgets')
+      .directive('acmeSalesCustomerInfo', salesCustomerInfo);
+
+  function salesCustomerInfo() {
+      /* implementation details */
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  /* spinner.directive.js */
+
+  /**
+   * @desc spinner directive that can be used anywhere across apps at a company named Acme
+   * @example &lt;div acme-shared-spinner&gt;&lt;/div&gt;
+   */
+  angular
+      .module('shared.widgets')
+      .directive('acmeSharedSpinner', sharedSpinner);
+
+  function sharedSpinner() {
+      /* implementation details */
+  }
+</code></pre>
+
+<pre><code>Note: There are many naming options for directives, especially since they can be used in narrow or wide scopes. Choose one that makes the directive and it's file name distinct and clear. Some examples are below, but see the naming section for more recommendations.
+</code></pre>
+
+<h3 id="manipulate-dom-in-a-directive:a3dfdd458318385288a3855f48586dfe">Manipulate DOM in a Directive</h3>
+
+<h6 id="style-y072-style-y072:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y072">Y072</a>]</h6>
+
+<ul>
+<li><p>When manipulating the DOM directly, use a directive. If alternative ways can be used such as using CSS to set styles or the <a href="https://docs.angularjs.org/api/ngAnimate">animation services</a>, Angular templating, <a href="https://docs.angularjs.org/api/ng/directive/ngShow"><code>ngShow</code></a> or <a href="https://docs.angularjs.org/api/ng/directive/ngHide"><code>ngHide</code></a>, then use those instead. For example, if the directive simply hides and shows, use ngHide/ngShow.</p>
+
+<p><em>Why?</em>: DOM manipulation can be difficult to test, debug, and there are often better ways (e.g. CSS, animations, templates)</p></li>
+</ul>
+
+<h3 id="provide-a-unique-directive-prefix:a3dfdd458318385288a3855f48586dfe">Provide a Unique Directive Prefix</h3>
+
+<h6 id="style-y073-style-y073:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y073">Y073</a>]</h6>
+
+<ul>
+<li><p>Provide a short, unique and descriptive directive prefix such as <code>acmeSalesCustomerInfo</code> which is declared in HTML as <code>acme-sales-customer-info</code>.</p>
+
+<p><em>Why?</em>: The unique short prefix identifies the directive&rsquo;s context and origin. For example a prefix of <code>cc-</code> may indicate that the directive is part of a CodeCamper app while <code>acme-</code> may indicate a directive for the Acme company.</p>
+
+<p>Note: Avoid <code>ng-</code> as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as <code>ion-</code> for the <a href="http://ionicframework.com/">Ionic Framework</a>.</p></li>
+</ul>
+
+<h3 id="restrict-to-elements-and-attributes:a3dfdd458318385288a3855f48586dfe">Restrict to Elements and Attributes</h3>
+
+<h6 id="style-y074-style-y074:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y074">Y074</a>]</h6>
+
+<ul>
+<li><p>When creating a directive that makes sense as a stand-alone element, allow restrict <code>E</code> (custom element) and optionally restrict <code>A</code> (custom attribute). Generally, if it could be its own control, <code>E</code> is appropriate. General guideline is allow <code>EA</code> but lean towards implementing as an element when its stand-alone and as an attribute when it enhances its existing DOM element.</p>
+
+<p><em>Why?</em>: It makes sense.</p>
+
+<p><em>Why?</em>: While we can allow the directive to be used as a class, if the directive is truly acting as an element it makes more sense as an element or at least as an attribute.</p>
+
+<p>Note: EA is the default for AngularJS 1.3 +</p></li>
+</ul>
+
+<pre><code class="language-html">  &lt;!-- avoid --&gt;
+  &lt;div class=&quot;my-calendar-range&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  /* avoid */
+  angular
+      .module('app.widgets')
+      .directive('myCalendarRange', myCalendarRange);
+
+  function myCalendarRange() {
+      var directive = {
+          link: link,
+          templateUrl: '/template/is/located/here.html',
+          restrict: 'C'
+      };
+      return directive;
+
+      function link(scope, element, attrs) {
+        /* */
+      }
+  }
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- recommended --&gt;
+  &lt;my-calendar-range&gt;&lt;/my-calendar-range&gt;
+  &lt;div my-calendar-range&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  angular
+      .module('app.widgets')
+      .directive('myCalendarRange', myCalendarRange);
+
+  function myCalendarRange() {
+      var directive = {
+          link: link,
+          templateUrl: '/template/is/located/here.html',
+          restrict: 'EA'
+      };
+      return directive;
+
+      function link(scope, element, attrs) {
+        /* */
+      }
+  }
+</code></pre>
+
+<h3 id="directives-and-controlleras:a3dfdd458318385288a3855f48586dfe">Directives and ControllerAs</h3>
+
+<h6 id="style-y075-style-y075:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y075">Y075</a>]</h6>
+
+<ul>
+<li><p>Use <code>controller as</code> syntax with a directive to be consistent with using <code>controller as</code> with view and controller pairings.</p>
+
+<p><em>Why?</em>: It makes sense and it&rsquo;s not difficult.</p>
+
+<p>Note: The directive below demonstrates some of the ways you can use scope inside of link and directive controllers, using controllerAs. I in-lined the template just to keep it all in one place.</p>
+
+<p>Note: Regarding dependency injection, see <a href="#manual-annotating-for-dependency-injection">Manually Identify Dependencies</a>.</p>
+
+<p>Note: Note that the directive&rsquo;s controller is outside the directive&rsquo;s closure. This style eliminates issues where the injection gets created as unreachable code after a <code>return</code>.</p></li>
+</ul>
+
+<pre><code class="language-html">  &lt;div my-example max=&quot;77&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  angular
+      .module('app')
+      .directive('myExample', myExample);
+
+  function myExample() {
+      var directive = {
+          restrict: 'EA',
+          templateUrl: 'app/feature/example.directive.html',
+          scope: {
+              max: '='
+          },
+          link: linkFunc,
+          controller: ExampleController,
+            controllerAs: 'vm',
+            bindToController: true // because the scope is isolated
+        };
+
+      return directive;
+
+      function linkFunc(scope, el, attr, ctrl) {
+          console.log('LINK: scope.min = %s *** should be undefined', scope.min);
+          console.log('LINK: scope.max = %s *** should be undefined', scope.max);
+          console.log('LINK: scope.vm.min = %s', scope.vm.min);
+          console.log('LINK: scope.vm.max = %s', scope.vm.max);
+      }
+  }
+
+  ExampleController.$inject = ['$scope'];
+
+  function ExampleController($scope) {
+      // Injecting $scope just for comparison
+      var vm = this;
+
+      vm.min = 3;
+
+      console.log('CTRL: $scope.vm.min = %s', $scope.vm.min);
+      console.log('CTRL: $scope.vm.max = %s', $scope.vm.max);
+      console.log('CTRL: vm.min = %s', vm.min);
+      console.log('CTRL: vm.max = %s', vm.max);
+  }
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- example.directive.html --&gt;
+  &lt;div&gt;hello world&lt;/div&gt;
+  &lt;div&gt;max={{vm.max}}&lt;input ng-model=&quot;vm.max&quot;/&gt;&lt;/div&gt;
+  &lt;div&gt;min={{vm.min}}&lt;input ng-model=&quot;vm.min&quot;/&gt;&lt;/div&gt;
+</code></pre>
+
+<h6 id="style-y076-style-y076:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y076">Y076</a>]</h6>
+
+<ul>
+<li><p>Use <code>bindToController = true</code> when using <code>controller as</code> syntax with a directive when you want to bind the outer scope to the directive&rsquo;s controller&rsquo;s scope.</p>
+
+<p><em>Why?</em>: It makes it easy to bind outer scope to the directive&rsquo;s controller scope.</p>
+
+<p>Note: <code>bindToController</code> was introduced in Angular 1.3.0.</p></li>
+</ul>
+
+<pre><code class="language-html">  &lt;div my-example max=&quot;77&quot;&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  angular
+      .module('app')
+      .directive('myExample', myExample);
+
+  function myExample() {
+      var directive = {
+          restrict: 'EA',
+          templateUrl: 'app/feature/example.directive.html',
+          scope: {
+              max: '='
+          },
+          controller: ExampleController,
+            controllerAs: 'vm',
+            bindToController: true
+        };
+
+      return directive;
+  }
+
+  function ExampleController() {
+      var vm = this;
+      vm.min = 3;
+      console.log('CTRL: vm.min = %s', vm.min);
+      console.log('CTRL: vm.max = %s', vm.max);
+  }
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- example.directive.html --&gt;
+  &lt;div&gt;hello world&lt;/div&gt;
+  &lt;div&gt;max={{vm.max}}&lt;input ng-model=&quot;vm.max&quot;/&gt;&lt;/div&gt;
+  &lt;div&gt;min={{vm.min}}&lt;input ng-model=&quot;vm.min&quot;/&gt;&lt;/div&gt;
+</code></pre>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="http://bguiz.github.io/js-standards/js/jquery-2.1.1.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/jquery.scrollTo.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/bootstrap.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://bguiz.github.io/js-standards/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="http://bguiz.github.io/js-standards/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

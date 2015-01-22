@@ -1,0 +1,2437 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angularjs on Javascript Standards</title>
+    <link>http://bguiz.github.io/js-standards/angularjs/</link>
+    <description>Recent content in Angularjs on Javascript Standards</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+    
+    
+    
+    <lastBuildDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</lastBuildDate>
+    <atom:link href="http://bguiz.github.io/js-standards/angularjs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AngularJs Single Responsibility</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/single-responsibility/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/single-responsibility/</guid>
+      <description>
+
+&lt;h2 id=&#34;single-responsibility:ad6879520cfd328553c55402551105c1&#34;&gt;Single Responsibility&lt;/h2&gt;
+
+&lt;h3 id=&#34;rule-of-1:ad6879520cfd328553c55402551105c1&#34;&gt;Rule of 1&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y001-style-y001:ad6879520cfd328553c55402551105c1&#34;&gt;[Style &lt;a href=&#34;#style-y001&#34;&gt;Y001&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Define 1 component per file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following example defines the &lt;code&gt;app&lt;/code&gt; module and its dependencies, defines a controller, and defines a factory all in the same file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  angular
+      .module(&#39;app&#39;, [&#39;ngRoute&#39;])
+      .controller(&#39;SomeController&#39;, SomeController)
+      .factory(&#39;someFactory&#39;, someFactory);
+
+  function SomeController() { }
+
+  function someFactory() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The same components are now separated into their own files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // app.module.js
+  angular
+      .module(&#39;app&#39;, [&#39;ngRoute&#39;]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // someController.js
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;SomeController&#39;, SomeController);
+
+  function SomeController() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // someFactory.js
+  angular
+      .module(&#39;app&#39;)
+      .factory(&#39;someFactory&#39;, someFactory);
+
+  function someFactory() { }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs IIFE</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/iife/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/iife/</guid>
+      <description>
+
+&lt;h2 id=&#34;iife:c3469ff74608aebd6bfca993258ca664&#34;&gt;IIFE&lt;/h2&gt;
+
+&lt;h3 id=&#34;javascript-closures:c3469ff74608aebd6bfca993258ca664&#34;&gt;JavaScript Closures&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y010-style-y010:c3469ff74608aebd6bfca993258ca664&#34;&gt;[Style &lt;a href=&#34;#style-y010&#34;&gt;Y010&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: An IIFE removes variables from the global scope. This helps prevent variables and function declarations from living longer than expected in the global scope, which also helps avoid variable collisions.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: When your code is minified and bundled into a single file for deployment to a production server, you could have collisions of variables and many global variables. An IIFE protects you against both of these by providing variable scope for each file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  // logger.js
+  angular
+      .module(&#39;app&#39;)
+      .factory(&#39;logger&#39;, logger);
+
+  // logger function is added as a global variable
+  function logger() { }
+
+  // storage.js
+  angular
+      .module(&#39;app&#39;)
+      .factory(&#39;storage&#39;, storage);
+
+  // storage function is added as a global variable
+  function storage() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   *
+   * no globals are left behind
+   */
+
+  // logger.js
+  (function() {
+      &#39;use strict&#39;;
+
+      angular
+          .module(&#39;app&#39;)
+          .factory(&#39;logger&#39;, logger);
+
+      function logger() { }
+  })();
+
+  // storage.js
+  (function() {
+      &#39;use strict&#39;;
+
+      angular
+          .module(&#39;app&#39;)
+          .factory(&#39;storage&#39;, storage);
+
+      function storage() { }
+  })();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Note: For brevity only, the rest of the examples in this guide may omit the IIFE syntax.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Note: IIFE&amp;rsquo;s prevent test code from reaching private members like regular expressions or helper functions which are often good to unit test directly on their own. However you can test these through accessible members or by exposing them through their own component. For example placing helper functions, regular expressions or constants in their own factory or constant.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Modules</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/modules/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/modules/</guid>
+      <description>
+
+&lt;h2 id=&#34;modules:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Modules&lt;/h2&gt;
+
+&lt;h3 id=&#34;avoid-naming-collisions:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Avoid Naming Collisions&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y020-style-y020:1834197643d8d930d8ca0f12766a7e44&#34;&gt;[Style &lt;a href=&#34;#style-y020&#34;&gt;Y020&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use unique naming conventions with separators for sub-modules.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Unique names help avoid module name collisions. Separators help define modules and their submodule hierarchy. For example &lt;code&gt;app&lt;/code&gt; may be your root module while &lt;code&gt;app.dashboard&lt;/code&gt; and &lt;code&gt;app.users&lt;/code&gt; may be modules that are used as dependencies of &lt;code&gt;app&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;definitions-aka-setters:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Definitions (aka Setters)&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y021-style-y021:1834197643d8d930d8ca0f12766a7e44&#34;&gt;[Style &lt;a href=&#34;#style-y021&#34;&gt;Y021&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Declare modules without a variable using the setter syntax.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: With 1 component per file, there is rarely a need to introduce a variable for the module.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  var app = angular.module(&#39;app&#39;, [
+      &#39;ngAnimate&#39;,
+      &#39;ngRoute&#39;,
+      &#39;app.shared&#39;,
+      &#39;app.dashboard&#39;
+  ]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead use the simple setter syntax.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  angular
+      .module(&#39;app&#39;, [
+          &#39;ngAnimate&#39;,
+          &#39;ngRoute&#39;,
+          &#39;app.shared&#39;,
+          &#39;app.dashboard&#39;
+      ]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;getters:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Getters&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y022-style-y022:1834197643d8d930d8ca0f12766a7e44&#34;&gt;[Style &lt;a href=&#34;#style-y022&#34;&gt;Y022&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When using a module, avoid using a variable and instead use chaining with the getter syntax.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This produces more readable code and avoids variable collisions or leaks.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  var app = angular.module(&#39;app&#39;);
+  app.controller(&#39;SomeController&#39;, SomeController);
+
+  function SomeController() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;SomeController&#39;, SomeController);
+
+  function SomeController() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;setting-vs-getting:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Setting vs Getting&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y023-style-y023:1834197643d8d930d8ca0f12766a7e44&#34;&gt;[Style &lt;a href=&#34;#style-y023&#34;&gt;Y023&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Only set once and get for all other instances.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: A module should only be created once, then retrieved from that point and after.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;- Use `angular.module(&#39;app&#39;, []);` to set a module.
+- Use `angular.module(&#39;app&#39;);` to get a module.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;named-vs-anonymous-functions:1834197643d8d930d8ca0f12766a7e44&#34;&gt;Named vs Anonymous Functions&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y024-style-y024:1834197643d8d930d8ca0f12766a7e44&#34;&gt;[Style &lt;a href=&#34;#style-y024&#34;&gt;Y024&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use named functions instead of passing an anonymous function in as a callback.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This produces more readable code, is much easier to debug, and reduces the amount of nested callback code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;Dashboard&#39;, function() { })
+      .factory(&#39;logger&#39;, function() { });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // dashboard.js
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;Dashboard&#39;, Dashboard);
+
+  function Dashboard() { }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  // logger.js
+  angular
+      .module(&#39;app&#39;)
+      .factory(&#39;logger&#39;, logger);
+
+  function logger() { }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Controllers</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/controllers/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/controllers/</guid>
+      <description>
+
+&lt;h2 id=&#34;controllers:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Controllers&lt;/h2&gt;
+
+&lt;h3 id=&#34;controlleras-view-syntax:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;controllerAs View Syntax&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y030-style-y030:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y030&#34;&gt;Y030&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the &lt;a href=&#34;http://www.johnpapa.net/do-you-like-your-angular-controllers-with-or-without-sugar/&#34;&gt;&lt;code&gt;controllerAs&lt;/code&gt;&lt;/a&gt; syntax over the &lt;code&gt;classic controller with $scope&lt;/code&gt; syntax.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Controllers are constructed, &amp;ldquo;newed&amp;rdquo; up, and provide a single new instance, and the &lt;code&gt;controllerAs&lt;/code&gt; syntax is closer to that of a JavaScript constructor than the &lt;code&gt;classic $scope syntax&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: It promotes the use of binding to a &amp;ldquo;dotted&amp;rdquo; object in the View (e.g. &lt;code&gt;customer.name&lt;/code&gt; instead of &lt;code&gt;name&lt;/code&gt;), which is more contextual, easier to read, and avoids any reference issues that may occur without &amp;ldquo;dotting&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Helps avoid using &lt;code&gt;$parent&lt;/code&gt; calls in Views with nested controllers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- avoid --&amp;gt;
+  &amp;lt;div ng-controller=&amp;quot;Customer&amp;quot;&amp;gt;
+      {{ name }}
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- recommended --&amp;gt;
+  &amp;lt;div ng-controller=&amp;quot;Customer as customer&amp;quot;&amp;gt;
+      {{ customer.name }}
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;controlleras-controller-syntax:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;controllerAs Controller Syntax&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y031-style-y031:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y031&#34;&gt;Y031&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use the &lt;code&gt;controllerAs&lt;/code&gt; syntax over the &lt;code&gt;classic controller with $scope&lt;/code&gt; syntax.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The &lt;code&gt;controllerAs&lt;/code&gt; syntax uses &lt;code&gt;this&lt;/code&gt; inside controllers which gets bound to &lt;code&gt;$scope&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: &lt;code&gt;controllerAs&lt;/code&gt; is syntactic sugar over &lt;code&gt;$scope&lt;/code&gt;. You can still bind to the View and still access &lt;code&gt;$scope&lt;/code&gt; methods.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Helps avoid the temptation of using &lt;code&gt;$scope&lt;/code&gt; methods inside a controller when it may otherwise be better to avoid them or move them to a factory. Consider using &lt;code&gt;$scope&lt;/code&gt; in a factory, or if in a controller just when needed. For example when publishing and subscribing events using &lt;a href=&#34;https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$emit&#34;&gt;&lt;code&gt;$emit&lt;/code&gt;&lt;/a&gt;, &lt;a href=&#34;https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast&#34;&gt;&lt;code&gt;$broadcast&lt;/code&gt;&lt;/a&gt;, or &lt;a href=&#34;https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$on&#34;&gt;&lt;code&gt;$on&lt;/code&gt;&lt;/a&gt; consider moving these uses to a factory and invoke from the controller.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function Customer($scope) {
+      $scope.name = {};
+      $scope.sendMessage = function() { };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended - but see next section */
+  function Customer() {
+      this.name = {};
+      this.sendMessage = function() { };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;controlleras-with-vm:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;controllerAs with vm&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y032-style-y032:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y032&#34;&gt;Y032&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use a capture variable for &lt;code&gt;this&lt;/code&gt; when using the &lt;code&gt;controllerAs&lt;/code&gt; syntax. Choose a consistent variable name such as &lt;code&gt;vm&lt;/code&gt;, which stands for ViewModel.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The &lt;code&gt;this&lt;/code&gt; keyword is contextual and when used within a function inside a controller may change its context. Capturing the context of &lt;code&gt;this&lt;/code&gt; avoids encountering this problem.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function Customer() {
+      this.name = {};
+      this.sendMessage = function() { };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function Customer() {
+      var vm = this;
+      vm.name = {};
+      vm.sendMessage = function() { };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: You can avoid any &lt;a href=&#34;http://www.jshint.com/&#34;&gt;jshint&lt;/a&gt; warnings by placing the comment below above the line of code. However it is not needed when the function is named using UpperCasing, as this convention means it is a constructor function, which is what a controller is in Angular.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* jshint validthis: true */
+  var vm = this;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: When creating watches in a controller using &lt;code&gt;controller as&lt;/code&gt;, you can watch the &lt;code&gt;vm.*&lt;/code&gt; member using the following syntax. (Create watches with caution as they add more load to the digest cycle.)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;input ng-model=&amp;quot;vm.title&amp;quot;/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  function SomeController($scope, $log) {
+      var vm = this;
+      vm.title = &#39;Some Title&#39;;
+
+      $scope.$watch(&#39;vm.title&#39;, function(current, original) {
+          $log.info(&#39;vm.title was %s&#39;, original);
+          $log.info(&#39;vm.title is now %s&#39;, current);
+      });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;bindable-members-up-top:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Bindable Members Up Top&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y033-style-y033:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y033&#34;&gt;Y033&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Place bindable members at the top of the controller, alphabetized, and not spread through the controller code.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Setting anonymous functions in-line can be easy, but when those functions are more than 1 line of code they can reduce the readability. Defining the functions below the bindable members (the functions will be hoisted) moves the implementation details down, keeps the bindable members up top, and makes it easier to read.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function Sessions() {
+      var vm = this;
+
+      vm.gotoSession = function() {
+        /* ... */
+      };
+      vm.refresh = function() {
+        /* ... */
+      };
+      vm.search = function() {
+        /* ... */
+      };
+      vm.sessions = [];
+      vm.title = &#39;Sessions&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function Sessions() {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = refresh;
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = &#39;Sessions&#39;;
+
+      ////////////
+
+      function gotoSession() {
+        /* */
+      }
+
+      function refresh() {
+        /* */
+      }
+
+      function search() {
+        /* */
+      }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/above-the-fold-1.png&#34; alt=&#34;Controller Using &amp;quot;Above the Fold&amp;quot;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Note: If the function is a 1 liner consider keeping it right up top, as long as readability is not affected.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function Sessions(data) {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = function() {
+          /**
+           * lines
+           * of
+           * code
+           * affects
+           * readability
+           */
+      };
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = &#39;Sessions&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function Sessions(dataservice) {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = dataservice.refresh; // 1 liner is OK
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = &#39;Sessions&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;function-declarations-to-hide-implementation-details:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Function Declarations to Hide Implementation Details&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y034-style-y034:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y034&#34;&gt;Y034&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use function declarations to hide implementation details. Keep your bindable members up top. When you need to bind a function in a controller, point it to a function declaration that appears later in the file. This is tied directly to the section Bindable Members Up Top. For more details see &lt;a href=&#34;http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View. (Same as above.)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Function declaration are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: You never have to worry with function declarations that moving &lt;code&gt;var a&lt;/code&gt; before &lt;code&gt;var b&lt;/code&gt; will break your code because &lt;code&gt;a&lt;/code&gt; depends on &lt;code&gt;b&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Order is critical with function expressions&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * avoid
+   * Using function expressions.
+   */
+  function Avengers(dataservice, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.title = &#39;Avengers&#39;;
+
+      var activate = function() {
+          return getAvengers().then(function() {
+              logger.info(&#39;Activated Avengers View&#39;);
+          });
+      }
+
+      var getAvengers = function() {
+          return dataservice.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+
+      vm.getAvengers = getAvengers;
+
+      activate();
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the important stuff is scattered in the preceding example. In the example below, notice that the important stuff is up top. For example, the members bound to the controller such as &lt;code&gt;vm.avengers&lt;/code&gt; and &lt;code&gt;vm.title&lt;/code&gt;. The implementation details are down below. This is just easier to read.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /*
+   * recommend
+   * Using function declarations
+   * and bindable members up top.
+   */
+  function Avengers(dataservice, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.getAvengers = getAvengers;
+      vm.title = &#39;Avengers&#39;;
+
+      activate();
+
+      function activate() {
+          return getAvengers().then(function() {
+              logger.info(&#39;Activated Avengers View&#39;);
+          });
+      }
+
+      function getAvengers() {
+          return dataservice.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;defer-controller-logic:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Defer Controller Logic&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y035-style-y035:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y035&#34;&gt;Y035&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Defer logic in a controller by delegating to services and factories.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Logic may be reused by multiple controllers when placed within a service and exposed via a function.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Logic in a service can more easily be isolated in a unit test, while the calling logic in the controller can be easily mocked.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Removes dependencies and hides implementation details from the controller.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;
+  /* avoid */
+  function Order($http, $q, config, userInfo) {
+      var vm = this;
+      vm.checkCredit = checkCredit;
+      vm.isCreditOk;
+      vm.total = 0;
+
+      function checkCredit() {
+          var settings = {};
+          // Get the credit service base URL from config
+          // Set credit service required headers
+          // Prepare URL query string or data object with request data
+          // Add user-identifying info so service gets the right credit limit for this user.
+          // Use JSONP for this browser if it doesn&#39;t support CORS
+          return $http.get(settings)
+              .then(function(data) {
+               // Unpack JSON data in the response object
+                 // to find maxRemainingAmount
+                 vm.isCreditOk = vm.total &amp;lt;= maxRemainingAmount
+              })
+              .catch(function(error) {
+                 // Interpret error
+                 // Cope w/ timeout? retry? try alternate service?
+                 // Re-reject with appropriate error for a user to see
+              });
+      };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function Order(creditService) {
+      var vm = this;
+      vm.checkCredit = checkCredit;
+      vm.isCreditOk;
+      vm.total = 0;
+
+      function checkCredit() {
+         return creditService.isOrderTotalOk(vm.total)
+      .then(function(isOk) { vm.isCreditOk = isOk; })
+            .catch(showServiceError);
+      };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;keep-controllers-focused:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Keep Controllers Focused&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y037-style-y037:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y037&#34;&gt;Y037&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Define a controller for a view, and try not to reuse the controller for other views. Instead, move reusable logic to factories and keep the controller simple and focused on its view.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Reusing controllers with several views is brittle and good end to end (e2e) test coverage is required to ensure stability across large applications.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;assigning-controllers:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;Assigning Controllers&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y038-style-y038:568eb592fd969d4a574c5d9eabbcb4c8&#34;&gt;[Style &lt;a href=&#34;#style-y038&#34;&gt;Y038&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When a controller must be paired with a view and either component may be re-used by other controllers or views, define controllers along with their routes.&lt;/p&gt;
+
+&lt;p&gt;Note: If a View is loaded via another means besides a route, then use the &lt;code&gt;ng-controller=&amp;quot;Avengers as vm&amp;quot;&lt;/code&gt; syntax.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Pairing the controller in the route allows different routes to invoke different pairs of controllers and views. When controllers are assigned in the view using &lt;a href=&#34;https://docs.angularjs.org/api/ng/directive/ngController&#34;&gt;&lt;code&gt;ng-controller&lt;/code&gt;&lt;/a&gt;, that view is always associated with the same controller.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid - when using with a route and dynamic pairing is desired */
+
+  // route-config.js
+  angular
+      .module(&#39;app&#39;)
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when(&#39;/avengers&#39;, {
+            templateUrl: &#39;avengers.html&#39;
+          });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- avengers.html --&amp;gt;
+  &amp;lt;div ng-controller=&amp;quot;Avengers as vm&amp;quot;&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // route-config.js
+  angular
+      .module(&#39;app&#39;)
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when(&#39;/avengers&#39;, {
+              templateUrl: &#39;avengers.html&#39;,
+              controller: &#39;Avengers&#39;,
+              controllerAs: &#39;vm&#39;
+          });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- avengers.html --&amp;gt;
+  &amp;lt;div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Services</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/services/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/services/</guid>
+      <description>
+
+&lt;h2 id=&#34;services:bfc9941b6b6fd7b4ef09dd0ccd08af0c&#34;&gt;Services&lt;/h2&gt;
+
+&lt;h3 id=&#34;singletons:bfc9941b6b6fd7b4ef09dd0ccd08af0c&#34;&gt;Singletons&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y040-style-y040:bfc9941b6b6fd7b4ef09dd0ccd08af0c&#34;&gt;[Style &lt;a href=&#34;#style-y040&#34;&gt;Y040&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Services are instantiated with the &lt;code&gt;new&lt;/code&gt; keyword, use &lt;code&gt;this&lt;/code&gt; for public methods and variables. Since these are so similar to factories, use a factory instead for consistency.&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;a href=&#34;https://docs.angularjs.org/guide/services&#34;&gt;All AngularJS services are singletons&lt;/a&gt;. This means that there is only one instance of a given service per injector.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  // service
+  angular
+      .module(&#39;app&#39;)
+      .service(&#39;logger&#39;, logger);
+
+  function logger() {
+    this.logError = function(msg) {
+      /* */
+    };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  // factory
+  angular
+      .module(&#39;app&#39;)
+      .factory(&#39;logger&#39;, logger);
+
+  function logger() {
+      return {
+          logError: function(msg) {
+            /* */
+          }
+     };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Factories</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/factories/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/factories/</guid>
+      <description>
+
+&lt;h2 id=&#34;factories:e68af2583090c5deac447f5192808890&#34;&gt;Factories&lt;/h2&gt;
+
+&lt;h3 id=&#34;single-responsibility:e68af2583090c5deac447f5192808890&#34;&gt;Single Responsibility&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y050-style-y050:e68af2583090c5deac447f5192808890&#34;&gt;[Style &lt;a href=&#34;#style-y050&#34;&gt;Y050&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Factories should have a &lt;a href=&#34;http://en.wikipedia.org/wiki/Single_responsibility_principle&#34;&gt;single responsibility&lt;/a&gt;, that is encapsulated by its context. Once a factory begins to exceed that singular purpose, a new factory should be created.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;singletons:e68af2583090c5deac447f5192808890&#34;&gt;Singletons&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y051-style-y051:e68af2583090c5deac447f5192808890&#34;&gt;[Style &lt;a href=&#34;#style-y051&#34;&gt;Y051&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Factories are singletons and return an object that contains the members of the service.&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;a href=&#34;https://docs.angularjs.org/guide/services&#34;&gt;All AngularJS services are singletons&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;accessible-members-up-top:e68af2583090c5deac447f5192808890&#34;&gt;Accessible Members Up Top&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y052-style-y052:e68af2583090c5deac447f5192808890&#34;&gt;[Style &lt;a href=&#34;#style-y052&#34;&gt;Y052&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Expose the callable members of the service (it&amp;rsquo;s interface) at the top, using a technique derived from the &lt;a href=&#34;http://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript&#34;&gt;Revealing Module Pattern&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing the callable members at the top makes it easy to read and helps you instantly identify which members of the service can be called and must be unit tested (and/or mocked).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This is especially helpful when the file gets longer as it helps avoid the need to scroll to see what is exposed.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Setting functions as you go can be easy, but when those functions are more than 1 line of code they can reduce the readability and cause more scrolling. Defining the callable interface via the returned service moves the implementation details down, keeps the callable interface up top, and makes it easier to read.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function dataService() {
+    var someValue = &#39;&#39;;
+    function save() {
+      /* */
+    };
+    function validate() {
+      /* */
+    };
+
+    return {
+        save: save,
+        someValue: someValue,
+        validate: validate
+    };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function dataService() {
+      var someValue = &#39;&#39;;
+      var service = {
+          save: save,
+          someValue: someValue,
+          validate: validate
+      };
+      return service;
+
+      ////////////
+
+      function save() {
+          /* */
+      };
+
+      function validate() {
+          /* */
+      };
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This way bindings are mirrored across the host object, primitive values cannot update alone using the revealing module pattern&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/above-the-fold-2.png&#34; alt=&#34;Factories Using &amp;quot;Above the Fold&amp;quot;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&#34;function-declarations-to-hide-implementation-details:e68af2583090c5deac447f5192808890&#34;&gt;Function Declarations to Hide Implementation Details&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y053-style-y053:e68af2583090c5deac447f5192808890&#34;&gt;[Style &lt;a href=&#34;#style-y053&#34;&gt;Y053&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use function declarations to hide implementation details. Keep your accessible members of the factory up top. Point those to function declarations that appears later in the file. For more details see &lt;a href=&#34;http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code&#34;&gt;this post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing accessible members at the top makes it easy to read and helps you instantly identify which functions of the factory you can access externally.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Function declaration are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: You never have to worry with function declarations that moving &lt;code&gt;var a&lt;/code&gt; before &lt;code&gt;var b&lt;/code&gt; will break your code because &lt;code&gt;a&lt;/code&gt; depends on &lt;code&gt;b&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Order is critical with function expressions&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * avoid
+   * Using function expressions
+   */
+   function dataservice($http, $location, $q, exception, logger) {
+      var isPrimed = false;
+      var primePromise;
+
+      var getAvengers = function() {
+          // implementation details go here
+      };
+
+      var getAvengerCount = function() {
+          // implementation details go here
+      };
+
+      var getAvengersCast = function() {
+         // implementation details go here
+      };
+
+      var prime = function() {
+         // implementation details go here
+      };
+
+      var ready = function(nextPromises) {
+          // implementation details go here
+      };
+
+      var service = {
+          getAvengersCast: getAvengersCast,
+          getAvengerCount: getAvengerCount,
+          getAvengers: getAvengers,
+          ready: ready
+      };
+
+      return service;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /**
+   * recommended
+   * Using function declarations
+   * and accessible members up top.
+   */
+  function dataservice($http, $location, $q, exception, logger) {
+      var isPrimed = false;
+      var primePromise;
+
+      var service = {
+          getAvengersCast: getAvengersCast,
+          getAvengerCount: getAvengerCount,
+          getAvengers: getAvengers,
+          ready: ready
+      };
+
+      return service;
+
+      ////////////
+
+      function getAvengers() {
+          // implementation details go here
+      }
+
+      function getAvengerCount() {
+          // implementation details go here
+      }
+
+      function getAvengersCast() {
+          // implementation details go here
+      }
+
+      function prime() {
+          // implementation details go here
+      }
+
+      function ready(nextPromises) {
+          // implementation details go here
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Data Services</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/data-services/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/data-services/</guid>
+      <description>
+
+&lt;h2 id=&#34;data-services:c23b254274d58492f0e9fb923dcd3cfc&#34;&gt;Data Services&lt;/h2&gt;
+
+&lt;h3 id=&#34;separate-data-calls:c23b254274d58492f0e9fb923dcd3cfc&#34;&gt;Separate Data Calls&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y060-style-y060:c23b254274d58492f0e9fb923dcd3cfc&#34;&gt;[Style &lt;a href=&#34;#style-y060&#34;&gt;Y060&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Refactor logic for making data operations and interacting with data to a factory. Make data services responsible for XHR calls, local storage, stashing in memory, or any other data operations.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The controller&amp;rsquo;s responsibility is for the presentation and gathering of information for the view. It should not care how it gets the data, just that it knows who to ask for it. Separating the data services moves the logic on how to get it to the data service, and lets the controller be simpler and more focused on the view.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This makes it easier to test (mock or real) the data calls when testing a controller that uses a data service.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Data service implementation may have very specific code to handle the data repository. This may include headers, how to talk to the data, or other services such as $http. Separating the logic into a data service encapsulates this logic in a single place hiding the implementation from the outside consumers (perhaps a controller), also making it easier to change the implementation.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // dataservice factory
+  angular
+      .module(&#39;app.core&#39;)
+      .factory(&#39;dataservice&#39;, dataservice);
+
+  dataservice.$inject = [&#39;$http&#39;, &#39;logger&#39;];
+
+  function dataservice($http, logger) {
+      return {
+          getAvengers: getAvengers
+      };
+
+      function getAvengers() {
+          return $http.get(&#39;/api/maa&#39;)
+              .then(getAvengersComplete)
+              .catch(getAvengersFailed);
+
+          function getAvengersComplete(response) {
+              return response.data.results;
+          }
+
+          function getAvengersFailed(error) {
+              logger.error(&#39;XHR Failed for getAvengers.&#39; + error.data);
+          }
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Note: The data service is called from consumers, such as a controller, hiding the implementation from the consumers, as shown below.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  // controller calling the dataservice factory
+  angular
+      .module(&#39;app.avengers&#39;)
+      .controller(&#39;Avengers&#39;, Avengers);
+
+  Avengers.$inject = [&#39;dataservice&#39;, &#39;logger&#39;];
+
+  function Avengers(dataservice, logger) {
+      var vm = this;
+      vm.avengers = [];
+
+      activate();
+
+      function activate() {
+          return getAvengers().then(function() {
+              logger.info(&#39;Activated Avengers View&#39;);
+          });
+      }
+
+      function getAvengers() {
+          return dataservice.getAvengers()
+              .then(function(data) {
+                  vm.avengers = data;
+                  return vm.avengers;
+              });
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;return-a-promise-from-data-calls:c23b254274d58492f0e9fb923dcd3cfc&#34;&gt;Return a Promise from Data Calls&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y061-style-y061:c23b254274d58492f0e9fb923dcd3cfc&#34;&gt;[Style &lt;a href=&#34;#style-y061&#34;&gt;Y061&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When calling a data service that returns a promise such as $http, return a promise in your calling function too.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: You can chain the promises together and take further action after the data call completes and resolves or rejects the promise.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+
+  activate();
+
+  function activate() {
+      /**
+       * Step 1
+       * Ask the getAvengers function for the
+       * avenger data and wait for the promise
+       */
+      return getAvengers().then(function() {
+          /**
+           * Step 4
+           * Perform an action on resolve of final promise
+           */
+          logger.info(&#39;Activated Avengers View&#39;);
+      });
+  }
+
+  function getAvengers() {
+        /**
+         * Step 2
+         * Ask the data service for the data and wait
+         * for the promise
+         */
+        return dataservice.getAvengers()
+            .then(function(data) {
+                /**
+                 * Step 3
+                 * set the data and resolve the promise
+                 */
+                vm.avengers = data;
+                return vm.avengers;
+        });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Directives</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/directives/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/directives/</guid>
+      <description>
+
+&lt;h2 id=&#34;directives:a3dfdd458318385288a3855f48586dfe&#34;&gt;Directives&lt;/h2&gt;
+
+&lt;h3 id=&#34;limit-1-per-file:a3dfdd458318385288a3855f48586dfe&#34;&gt;Limit 1 Per File&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y070-style-y070:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y070&#34;&gt;Y070&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create one directive per file. Name the file for the directive.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: It is easy to mash all the directives in one file, but difficult to then break those out so some are shared across apps, some across modules, some just for one module.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: One directive per file is easy to maintain.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  /* directives.js */
+
+  angular
+      .module(&#39;app.widgets&#39;)
+
+      /* order directive that is specific to the order module */
+      .directive(&#39;orderCalendarRange&#39;, orderCalendarRange)
+
+      /* sales directive that can be used anywhere across the sales app */
+      .directive(&#39;salesCustomerInfo&#39;, salesCustomerInfo)
+
+      /* spinner directive that can be used anywhere across apps */
+      .directive(&#39;sharedSpinner&#39;, sharedSpinner);
+
+  function orderCalendarRange() {
+      /* implementation details */
+  }
+
+  function salesCustomerInfo() {
+      /* implementation details */
+  }
+
+  function sharedSpinner() {
+      /* implementation details */
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  /* calendarRange.directive.js */
+
+  /**
+   * @desc order directive that is specific to the order module at a company named Acme
+   * @example &amp;lt;div acme-order-calendar-range&amp;gt;&amp;lt;/div&amp;gt;
+   */
+  angular
+      .module(&#39;sales.order&#39;)
+      .directive(&#39;acmeOrderCalendarRange&#39;, orderCalendarRange);
+
+  function orderCalendarRange() {
+      /* implementation details */
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  /* customerInfo.directive.js */
+
+  /**
+   * @desc spinner directive that can be used anywhere across the sales app at a company named Acme
+   * @example &amp;lt;div acme-sales-customer-info&amp;gt;&amp;lt;/div&amp;gt;
+   */
+  angular
+      .module(&#39;sales.widgets&#39;)
+      .directive(&#39;acmeSalesCustomerInfo&#39;, salesCustomerInfo);
+
+  function salesCustomerInfo() {
+      /* implementation details */
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  /* spinner.directive.js */
+
+  /**
+   * @desc spinner directive that can be used anywhere across apps at a company named Acme
+   * @example &amp;lt;div acme-shared-spinner&amp;gt;&amp;lt;/div&amp;gt;
+   */
+  angular
+      .module(&#39;shared.widgets&#39;)
+      .directive(&#39;acmeSharedSpinner&#39;, sharedSpinner);
+
+  function sharedSpinner() {
+      /* implementation details */
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Note: There are many naming options for directives, especially since they can be used in narrow or wide scopes. Choose one that makes the directive and it&#39;s file name distinct and clear. Some examples are below, but see the naming section for more recommendations.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;manipulate-dom-in-a-directive:a3dfdd458318385288a3855f48586dfe&#34;&gt;Manipulate DOM in a Directive&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y072-style-y072:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y072&#34;&gt;Y072&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When manipulating the DOM directly, use a directive. If alternative ways can be used such as using CSS to set styles or the &lt;a href=&#34;https://docs.angularjs.org/api/ngAnimate&#34;&gt;animation services&lt;/a&gt;, Angular templating, &lt;a href=&#34;https://docs.angularjs.org/api/ng/directive/ngShow&#34;&gt;&lt;code&gt;ngShow&lt;/code&gt;&lt;/a&gt; or &lt;a href=&#34;https://docs.angularjs.org/api/ng/directive/ngHide&#34;&gt;&lt;code&gt;ngHide&lt;/code&gt;&lt;/a&gt;, then use those instead. For example, if the directive simply hides and shows, use ngHide/ngShow.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: DOM manipulation can be difficult to test, debug, and there are often better ways (e.g. CSS, animations, templates)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;provide-a-unique-directive-prefix:a3dfdd458318385288a3855f48586dfe&#34;&gt;Provide a Unique Directive Prefix&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y073-style-y073:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y073&#34;&gt;Y073&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Provide a short, unique and descriptive directive prefix such as &lt;code&gt;acmeSalesCustomerInfo&lt;/code&gt; which is declared in HTML as &lt;code&gt;acme-sales-customer-info&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The unique short prefix identifies the directive&amp;rsquo;s context and origin. For example a prefix of &lt;code&gt;cc-&lt;/code&gt; may indicate that the directive is part of a CodeCamper app while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme company.&lt;/p&gt;
+
+&lt;p&gt;Note: Avoid &lt;code&gt;ng-&lt;/code&gt; as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as &lt;code&gt;ion-&lt;/code&gt; for the &lt;a href=&#34;http://ionicframework.com/&#34;&gt;Ionic Framework&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;restrict-to-elements-and-attributes:a3dfdd458318385288a3855f48586dfe&#34;&gt;Restrict to Elements and Attributes&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y074-style-y074:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y074&#34;&gt;Y074&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When creating a directive that makes sense as a stand-alone element, allow restrict &lt;code&gt;E&lt;/code&gt; (custom element) and optionally restrict &lt;code&gt;A&lt;/code&gt; (custom attribute). Generally, if it could be its own control, &lt;code&gt;E&lt;/code&gt; is appropriate. General guideline is allow &lt;code&gt;EA&lt;/code&gt; but lean towards implementing as an element when its stand-alone and as an attribute when it enhances its existing DOM element.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: It makes sense.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: While we can allow the directive to be used as a class, if the directive is truly acting as an element it makes more sense as an element or at least as an attribute.&lt;/p&gt;
+
+&lt;p&gt;Note: EA is the default for AngularJS 1.3 +&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- avoid --&amp;gt;
+  &amp;lt;div class=&amp;quot;my-calendar-range&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  angular
+      .module(&#39;app.widgets&#39;)
+      .directive(&#39;myCalendarRange&#39;, myCalendarRange);
+
+  function myCalendarRange() {
+      var directive = {
+          link: link,
+          templateUrl: &#39;/template/is/located/here.html&#39;,
+          restrict: &#39;C&#39;
+      };
+      return directive;
+
+      function link(scope, element, attrs) {
+        /* */
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- recommended --&amp;gt;
+  &amp;lt;my-calendar-range&amp;gt;&amp;lt;/my-calendar-range&amp;gt;
+  &amp;lt;div my-calendar-range&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  angular
+      .module(&#39;app.widgets&#39;)
+      .directive(&#39;myCalendarRange&#39;, myCalendarRange);
+
+  function myCalendarRange() {
+      var directive = {
+          link: link,
+          templateUrl: &#39;/template/is/located/here.html&#39;,
+          restrict: &#39;EA&#39;
+      };
+      return directive;
+
+      function link(scope, element, attrs) {
+        /* */
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;directives-and-controlleras:a3dfdd458318385288a3855f48586dfe&#34;&gt;Directives and ControllerAs&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y075-style-y075:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y075&#34;&gt;Y075&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;code&gt;controller as&lt;/code&gt; syntax with a directive to be consistent with using &lt;code&gt;controller as&lt;/code&gt; with view and controller pairings.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: It makes sense and it&amp;rsquo;s not difficult.&lt;/p&gt;
+
+&lt;p&gt;Note: The directive below demonstrates some of the ways you can use scope inside of link and directive controllers, using controllerAs. I in-lined the template just to keep it all in one place.&lt;/p&gt;
+
+&lt;p&gt;Note: Regarding dependency injection, see &lt;a href=&#34;#manual-annotating-for-dependency-injection&#34;&gt;Manually Identify Dependencies&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: Note that the directive&amp;rsquo;s controller is outside the directive&amp;rsquo;s closure. This style eliminates issues where the injection gets created as unreachable code after a &lt;code&gt;return&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;div my-example max=&amp;quot;77&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  angular
+      .module(&#39;app&#39;)
+      .directive(&#39;myExample&#39;, myExample);
+
+  function myExample() {
+      var directive = {
+          restrict: &#39;EA&#39;,
+          templateUrl: &#39;app/feature/example.directive.html&#39;,
+          scope: {
+              max: &#39;=&#39;
+          },
+          link: linkFunc,
+          controller: ExampleController,
+            controllerAs: &#39;vm&#39;,
+            bindToController: true // because the scope is isolated
+        };
+
+      return directive;
+
+      function linkFunc(scope, el, attr, ctrl) {
+          console.log(&#39;LINK: scope.min = %s *** should be undefined&#39;, scope.min);
+          console.log(&#39;LINK: scope.max = %s *** should be undefined&#39;, scope.max);
+          console.log(&#39;LINK: scope.vm.min = %s&#39;, scope.vm.min);
+          console.log(&#39;LINK: scope.vm.max = %s&#39;, scope.vm.max);
+      }
+  }
+
+  ExampleController.$inject = [&#39;$scope&#39;];
+
+  function ExampleController($scope) {
+      // Injecting $scope just for comparison
+      var vm = this;
+
+      vm.min = 3;
+
+      console.log(&#39;CTRL: $scope.vm.min = %s&#39;, $scope.vm.min);
+      console.log(&#39;CTRL: $scope.vm.max = %s&#39;, $scope.vm.max);
+      console.log(&#39;CTRL: vm.min = %s&#39;, vm.min);
+      console.log(&#39;CTRL: vm.max = %s&#39;, vm.max);
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- example.directive.html --&amp;gt;
+  &amp;lt;div&amp;gt;hello world&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;max={{vm.max}}&amp;lt;input ng-model=&amp;quot;vm.max&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;min={{vm.min}}&amp;lt;input ng-model=&amp;quot;vm.min&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;style-y076-style-y076:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y076&#34;&gt;Y076&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;code&gt;bindToController = true&lt;/code&gt; when using &lt;code&gt;controller as&lt;/code&gt; syntax with a directive when you want to bind the outer scope to the directive&amp;rsquo;s controller&amp;rsquo;s scope.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: It makes it easy to bind outer scope to the directive&amp;rsquo;s controller scope.&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;code&gt;bindToController&lt;/code&gt; was introduced in Angular 1.3.0.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;div my-example max=&amp;quot;77&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  angular
+      .module(&#39;app&#39;)
+      .directive(&#39;myExample&#39;, myExample);
+
+  function myExample() {
+      var directive = {
+          restrict: &#39;EA&#39;,
+          templateUrl: &#39;app/feature/example.directive.html&#39;,
+          scope: {
+              max: &#39;=&#39;
+          },
+          controller: ExampleController,
+            controllerAs: &#39;vm&#39;,
+            bindToController: true
+        };
+
+      return directive;
+  }
+
+  function ExampleController() {
+      var vm = this;
+      vm.min = 3;
+      console.log(&#39;CTRL: vm.min = %s&#39;, vm.min);
+      console.log(&#39;CTRL: vm.max = %s&#39;, vm.max);
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;!-- example.directive.html --&amp;gt;
+  &amp;lt;div&amp;gt;hello world&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;max={{vm.max}}&amp;lt;input ng-model=&amp;quot;vm.max&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;min={{vm.min}}&amp;lt;input ng-model=&amp;quot;vm.min&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Resolving Promises for a Controller</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/</guid>
+      <description>
+
+&lt;h2 id=&#34;resolving-promises-for-a-controller:6acf9722f6fb9433d34f04902026e052&#34;&gt;Resolving Promises for a Controller&lt;/h2&gt;
+
+&lt;h3 id=&#34;controller-activation-promises:6acf9722f6fb9433d34f04902026e052&#34;&gt;Controller Activation Promises&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y080-style-y080:6acf9722f6fb9433d34f04902026e052&#34;&gt;[Style &lt;a href=&#34;#style-y080&#34;&gt;Y080&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Resolve start-up logic for a controller in an &lt;code&gt;activate&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Placing start-up logic in a consistent place in the controller makes it easier to locate, more consistent to test, and helps avoid spreading out the activation logic across the controller.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The controller &lt;code&gt;activate&lt;/code&gt; makes it convenient to re-use the logic for a refresh for the controller/View, keeps the logic together, gets the user to the View faster, makes animations easy on the &lt;code&gt;ng-view&lt;/code&gt; or &lt;code&gt;ui-view&lt;/code&gt;, and feels snappier to the user.&lt;/p&gt;
+
+&lt;p&gt;Note: If you need to conditionally cancel the route before you start use the controller, use a &lt;a href=&#34;#style-y081&#34;&gt;route resolve&lt;/a&gt; instead.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  function Avengers(dataservice) {
+      var vm = this;
+      vm.avengers = [];
+      vm.title = &#39;Avengers&#39;;
+
+      dataservice.getAvengers().then(function(data) {
+          vm.avengers = data;
+          return vm.avengers;
+      });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* recommended */
+  function Avengers(dataservice) {
+      var vm = this;
+      vm.avengers = [];
+      vm.title = &#39;Avengers&#39;;
+
+      activate();
+
+      ////////////
+
+      function activate() {
+          return dataservice.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;route-resolve-promises:6acf9722f6fb9433d34f04902026e052&#34;&gt;Route Resolve Promises&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y081-style-y081:6acf9722f6fb9433d34f04902026e052&#34;&gt;[Style &lt;a href=&#34;#style-y081&#34;&gt;Y081&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When a controller depends on a promise to be resolved before the controller is activated, resolve those dependencies in the &lt;code&gt;$routeProvider&lt;/code&gt; before the controller logic is executed. If you need to conditionally cancel a route before the controller is activated, use a route resolver.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use a route resolve when you want to decide to cancel the route before ever transitioning to the View.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: A controller may require data before it loads. That data may come from a promise via a custom factory or &lt;a href=&#34;https://docs.angularjs.org/api/ng/service/$http&#34;&gt;$http&lt;/a&gt;. Using a &lt;a href=&#34;https://docs.angularjs.org/api/ngRoute/provider/$routeProvider&#34;&gt;route resolve&lt;/a&gt; allows the promise to resolve before the controller logic executes, so it might take action based on that data from the promise.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The code executes after the route and in the controller’s activate function. The View starts to load right away. Data binding kicks in when the activate promise resolves. A “busy” animation can be shown during the view transition (via ng-view or ui-view)&lt;/p&gt;
+
+&lt;p&gt;Note: The code executes before the route via a promise. Rejecting the promise cancels the route. Resolve makes the new view wait for the route to resolve. A “busy” animation can be shown before the resolve and through the view transition. If you want to get to the View faster and do not require a checkpoint to decide if you can get to the View, consider the &lt;a href=&#34;#style-y080&#34;&gt;controller &lt;code&gt;activate&lt;/code&gt; technique&lt;/a&gt; instead.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* avoid */
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;Avengers&#39;, Avengers);
+
+  function Avengers(movieService) {
+      var vm = this;
+      // unresolved
+      vm.movies;
+      // resolved asynchronously
+      movieService.getMovies().then(function(response) {
+          vm.movies = response.movies;
+      });
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* better */
+
+  // route-config.js
+  angular
+      .module(&#39;app&#39;)
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when(&#39;/avengers&#39;, {
+              templateUrl: &#39;avengers.html&#39;,
+              controller: &#39;Avengers&#39;,
+              controllerAs: &#39;vm&#39;,
+              resolve: {
+                  moviesPrepService: function(movieService) {
+                      return movieService.getMovies();
+                  }
+              }
+          });
+  }
+
+  // avengers.js
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;Avengers&#39;, Avengers);
+
+  Avengers.$inject = [&#39;moviesPrepService&#39;];
+  function Avengers(moviesPrepService) {
+        var vm = this;
+        vm.movies = moviesPrepService.movies;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Note: The example below shows the route resolve points to a named function, which is easier to debug and easier to handle dependency injection.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;  /* even better */
+
+  // route-config.js
+  angular
+      .module(&#39;app&#39;)
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when(&#39;/avengers&#39;, {
+              templateUrl: &#39;avengers.html&#39;,
+              controller: &#39;Avengers&#39;,
+              controllerAs: &#39;vm&#39;,
+              resolve: {
+                  moviesPrepService: moviesPrepService
+              }
+          });
+  }
+
+  function moviePrepService(movieService) {
+      return movieService.getMovies();
+  }
+
+  // avengers.js
+  angular
+      .module(&#39;app&#39;)
+      .controller(&#39;Avengers&#39;, Avengers);
+
+  Avengers.$inject = [&#39;moviesPrepService&#39;];
+  function Avengers(moviesPrepService) {
+        var vm = this;
+        vm.movies = moviesPrepService.movies;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Note: The code example&#39;s dependency on `movieService` is not minification safe on its own. For details on how to make this code minification safe, see the sections on [dependency injection](#manual-annotating-for-dependency-injection) and on [minification and annotation](#minification-and-annotation).
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Manual Annotating for Dependency Injection</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/</guid>
+      <description>
+
+&lt;h2 id=&#34;manual-annotating-for-dependency-injection:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;Manual Annotating for Dependency Injection&lt;/h2&gt;
+
+&lt;h3 id=&#34;unsafe-from-minification:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;UnSafe from Minification&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y090-style-y090:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;[Style &lt;a href=&#34;#style-y090&#34;&gt;Y090&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Avoid using the shortcut syntax of declaring dependencies without using a minification-safe approach.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The parameters to the component (e.g. controller, factory, etc) will be converted to mangled variables. For example, &lt;code&gt;common&lt;/code&gt; and &lt;code&gt;dataservice&lt;/code&gt; may become &lt;code&gt;a&lt;/code&gt; or &lt;code&gt;b&lt;/code&gt; and not be found by AngularJS.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* avoid - not minification-safe*/
+angular
+    .module(&#39;app&#39;)
+    .controller(&#39;Dashboard&#39;, Dashboard);
+
+
+function Dashboard(common, dataservice) {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code may produce mangled variables when minified and thus cause runtime errors.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* avoid - not minification-safe*/
+angular.module(&#39;app&#39;).controller(&#39;Dashboard&#39;, d);function d(a, b) { }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;manually-identify-dependencies:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;Manually Identify Dependencies&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y091-style-y091:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;[Style &lt;a href=&#34;#style-y091&#34;&gt;Y091&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;code&gt;$inject&lt;/code&gt; to manually identify your dependencies for AngularJS components.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This technique mirrors the technique used by &lt;a href=&#34;https://github.com/olov/ng-annotate&#34;&gt;&lt;code&gt;ng-annotate&lt;/code&gt;&lt;/a&gt;, which I recommend for automating the creation of minification safe dependencies. If &lt;code&gt;ng-annotate&lt;/code&gt; detects injection has already been made, it will not duplicate it.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This safeguards your dependencies from being vulnerable to minification issues when parameters may be mangled. For example, &lt;code&gt;common&lt;/code&gt; and &lt;code&gt;dataservice&lt;/code&gt; may become &lt;code&gt;a&lt;/code&gt; or &lt;code&gt;b&lt;/code&gt; and not be found by AngularJS.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Avoid creating in-line dependencies as long lists can be difficult to read in the array. Also it can be confusing that the array is a series of strings while the last item is the component&amp;rsquo;s function.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* avoid */
+angular
+    .module(&#39;app&#39;)
+    .controller(&#39;Dashboard&#39;,
+        [&#39;$location&#39;, &#39;$routeParams&#39;, &#39;common&#39;, &#39;dataservice&#39;,
+            function Dashboard($location, $routeParams, common, dataservice) {}
+        ]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* avoid */
+angular
+  .module(&#39;app&#39;)
+  .controller(&#39;Dashboard&#39;,
+      [&#39;$location&#39;, &#39;$routeParams&#39;, &#39;common&#39;, &#39;dataservice&#39;, Dashboard]);
+
+
+function Dashboard($location, $routeParams, common, dataservice) {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* recommended */
+angular
+    .module(&#39;app&#39;)
+    .controller(&#39;Dashboard&#39;, Dashboard);
+
+
+Dashboard.$inject = [&#39;$location&#39;, &#39;$routeParams&#39;, &#39;common&#39;, &#39;dataservice&#39;];
+
+
+function Dashboard($location, $routeParams, common, dataservice) {
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: When your function is below a return statement the $inject may be unreachable (this may happen in a directive). You can solve this by either moving the $inject above the return statement or by using the alternate array injection syntax.&lt;/p&gt;
+
+&lt;p&gt;Note: &lt;a href=&#34;https://github.com/olov/ng-annotate&#34;&gt;&lt;code&gt;ng-annotate 0.10.0&lt;/code&gt;&lt;/a&gt; introduced a feature where it moves the &lt;code&gt;$inject&lt;/code&gt; to where it is reachable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// inside a directive definition
+function outer() {
+    return {
+        controller: DashboardPanel,
+    };
+
+
+    DashboardPanel.$inject = [&#39;logger&#39;]; // Unreachable
+    function DashboardPanel(logger) {
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// inside a directive definition
+function outer() {
+    DashboardPanel.$inject = [&#39;logger&#39;]; // reachable
+    return {
+        controller: DashboardPanel,
+    };
+
+
+    function DashboardPanel(logger) {
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;manually-identify-route-resolver-dependencies:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;Manually Identify Route Resolver Dependencies&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y092-style-y092:2d3c2d03ce54024db0a4c5fcedbbe16c&#34;&gt;[Style &lt;a href=&#34;#style-y092&#34;&gt;Y092&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use $inject to manually identify your route resolver dependencies for AngularJS components.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This technique breaks out the anonymous function for the route resolver, making it easier to read.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: An &lt;code&gt;$inject&lt;/code&gt; statement can easily precede the resolver to handle making any dependencies minification safe.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* recommended */
+function config($routeProvider) {
+    $routeProvider
+        .when(&#39;/avengers&#39;, {
+            templateUrl: &#39;avengers.html&#39;,
+            controller: &#39;Avengers&#39;,
+            controllerAs: &#39;vm&#39;,
+            resolve: {
+                moviesPrepService: moviePrepService
+            }
+        });
+}
+
+
+moviePrepService.$inject = [&#39;movieService&#39;];
+function moviePrepService(movieService) {
+    return movieService.getMovies();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Minification and Annotation</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/</guid>
+      <description>
+
+&lt;h2 id=&#34;minification-and-annotation:5013387ba4e246539fabf170763b5f2e&#34;&gt;Minification and Annotation&lt;/h2&gt;
+
+&lt;h3 id=&#34;ng-annotate:5013387ba4e246539fabf170763b5f2e&#34;&gt;ng-annotate&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y100-style-y100:5013387ba4e246539fabf170763b5f2e&#34;&gt;[Style &lt;a href=&#34;#style-y100&#34;&gt;Y100&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;a href=&#34;//github.com/olov/ng-annotate&#34;&gt;ng-annotate&lt;/a&gt; for &lt;a href=&#34;http://gulpjs.com&#34;&gt;Gulp&lt;/a&gt; or &lt;a href=&#34;http://gruntjs.com&#34;&gt;Grunt&lt;/a&gt; and comment functions that need automated dependency injection using &lt;code&gt;/** @ngInject */&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: This safeguards your code from any dependencies that may not be using minification-safe practices.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: &lt;a href=&#34;https://github.com/btford/ngmin&#34;&gt;&lt;code&gt;ng-min&lt;/code&gt;&lt;/a&gt; is deprecated&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I prefer Gulp as I feel it is easier to write, to read, and to debug.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The following code is not using minification safe dependencies.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular
+    .module(&#39;app&#39;)
+    .controller(&#39;Avengers&#39;, Avengers);
+
+
+/* @ngInject */
+function Avengers(storageService, avengerService) {
+    var vm = this;
+    vm.heroSearch = &#39;&#39;;
+    vm.storeHero = storeHero;
+
+
+    function storeHero() {
+        var hero = avengerService.find(vm.heroSearch);
+        storageService.save(hero.name, hero);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When the above code is run through ng-annotate it will produce the following output with the &lt;code&gt;$inject&lt;/code&gt; annotation and become minification-safe.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;angular
+    .module(&#39;app&#39;)
+    .controller(&#39;Avengers&#39;, Avengers);
+
+
+/* @ngInject */
+function Avengers(storageService, avengerService) {
+    var vm = this;
+    vm.heroSearch = &#39;&#39;;
+    vm.storeHero = storeHero;
+
+
+    function storeHero() {
+        var hero = avengerService.find(vm.heroSearch);
+        storageService.save(hero.name, hero);
+    }
+}
+
+
+Avengers.$inject = [&#39;storageService&#39;, &#39;avengerService&#39;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: If &lt;code&gt;ng-annotate&lt;/code&gt; detects injection has already been made (e.g. &lt;code&gt;@ngInject&lt;/code&gt; was detected), it will not duplicate the &lt;code&gt;$inject&lt;/code&gt; code.&lt;/p&gt;
+
+&lt;p&gt;Note: When using a route resolver you can prefix the resolver&amp;rsquo;s function with &lt;code&gt;/* @ngInject */&lt;/code&gt; and it will produce properly annotated code, keeping any injected dependencies minification safe.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Using @ngInject annotations
+function config($routeProvider) {
+    $routeProvider
+        .when(&#39;/avengers&#39;, {
+            templateUrl: &#39;avengers.html&#39;,
+            controller: &#39;Avengers&#39;,
+            controllerAs: &#39;vm&#39;,
+            resolve: { /* @ngInject */
+                moviesPrepService: function(movieService) {
+                    return movieService.getMovies();
+                }
+            }
+        });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Note: Starting from AngularJS 1.3 use the &lt;a href=&#34;https://docs.angularjs.org/api/ng/directive/ngApp&#34;&gt;&lt;code&gt;ngApp&lt;/code&gt;&lt;/a&gt; directive&amp;rsquo;s &lt;code&gt;ngStrictDi&lt;/code&gt; parameter. When present the injector will be created in &amp;ldquo;strict-di&amp;rdquo; mode causing the application to fail to invoke functions which do not use explicit function annotation (these may not be minification safe). Debugging info will be logged to the console to help track down the offending code.
+&lt;code&gt;&amp;lt;body ng-app=&amp;quot;APP&amp;quot; ng-strict-di&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;use-gulp-or-grunt-for-ng-annotate:5013387ba4e246539fabf170763b5f2e&#34;&gt;Use Gulp or Grunt for ng-annotate&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y101-style-y101:5013387ba4e246539fabf170763b5f2e&#34;&gt;[Style &lt;a href=&#34;#style-y101&#34;&gt;Y101&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;a href=&#34;https://www.npmjs.org/package/gulp-ng-annotate&#34;&gt;gulp-ng-annotate&lt;/a&gt; or &lt;a href=&#34;https://www.npmjs.org/package/grunt-ng-annotate&#34;&gt;grunt-ng-annotate&lt;/a&gt; in an automated build task. Inject &lt;code&gt;/* @ngInject */&lt;/code&gt; prior to any function that has dependencies.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: ng-annotate will catch most dependencies, but it sometimes requires hints using the &lt;code&gt;/* @ngInject */&lt;/code&gt; syntax.&lt;/p&gt;
+
+&lt;p&gt;The following code is an example of a gulp task using ngAnnotate&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;gulp.task(&#39;js&#39;, [&#39;jshint&#39;], function() {
+    var source = pkg.paths.js;
+    return gulp.src(source)
+        .pipe(sourcemaps.init())
+        .pipe(concat(&#39;all.min.js&#39;, {newLine: &#39;;&#39;}))
+        // Annotate before uglify so the code get&#39;s min&#39;d properly.
+        .pipe(ngAnnotate({
+            // true helps add where @ngInject is not used. It infers.
+            // Doesn&#39;t work with resolve, so we must be explicit there
+            add: true
+        }))
+        .pipe(bytediff.start())
+        .pipe(uglify({mangle: true}))
+        .pipe(bytediff.stop())
+        .pipe(sourcemaps.write(&#39;./&#39;))
+        .pipe(gulp.dest(pkg.paths.dev));
+});
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Exception Handling</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/exception-handling/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/exception-handling/</guid>
+      <description>
+
+&lt;h2 id=&#34;exception-handling:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;Exception Handling&lt;/h2&gt;
+
+&lt;h3 id=&#34;decorators:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;decorators&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y110-style-y110:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;[Style &lt;a href=&#34;#style-y110&#34;&gt;Y110&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use a &lt;a href=&#34;https://docs.angularjs.org/api/auto/service/$provide#decorator&#34;&gt;decorator&lt;/a&gt;, at config time using the &lt;a href=&#34;https://docs.angularjs.org/api/auto/service/$provide&#34;&gt;&lt;code&gt;$provide&lt;/code&gt;&lt;/a&gt; service, on the &lt;a href=&#34;https://docs.angularjs.org/api/ng/service/$exceptionHandler&#34;&gt;&lt;code&gt;$exceptionHandler&lt;/code&gt;&lt;/a&gt; service to perform custom actions when exceptions occur.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to handle uncaught AngularJS exceptions for development-time or run-time.&lt;/p&gt;
+
+&lt;p&gt;Note: Another option is to override the service instead of using a decorator. This is a fine option, but if you want to keep the default behavior and extend it a decorator is recommended.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* recommended */
+angular
+    .module(&#39;blocks.exception&#39;)
+    .config(exceptionConfig);
+
+
+exceptionConfig.$inject = [&#39;$provide&#39;];
+
+
+function exceptionConfig($provide) {
+    $provide.decorator(&#39;$exceptionHandler&#39;, extendExceptionHandler);
+}
+
+
+extendExceptionHandler.$inject = [&#39;$delegate&#39;, &#39;toastr&#39;];
+
+
+function extendExceptionHandler($delegate, toastr) {
+    return function(exception, cause) {
+        $delegate(exception, cause);
+        var errorData = {
+            exception: exception,
+            cause: cause
+        };
+        /**
+         * Could add the error to a service&#39;s collection,
+         * add errors to $rootScope, log errors to remote web server,
+         * or log locally. Or throw hard. It is entirely up to you.
+         * throw exception;
+         */
+        toastr.error(exception.msg, errorData);
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;exception-catchers:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;Exception Catchers&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y111-style-y111:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;[Style &lt;a href=&#34;#style-y111&#34;&gt;Y111&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create a factory that exposes an interface to catch and gracefully handle exceptions.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to catch exceptions that may be thrown in your code (e.g. during XHR calls or promise failures).&lt;/p&gt;
+
+&lt;p&gt;Note: The exception catcher is good for catching and reacting to specific exceptions from calls that you know may throw one. For example, when making an XHR call to retrieve data from a remote web service and you want to catch any exceptions from that service and react uniquely.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* recommended */
+angular
+    .module(&#39;blocks.exception&#39;)
+    .factory(&#39;exception&#39;, exception);
+
+
+exception.$inject = [&#39;logger&#39;];
+
+
+function exception(logger) {
+    var service = {
+        catcher: catcher
+    };
+    return service;
+
+
+    function catcher(message) {
+        return function(reason) {
+            logger.error(message, reason);
+        };
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;route-errors:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;Route Errors&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y112-style-y112:8fb0edf16195b077f7803d389a4aaea0&#34;&gt;[Style &lt;a href=&#34;#style-y112&#34;&gt;Y112&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Handle and log all routing errors using &lt;a href=&#34;https://docs.angularjs.org/api/ngRoute/service/$route#$routeChangeError&#34;&gt;&lt;code&gt;$routeChangeError&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way handle all routing errors.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Potentially provides a better user experience if a routing error occurs and you route them to a friendly screen with more details or recovery options.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* recommended */
+function handleRoutingErrors() {
+    /**
+     * Route cancellation:
+     * On routing error, go to the dashboard.
+     * Provide an exit clause if it tries to do it twice.
+     */
+    $rootScope.$on(&#39;$routeChangeError&#39;,
+        function(event, current, previous, rejection) {
+            var destination = (current &amp;amp;&amp;amp; (current.title || current.name || current.loadedTemplateUrl)) ||
+                &#39;unknown target&#39;;
+            var msg = &#39;Error routing to &#39; + destination + &#39;. &#39; + (rejection.msg || &#39;&#39;);
+            /**
+             * Optionally log using a custom service or $log.
+             * (Don&#39;t forget to inject custom service)
+             */
+            logger.warning(msg, [current]);
+        }
+    );
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Naming</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/naming/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/naming/</guid>
+      <description>
+
+&lt;h2 id=&#34;naming:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Naming&lt;/h2&gt;
+
+&lt;h3 id=&#34;naming-guidelines:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Naming Guidelines&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y120-style-y120:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y120&#34;&gt;Y120&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use consistent names for all components following a pattern that describes the component&amp;rsquo;s feature then (optionally) its type. My recommended pattern is &lt;code&gt;feature.type.js&lt;/code&gt;. There are 2 names for most assets:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the file name (&lt;code&gt;avengers.controller.js&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;the registered component name with Angular (&lt;code&gt;AvengersController&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Naming conventions help provide a consistent way to find content at a glance. Consistency within the project is vital. Consistency with a team is important. Consistency across a company provides tremendous efficiency.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The naming conventions should simply help you find your code faster and make it easier to understand.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;feature-file-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Feature File Names&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y121-style-y121:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y121&#34;&gt;Y121&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use consistent names for all components following a pattern that describes the component&amp;rsquo;s feature then (optionally) its type. My recommended pattern is &lt;code&gt;feature.type.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify components.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides pattern matching for any automated tasks.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;common options
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// Controllers
+avengers.js
+avengers.controller.js
+avengersController.js&lt;/p&gt;
+
+&lt;p&gt;// Services/Factories
+logger.js
+logger.service.js
+loggerService.js
+```&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
+ * recommended
+ */
+
+
+// controllers
+avengers.controller.js
+avengers.controller.spec.js
+
+
+// services/factories
+logger.service.js
+logger.service.spec.js
+
+
+// constants
+constants.js
+
+
+// module definition
+avengers.module.js
+
+
+// routes
+avengers.routes.js
+avengers.routes.spec.js
+
+
+// configuration
+avengers.config.js
+
+
+// directives
+avenger-profile.directive.js
+avenger-profile.directive.spec.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: Another common convention is naming controller files without the word &lt;code&gt;controller&lt;/code&gt; in the file name such as &lt;code&gt;avengers.js&lt;/code&gt; instead of &lt;code&gt;avengers.controller.js&lt;/code&gt;. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```javascript
+/**
+ * recommended
+ */
+// Controllers
+avengers.js
+avengers.spec.js
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;test-file-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Test File Names&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y122-style-y122:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y122&#34;&gt;Y122&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Name test specifications similar to the component they test with a suffix of &lt;code&gt;spec&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify components.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides pattern matching for &lt;a href=&#34;http://karma-runner.github.io/&#34;&gt;karma&lt;/a&gt; or other test runners.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended
+*/
+avengers.controller.spec.js
+logger.service.spec.js
+avengers.routes.spec.js
+avenger-profile.directive.spec.js
+```&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;controller-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Controller Names&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y123-style-y123:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y123&#34;&gt;Y123&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference controllers.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: UpperCamelCase is conventional for identifying object that can be instantiated using a constructor.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// avengers.controller.js
+angular
+    .module
+    .controller(&amp;lsquo;HeroAvengers&amp;rsquo;, HeroAvengers);&lt;/p&gt;
+
+&lt;p&gt;function HeroAvengers() { }
+```&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;controller-name-suffix:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Controller Name Suffix&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y124-style-y124:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y124&#34;&gt;Y124&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Append the controller name with the suffix &lt;code&gt;Controller&lt;/code&gt; or with no suffix. Choose 1, not both.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The &lt;code&gt;Controller&lt;/code&gt; suffix is more commonly used and is more explicitly descriptive.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Omitting the suffix is more succinct and the controller is often easily identifiable even without the suffix.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended: Option 1
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// avengers.controller.js
+angular
+    .module
+    .controller(&amp;lsquo;Avengers&amp;rsquo;, Avengers);&lt;/p&gt;
+
+&lt;p&gt;function Avengers() { }
+```&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
+ * recommended: Option 2
+ */
+
+
+// avengers.controller.js
+angular
+    .module
+    .controller(&#39;AvengersController&#39;, AvengersController);
+
+
+function AvengersController() { }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;factory-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Factory Names&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y125-style-y125:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y125&#34;&gt;Y125&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use consistent names for all factories named after their feature. Use camel-casing for services and factories.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference factories.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// logger.service.js
+angular
+    .module
+    .factory(&amp;lsquo;logger&amp;rsquo;, logger);&lt;/p&gt;
+
+&lt;p&gt;function logger() { }
+```&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;directive-component-names:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Directive Component Names&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y126-style-y126:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y126&#34;&gt;Y126&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a consistent way to quickly identify and reference components.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;// avenger-profile.directive.js
+angular
+    .module
+    .directive(&amp;lsquo;xxAvengerProfile&amp;rsquo;, xxAvengerProfile);&lt;/p&gt;
+
+&lt;p&gt;// usage is &lt;xx-avenger-profile&gt; &lt;/xx-avenger-profile&gt;&lt;/p&gt;
+
+&lt;p&gt;function xxAvengerProfile() { }
+```&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;modules:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Modules&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y127-style-y127:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y127&#34;&gt;Y127&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When there are multiple modules, the main module file is named &lt;code&gt;app.module.js&lt;/code&gt; while other dependent modules are named after what they represent. For example, an admin module is named &lt;code&gt;admin.module.js&lt;/code&gt;. The respective registered module names would be &lt;code&gt;app&lt;/code&gt; and &lt;code&gt;admin&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides consistency for multiple module apps, and for expanding to large applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides easy way to use task automation to load all module definitions first, then all other angular files (for bundling).&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;configuration:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Configuration&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y128-style-y128:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y128&#34;&gt;Y128&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Separate configuration for a module into its own file named after the module. A configuration file for the main &lt;code&gt;app&lt;/code&gt; module is named &lt;code&gt;app.config.js&lt;/code&gt; (or simply &lt;code&gt;config.js&lt;/code&gt;). A configuration for a module named &lt;code&gt;admin.module.js&lt;/code&gt; is named &lt;code&gt;admin.config.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Separates configuration from module definition, components, and active code.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Provides a identifiable place to set configuration for a module.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;routes:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Routes&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y129-style-y129:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;[Style &lt;a href=&#34;#style-y129&#34;&gt;Y129&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Separate route configuration into its own file. Examples might be &lt;code&gt;app.route.js&lt;/code&gt; for the main module and &lt;code&gt;admin.route.js&lt;/code&gt; for the &lt;code&gt;admin&lt;/code&gt; module. Even in smaller apps I prefer this separation from the rest of the configuration.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Application Structure LIFT Principle</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/</guid>
+      <description>
+
+&lt;h2 id=&#34;application-structure-lift-principle:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;Application Structure LIFT Principle&lt;/h2&gt;
+
+&lt;h3 id=&#34;lift:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;LIFT&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y140-style-y140:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;[Style &lt;a href=&#34;#style-y140&#34;&gt;Y140&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Structure your app such that you can &lt;code&gt;L&lt;/code&gt;ocate your code quickly, &lt;code&gt;I&lt;/code&gt;dentify the code at a glance, keep the &lt;code&gt;F&lt;/code&gt;lattest structure you can, and &lt;code&gt;T&lt;/code&gt;ry to stay DRY. The structure should follow these 4 basic guidelines.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why LIFT?&lt;/em&gt;: Provides a consistent structure that scales well, is modular, and makes it easier to increase developer efficiency by finding code quickly. Another way to check your app structure is to ask yourself: How quickly can you open and work in all of the related files for a feature?&lt;/p&gt;
+
+&lt;p&gt;When I find my structure is not feeling comfortable, I go back and revisit these LIFT guidelines&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;L&lt;/code&gt;ocating our code is easy&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;I&lt;/code&gt;dentify code at a glance&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;F&lt;/code&gt;lat structure as long as we can&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;T&lt;/code&gt;ry to stay DRY (Don’t Repeat Yourself) or T-DRY&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;locate:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;Locate&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y141-style-y141:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;[Style &lt;a href=&#34;#style-y141&#34;&gt;Y141&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make locating your code intuitive, simple and fast.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: I find this to be super important for a project. If the team cannot find the files they need to work on quickly, they will not be able to work as efficiently as possible, and the structure needs to change. You may not know the file name or where its related files are, so putting them in the most intuitive locations and near each other saves a ton of time. A descriptive folder structure can help with this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/bower_components
+/client
+  /app
+    /avengers
+    /blocks
+      /exception
+      /logger
+    /core
+    /dashboard
+    /data
+    /layout
+    /widgets
+  /content
+  index.html
+.bower.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;identify:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;Identify&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y142-style-y142:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;[Style &lt;a href=&#34;#style-y142&#34;&gt;Y142&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;When you look at a file you should instantly know what it contains and represents.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: You spend less time hunting and pecking for code, and become more efficient. If this means you want longer file names, then so be it. Be descriptive with file names and keeping the contents of the file to exactly 1 component. Avoid files with multiple controllers, multiple services, or a mixture. There are deviations of the 1 per file rule when I have a set of very small features that are all related to each other, they are still easily identifiable.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;flat:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;Flat&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y143-style-y143:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;[Style &lt;a href=&#34;#style-y143&#34;&gt;Y143&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Keep a flat folder structure as long as possible. When you get to 7+ files, begin considering separation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Nobody wants to search 7 levels of folders to find a file. Think about menus on web sites … anything deeper than 2 should take serious consideration. In a folder structure there is no hard and fast number rule, but when a folder has 7-10 files, that may be time to create subfolders. Base it on your comfort level. Use a flatter structure until there is an obvious value (to help the rest of LIFT) in creating a new folder.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;t-dry-try-to-stick-to-dry:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;T-DRY (Try to Stick to DRY)&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y144-style-y144:91e9a0fb75a1f4d643e512404bef7011&#34;&gt;[Style &lt;a href=&#34;#style-y144&#34;&gt;Y144&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Be DRY, but don&amp;rsquo;t go nuts and sacrifice readability.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Being DRY is important, but not crucial if it sacrifices the others in LIFT, which is why I call it T-DRY. I don’t want to type session-view.html for a view because, well, it’s obviously a view. If it is not obvious or by convention, then I name it.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AngularJs Application Structure</title>
+      <link>http://bguiz.github.io/js-standards/angularjs/application-structure/</link>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      
+      <guid>http://bguiz.github.io/js-standards/angularjs/application-structure/</guid>
+      <description>
+
+&lt;h2 id=&#34;application-structure:1fd7d24c1d27805887384738fdf43040&#34;&gt;Application Structure&lt;/h2&gt;
+
+&lt;h3 id=&#34;overall-guidelines:1fd7d24c1d27805887384738fdf43040&#34;&gt;Overall Guidelines&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y150-style-y150:1fd7d24c1d27805887384738fdf43040&#34;&gt;[Style &lt;a href=&#34;#style-y150&#34;&gt;Y150&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Have a near term view of implementation and a long term vision. In other words, start small and but keep in mind on where the app is heading down the road. All of the app&amp;rsquo;s code goes in a root folder named &lt;code&gt;app&lt;/code&gt;. All content is 1 feature per file. Each controller, service, module, view is in its own file. All 3rd party vendor scripts are stored in another root folder and not in the &lt;code&gt;app&lt;/code&gt; folder. I didn&amp;rsquo;t write them and I don&amp;rsquo;t want them cluttering my app (&lt;code&gt;bower_components&lt;/code&gt;, &lt;code&gt;scripts&lt;/code&gt;, &lt;code&gt;lib&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Note: Find more details and reasoning behind the structure at &lt;a href=&#34;http://www.johnpapa.net/angular-app-structuring-guidelines/&#34;&gt;this original post on application structure&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;layout:1fd7d24c1d27805887384738fdf43040&#34;&gt;Layout&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y151-style-y151:1fd7d24c1d27805887384738fdf43040&#34;&gt;[Style &lt;a href=&#34;#style-y151&#34;&gt;Y151&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Place components that define the overall layout of the application in a folder named &lt;code&gt;layout&lt;/code&gt;. These may include a shell view and controller may act as the container for the app, navigation, menus, content areas, and other regions.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Organizes all layout in a single place re-used throughout the application.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;folders-by-feature-structure:1fd7d24c1d27805887384738fdf43040&#34;&gt;Folders-by-Feature Structure&lt;/h3&gt;
+
+&lt;h6 id=&#34;style-y152-style-y152:1fd7d24c1d27805887384738fdf43040&#34;&gt;[Style &lt;a href=&#34;#style-y152&#34;&gt;Y152&lt;/a&gt;]&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create folders named for the feature they represent. When a folder grows to contain more than 7 files, start to consider creating a folder for them. Your threshold may be different, so adjust as needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: A developer can locate the code, identify what each file represents at a glance, the structure is flat as can be, and there is no repetitive nor redundant names.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The LIFT guidelines are all covered.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Helps reduce the app from becoming cluttered through organizing the content and keeping them aligned with the LIFT guidelines.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: When there are a lot of files (10+) locating them is easier with a consistent folder structures and more difficult in flat structures.&lt;/p&gt;
+
+&lt;p&gt;```javascript
+/**&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;recommended
+*/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;app/
+    app.module.js
+    app.config.js
+    app.routes.js
+    components/
+        calendar.directive.js
+        calendar.directive.html
+        user-profile.directive.js
+        user-profile.directive.html
+    layout/
+        shell.html
+        shell.controller.js
+        topnav.html
+        topnav.controller.js
+    people/
+        attendees.html
+        attendees.controller.js
+        speakers.html
+        speakers.controller.js
+        speaker-detail.html
+        speaker-detail.controller.js
+    services/
+        data.service.js
+        localstorage.service.js
+        logger.service.js
+        spinner.service.js
+    sessions/
+        sessions.html
+        sessions.controller.js
+        session-detail.html
+        session-detail.controller.js
+```&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/modularity-2.png&#34; alt=&#34;Sample App Structure&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Note: Do not use structuring using folders-by-type. This requires moving to multiple folders when working on a feature and gets unwieldy quickly as the app grows to 5, 10 or 25+ views and controllers (and other features), which makes it more difficult than folder-by-feature to locate files.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/*
+* avoid
+* Alternative folders-by-type.
+* I recommend &amp;quot;folders-by-feature&amp;quot;, instead.
+*/
+
+
+app/
+    app.module.js
+    app.config.js
+    app.routes.js
+    controllers/
+        attendees.js
+        session-detail.js
+        sessions.js
+        shell.js
+        speakers.js
+        speaker-detail.js
+        topnav.js
+    directives/
+        calendar.directive.js
+        calendar.directive.html
+        user-profile.directive.js
+        user-profile.directive.html
+    services/
+        dataservice.j
+        localstorage.js
+        logger.js
+        spinner.js
+    views/
+        attendees.html
+        session-detail.html
+        sessions.html
+        shell.html
+        speakers.html
+        speaker-detail.html
+        topnav.html
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

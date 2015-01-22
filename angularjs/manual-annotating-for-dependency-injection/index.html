@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://bguiz.github.io/js-standards">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
+
+    <title>AngularJs Manual Annotating for Dependency Injection</title>
+
+    <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/style.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/css/style-responsive.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="http://bguiz.github.io/js-standards/" class="logo"><img src="http://bguiz.github.io/js-standards/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> AngularJs Manual Annotating for Dependency Injection </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>AngularJs</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/single-responsibility/"> Single Responsibility </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/iife/"> IIFE </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modules/"> Modules </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/controllers/"> Controllers </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/services/"> Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/"> Resolving Promises for a Controller </a> </li>
+                    
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/"> Manual Annotating for Dependency Injection </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/"> Minification and Annotation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure/"> Application Structure </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modularity/"> Modularity </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/startup-logic/"> Startup Logic </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/"> Angular $ Wrapper Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/testing/"> Testing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/animations/"> Animations </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/yeoman-generator/"> Yeoman Generator </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/routing/"> Routing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/manual-annotating-for-dependency-injection.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+
+
+<h2 id="manual-annotating-for-dependency-injection:2d3c2d03ce54024db0a4c5fcedbbe16c">Manual Annotating for Dependency Injection</h2>
+
+<h3 id="unsafe-from-minification:2d3c2d03ce54024db0a4c5fcedbbe16c">UnSafe from Minification</h3>
+
+<h6 id="style-y090-style-y090:2d3c2d03ce54024db0a4c5fcedbbe16c">[Style <a href="#style-y090">Y090</a>]</h6>
+
+<ul>
+<li><p>Avoid using the shortcut syntax of declaring dependencies without using a minification-safe approach.</p>
+
+<p><em>Why?</em>: The parameters to the component (e.g. controller, factory, etc) will be converted to mangled variables. For example, <code>common</code> and <code>dataservice</code> may become <code>a</code> or <code>b</code> and not be found by AngularJS.</p>
+
+<pre><code class="language-javascript">/* avoid - not minification-safe*/
+angular
+    .module('app')
+    .controller('Dashboard', Dashboard);
+
+
+function Dashboard(common, dataservice) {
+}
+</code></pre>
+
+<p>This code may produce mangled variables when minified and thus cause runtime errors.</p>
+
+<pre><code class="language-javascript">/* avoid - not minification-safe*/
+angular.module('app').controller('Dashboard', d);function d(a, b) { }
+</code></pre></li>
+</ul>
+
+<h3 id="manually-identify-dependencies:2d3c2d03ce54024db0a4c5fcedbbe16c">Manually Identify Dependencies</h3>
+
+<h6 id="style-y091-style-y091:2d3c2d03ce54024db0a4c5fcedbbe16c">[Style <a href="#style-y091">Y091</a>]</h6>
+
+<ul>
+<li><p>Use <code>$inject</code> to manually identify your dependencies for AngularJS components.</p>
+
+<p><em>Why?</em>: This technique mirrors the technique used by <a href="https://github.com/olov/ng-annotate"><code>ng-annotate</code></a>, which I recommend for automating the creation of minification safe dependencies. If <code>ng-annotate</code> detects injection has already been made, it will not duplicate it.</p>
+
+<p><em>Why?</em>: This safeguards your dependencies from being vulnerable to minification issues when parameters may be mangled. For example, <code>common</code> and <code>dataservice</code> may become <code>a</code> or <code>b</code> and not be found by AngularJS.</p>
+
+<p><em>Why?</em>: Avoid creating in-line dependencies as long lists can be difficult to read in the array. Also it can be confusing that the array is a series of strings while the last item is the component&rsquo;s function.</p>
+
+<pre><code class="language-javascript">/* avoid */
+angular
+    .module('app')
+    .controller('Dashboard',
+        ['$location', '$routeParams', 'common', 'dataservice',
+            function Dashboard($location, $routeParams, common, dataservice) {}
+        ]);
+</code></pre>
+
+<pre><code class="language-javascript">/* avoid */
+angular
+  .module('app')
+  .controller('Dashboard',
+      ['$location', '$routeParams', 'common', 'dataservice', Dashboard]);
+
+
+function Dashboard($location, $routeParams, common, dataservice) {
+}
+</code></pre>
+
+<pre><code class="language-javascript">/* recommended */
+angular
+    .module('app')
+    .controller('Dashboard', Dashboard);
+
+
+Dashboard.$inject = ['$location', '$routeParams', 'common', 'dataservice'];
+
+
+function Dashboard($location, $routeParams, common, dataservice) {
+}
+</code></pre>
+
+<p>Note: When your function is below a return statement the $inject may be unreachable (this may happen in a directive). You can solve this by either moving the $inject above the return statement or by using the alternate array injection syntax.</p>
+
+<p>Note: <a href="https://github.com/olov/ng-annotate"><code>ng-annotate 0.10.0</code></a> introduced a feature where it moves the <code>$inject</code> to where it is reachable.</p>
+
+<pre><code class="language-javascript">// inside a directive definition
+function outer() {
+    return {
+        controller: DashboardPanel,
+    };
+
+
+    DashboardPanel.$inject = ['logger']; // Unreachable
+    function DashboardPanel(logger) {
+    }
+}
+</code></pre>
+
+<pre><code class="language-javascript">// inside a directive definition
+function outer() {
+    DashboardPanel.$inject = ['logger']; // reachable
+    return {
+        controller: DashboardPanel,
+    };
+
+
+    function DashboardPanel(logger) {
+    }
+}
+</code></pre></li>
+</ul>
+
+<h3 id="manually-identify-route-resolver-dependencies:2d3c2d03ce54024db0a4c5fcedbbe16c">Manually Identify Route Resolver Dependencies</h3>
+
+<h6 id="style-y092-style-y092:2d3c2d03ce54024db0a4c5fcedbbe16c">[Style <a href="#style-y092">Y092</a>]</h6>
+
+<ul>
+<li><p>Use $inject to manually identify your route resolver dependencies for AngularJS components.</p>
+
+<p><em>Why?</em>: This technique breaks out the anonymous function for the route resolver, making it easier to read.</p>
+
+<p><em>Why?</em>: An <code>$inject</code> statement can easily precede the resolver to handle making any dependencies minification safe.</p>
+
+<pre><code class="language-javascript">/* recommended */
+function config($routeProvider) {
+    $routeProvider
+        .when('/avengers', {
+            templateUrl: 'avengers.html',
+            controller: 'Avengers',
+            controllerAs: 'vm',
+            resolve: {
+                moviesPrepService: moviePrepService
+            }
+        });
+}
+
+
+moviePrepService.$inject = ['movieService'];
+function moviePrepService(movieService) {
+    return movieService.getMovies();
+}
+</code></pre></li>
+</ul>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="http://bguiz.github.io/js-standards/js/jquery-2.1.1.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/jquery.scrollTo.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/bootstrap.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://bguiz.github.io/js-standards/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="http://bguiz.github.io/js-standards/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

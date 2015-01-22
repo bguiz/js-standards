@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="http://bguiz.github.io/js-standards">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
+
+    <title>AngularJs Controllers</title>
+
+    <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/style.css" rel="stylesheet">
+    <link href="http://bguiz.github.io/js-standards/css/style-responsive.css" rel="stylesheet" />
+    <link href="http://bguiz.github.io/js-standards/css/monokai_sublime.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+  
+  <section id="container" class="">
+
+      
+      <header class="header black-bg">
+            <div class="toggle-nav">
+                <i class="fa fa-bars"></i>
+                <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"></div>
+            </div>
+
+            
+            <a href="http://bguiz.github.io/js-standards/" class="logo"><img src="http://bguiz.github.io/js-standards/img/logo.png" style="height:40px;"></a>
+            
+            <div class="top-nav notification-row">
+                
+                <div class="hidden-xs nav-github pull-right">
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="follow"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards"></span>
+                    <span rel="show-github" data-user="bguiz" data-repo="js-standards" data-type="fork"></span>
+                </div>
+            </div>
+
+            <div class="nav title-row" id="top_menu">
+                <h1 class="nav top-menu"> AngularJs Controllers </h1>
+            </div>
+      </header>
+      
+
+      
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        
+        <ul class="sidebar-menu">
+          
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>Getting Started</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/intro/"> Intro </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li class="sub-menu">
+                <a href="javascript:;" class="">
+                    
+                    <span>ES5</span>
+                    <span class="menu-arrow fa fa-angle-right"></span>
+                </a>
+                <ul class="sub">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/comments/"> Comments JS </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/files/"> Files </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/hoisting/"> Hoisting </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming Conventions </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/es5/lint/"> Linting </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            
+              <li>
+                <a class="" href="">
+                    
+                    <span>ES6</span>
+                </a>
+            
+              </li>
+          
+            
+              <li class="sub-menu active">
+                <a href="javascript:;" class="">
+                    
+                    <span>AngularJs</span>
+                    <span class="menu-arrow fa fa-angle-down"></span>
+                </a>
+                <ul class="sub open">
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/single-responsibility/"> Single Responsibility </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/iife/"> IIFE </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modules/"> Modules </a> </li>
+                    
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/controllers/"> Controllers </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/services/"> Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/factories/"> Factories </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/data-services/"> Data Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/directives/"> Directives </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/resolving-promises-for-a-controller/"> Resolving Promises for a Controller </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/manual-annotating-for-dependency-injection/"> Manual Annotating for Dependency Injection </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/minification-and-annotation/"> Minification and Annotation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure/"> Application Structure </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/modularity/"> Modularity </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/startup-logic/"> Startup Logic </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/"> Angular $ Wrapper Services </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/testing/"> Testing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/animations/"> Animations </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/comments/"> Comments </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/js-hint/"> JS Hint </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/constants/"> Constants </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/"> File Templates and Snippets </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/yeoman-generator/"> Yeoman Generator </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/routing/"> Routing </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/task-automation/"> Task Automation </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/angularjs-docs/"> AngularJS docs </a> </li>
+                    
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
+                    
+                </ul>
+            
+              </li>
+          
+            <li> 
+                <a href="https://github.com/bguiz/js-standards/issues" target="blank">
+                    <i class='fa fa-life-ring'></i>Issues &amp; Help
+                </a> 
+            </li>
+            
+                <li>
+                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/controllers.md" target="blank">
+                        <i class='fa fa-edit'></i> Refine this Page
+                    </a> 
+                </li>
+            
+        </ul>
+        
+    </div>
+</aside>
+
+
+
+      
+      <section id="main-content">
+          <section class="wrapper">
+
+              <div class="row">
+                  <div class="row-nav-prev col-md-1">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/modules">
+                      <i class="fa fa-angle-left"></i>
+                      </a>
+                  </div>
+                <div class="row-content col-md-10">
+                    <section class="panel">
+                    <div class="panel-body">
+
+
+
+<h2 id="controllers:568eb592fd969d4a574c5d9eabbcb4c8">Controllers</h2>
+
+<h3 id="controlleras-view-syntax:568eb592fd969d4a574c5d9eabbcb4c8">controllerAs View Syntax</h3>
+
+<h6 id="style-y030-style-y030:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y030">Y030</a>]</h6>
+
+<ul>
+<li>Use the <a href="http://www.johnpapa.net/do-you-like-your-angular-controllers-with-or-without-sugar/"><code>controllerAs</code></a> syntax over the <code>classic controller with $scope</code> syntax.</li>
+</ul>
+
+<p><em>Why?</em>: Controllers are constructed, &ldquo;newed&rdquo; up, and provide a single new instance, and the <code>controllerAs</code> syntax is closer to that of a JavaScript constructor than the <code>classic $scope syntax</code>.</p>
+
+<p><em>Why?</em>: It promotes the use of binding to a &ldquo;dotted&rdquo; object in the View (e.g. <code>customer.name</code> instead of <code>name</code>), which is more contextual, easier to read, and avoids any reference issues that may occur without &ldquo;dotting&rdquo;.</p>
+
+<p><em>Why?</em>: Helps avoid using <code>$parent</code> calls in Views with nested controllers.</p>
+
+<pre><code class="language-html">  &lt;!-- avoid --&gt;
+  &lt;div ng-controller=&quot;Customer&quot;&gt;
+      {{ name }}
+  &lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- recommended --&gt;
+  &lt;div ng-controller=&quot;Customer as customer&quot;&gt;
+      {{ customer.name }}
+  &lt;/div&gt;
+</code></pre>
+
+<h3 id="controlleras-controller-syntax:568eb592fd969d4a574c5d9eabbcb4c8">controllerAs Controller Syntax</h3>
+
+<h6 id="style-y031-style-y031:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y031">Y031</a>]</h6>
+
+<ul>
+<li><p>Use the <code>controllerAs</code> syntax over the <code>classic controller with $scope</code> syntax.</p></li>
+
+<li><p>The <code>controllerAs</code> syntax uses <code>this</code> inside controllers which gets bound to <code>$scope</code></p></li>
+</ul>
+
+<p><em>Why?</em>: <code>controllerAs</code> is syntactic sugar over <code>$scope</code>. You can still bind to the View and still access <code>$scope</code> methods.</p>
+
+<p><em>Why?</em>: Helps avoid the temptation of using <code>$scope</code> methods inside a controller when it may otherwise be better to avoid them or move them to a factory. Consider using <code>$scope</code> in a factory, or if in a controller just when needed. For example when publishing and subscribing events using <a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$emit"><code>$emit</code></a>, <a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$broadcast"><code>$broadcast</code></a>, or <a href="https://docs.angularjs.org/api/ng/type/$rootScope.Scope#$on"><code>$on</code></a> consider moving these uses to a factory and invoke from the controller.</p>
+
+<pre><code class="language-javascript">  /* avoid */
+  function Customer($scope) {
+      $scope.name = {};
+      $scope.sendMessage = function() { };
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended - but see next section */
+  function Customer() {
+      this.name = {};
+      this.sendMessage = function() { };
+  }
+</code></pre>
+
+<h3 id="controlleras-with-vm:568eb592fd969d4a574c5d9eabbcb4c8">controllerAs with vm</h3>
+
+<h6 id="style-y032-style-y032:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y032">Y032</a>]</h6>
+
+<ul>
+<li>Use a capture variable for <code>this</code> when using the <code>controllerAs</code> syntax. Choose a consistent variable name such as <code>vm</code>, which stands for ViewModel.</li>
+</ul>
+
+<p><em>Why?</em>: The <code>this</code> keyword is contextual and when used within a function inside a controller may change its context. Capturing the context of <code>this</code> avoids encountering this problem.</p>
+
+<pre><code class="language-javascript">  /* avoid */
+  function Customer() {
+      this.name = {};
+      this.sendMessage = function() { };
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  function Customer() {
+      var vm = this;
+      vm.name = {};
+      vm.sendMessage = function() { };
+  }
+</code></pre>
+
+<p>Note: You can avoid any <a href="http://www.jshint.com/">jshint</a> warnings by placing the comment below above the line of code. However it is not needed when the function is named using UpperCasing, as this convention means it is a constructor function, which is what a controller is in Angular.</p>
+
+<pre><code class="language-javascript">  /* jshint validthis: true */
+  var vm = this;
+</code></pre>
+
+<p>Note: When creating watches in a controller using <code>controller as</code>, you can watch the <code>vm.*</code> member using the following syntax. (Create watches with caution as they add more load to the digest cycle.)</p>
+
+<pre><code class="language-html">  &lt;input ng-model=&quot;vm.title&quot;/&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  function SomeController($scope, $log) {
+      var vm = this;
+      vm.title = 'Some Title';
+
+      $scope.$watch('vm.title', function(current, original) {
+          $log.info('vm.title was %s', original);
+          $log.info('vm.title is now %s', current);
+      });
+  }
+</code></pre>
+
+<h3 id="bindable-members-up-top:568eb592fd969d4a574c5d9eabbcb4c8">Bindable Members Up Top</h3>
+
+<h6 id="style-y033-style-y033:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y033">Y033</a>]</h6>
+
+<ul>
+<li><p>Place bindable members at the top of the controller, alphabetized, and not spread through the controller code.</p>
+
+<p><em>Why?</em>: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View.</p>
+
+<p><em>Why?</em>: Setting anonymous functions in-line can be easy, but when those functions are more than 1 line of code they can reduce the readability. Defining the functions below the bindable members (the functions will be hoisted) moves the implementation details down, keeps the bindable members up top, and makes it easier to read.</p></li>
+</ul>
+
+<pre><code class="language-javascript">  /* avoid */
+  function Sessions() {
+      var vm = this;
+
+      vm.gotoSession = function() {
+        /* ... */
+      };
+      vm.refresh = function() {
+        /* ... */
+      };
+      vm.search = function() {
+        /* ... */
+      };
+      vm.sessions = [];
+      vm.title = 'Sessions';
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  function Sessions() {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = refresh;
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = 'Sessions';
+
+      ////////////
+
+      function gotoSession() {
+        /* */
+      }
+
+      function refresh() {
+        /* */
+      }
+
+      function search() {
+        /* */
+      }
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/johnpapa/angularjs-styleguide/master/assets/above-the-fold-1.png" alt="Controller Using &quot;Above the Fold&quot;" />
+</p>
+
+<p>Note: If the function is a 1 liner consider keeping it right up top, as long as readability is not affected.</p>
+
+<pre><code class="language-javascript">  /* avoid */
+  function Sessions(data) {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = function() {
+          /**
+           * lines
+           * of
+           * code
+           * affects
+           * readability
+           */
+      };
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = 'Sessions';
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  function Sessions(dataservice) {
+      var vm = this;
+
+      vm.gotoSession = gotoSession;
+      vm.refresh = dataservice.refresh; // 1 liner is OK
+      vm.search = search;
+      vm.sessions = [];
+      vm.title = 'Sessions';
+</code></pre>
+
+<h3 id="function-declarations-to-hide-implementation-details:568eb592fd969d4a574c5d9eabbcb4c8">Function Declarations to Hide Implementation Details</h3>
+
+<h6 id="style-y034-style-y034:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y034">Y034</a>]</h6>
+
+<ul>
+<li><p>Use function declarations to hide implementation details. Keep your bindable members up top. When you need to bind a function in a controller, point it to a function declaration that appears later in the file. This is tied directly to the section Bindable Members Up Top. For more details see <a href="http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code">this post</a>.</p>
+
+<p><em>Why?</em>: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View. (Same as above.)</p>
+
+<p><em>Why?</em>: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.</p>
+
+<p><em>Why?</em>: Function declaration are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).</p>
+
+<p><em>Why?</em>: You never have to worry with function declarations that moving <code>var a</code> before <code>var b</code> will break your code because <code>a</code> depends on <code>b</code>.</p>
+
+<p><em>Why?</em>: Order is critical with function expressions</p></li>
+</ul>
+
+<pre><code class="language-javascript">  /**
+   * avoid
+   * Using function expressions.
+   */
+  function Avengers(dataservice, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.title = 'Avengers';
+
+      var activate = function() {
+          return getAvengers().then(function() {
+              logger.info('Activated Avengers View');
+          });
+      }
+
+      var getAvengers = function() {
+          return dataservice.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+
+      vm.getAvengers = getAvengers;
+
+      activate();
+  }
+</code></pre>
+
+<p>Notice that the important stuff is scattered in the preceding example. In the example below, notice that the important stuff is up top. For example, the members bound to the controller such as <code>vm.avengers</code> and <code>vm.title</code>. The implementation details are down below. This is just easier to read.</p>
+
+<pre><code class="language-javascript">  /*
+   * recommend
+   * Using function declarations
+   * and bindable members up top.
+   */
+  function Avengers(dataservice, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.getAvengers = getAvengers;
+      vm.title = 'Avengers';
+
+      activate();
+
+      function activate() {
+          return getAvengers().then(function() {
+              logger.info('Activated Avengers View');
+          });
+      }
+
+      function getAvengers() {
+          return dataservice.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+  }
+</code></pre>
+
+<h3 id="defer-controller-logic:568eb592fd969d4a574c5d9eabbcb4c8">Defer Controller Logic</h3>
+
+<h6 id="style-y035-style-y035:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y035">Y035</a>]</h6>
+
+<ul>
+<li><p>Defer logic in a controller by delegating to services and factories.</p>
+
+<p><em>Why?</em>: Logic may be reused by multiple controllers when placed within a service and exposed via a function.</p>
+
+<p><em>Why?</em>: Logic in a service can more easily be isolated in a unit test, while the calling logic in the controller can be easily mocked.</p>
+
+<p><em>Why?</em>: Removes dependencies and hides implementation details from the controller.</p></li>
+</ul>
+
+<pre><code class="language-javascript">
+  /* avoid */
+  function Order($http, $q, config, userInfo) {
+      var vm = this;
+      vm.checkCredit = checkCredit;
+      vm.isCreditOk;
+      vm.total = 0;
+
+      function checkCredit() {
+          var settings = {};
+          // Get the credit service base URL from config
+          // Set credit service required headers
+          // Prepare URL query string or data object with request data
+          // Add user-identifying info so service gets the right credit limit for this user.
+          // Use JSONP for this browser if it doesn't support CORS
+          return $http.get(settings)
+              .then(function(data) {
+               // Unpack JSON data in the response object
+                 // to find maxRemainingAmount
+                 vm.isCreditOk = vm.total &lt;= maxRemainingAmount
+              })
+              .catch(function(error) {
+                 // Interpret error
+                 // Cope w/ timeout? retry? try alternate service?
+                 // Re-reject with appropriate error for a user to see
+              });
+      };
+  }
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+  function Order(creditService) {
+      var vm = this;
+      vm.checkCredit = checkCredit;
+      vm.isCreditOk;
+      vm.total = 0;
+
+      function checkCredit() {
+         return creditService.isOrderTotalOk(vm.total)
+      .then(function(isOk) { vm.isCreditOk = isOk; })
+            .catch(showServiceError);
+      };
+  }
+</code></pre>
+
+<h3 id="keep-controllers-focused:568eb592fd969d4a574c5d9eabbcb4c8">Keep Controllers Focused</h3>
+
+<h6 id="style-y037-style-y037:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y037">Y037</a>]</h6>
+
+<ul>
+<li><p>Define a controller for a view, and try not to reuse the controller for other views. Instead, move reusable logic to factories and keep the controller simple and focused on its view.</p>
+
+<p><em>Why?</em>: Reusing controllers with several views is brittle and good end to end (e2e) test coverage is required to ensure stability across large applications.</p></li>
+</ul>
+
+<h3 id="assigning-controllers:568eb592fd969d4a574c5d9eabbcb4c8">Assigning Controllers</h3>
+
+<h6 id="style-y038-style-y038:568eb592fd969d4a574c5d9eabbcb4c8">[Style <a href="#style-y038">Y038</a>]</h6>
+
+<ul>
+<li><p>When a controller must be paired with a view and either component may be re-used by other controllers or views, define controllers along with their routes.</p>
+
+<p>Note: If a View is loaded via another means besides a route, then use the <code>ng-controller=&quot;Avengers as vm&quot;</code> syntax.</p>
+
+<p><em>Why?</em>: Pairing the controller in the route allows different routes to invoke different pairs of controllers and views. When controllers are assigned in the view using <a href="https://docs.angularjs.org/api/ng/directive/ngController"><code>ng-controller</code></a>, that view is always associated with the same controller.</p></li>
+</ul>
+
+<pre><code class="language-javascript">  /* avoid - when using with a route and dynamic pairing is desired */
+
+  // route-config.js
+  angular
+      .module('app')
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when('/avengers', {
+            templateUrl: 'avengers.html'
+          });
+  }
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- avengers.html --&gt;
+  &lt;div ng-controller=&quot;Avengers as vm&quot;&gt;
+  &lt;/div&gt;
+</code></pre>
+
+<pre><code class="language-javascript">  /* recommended */
+
+  // route-config.js
+  angular
+      .module('app')
+      .config(config);
+
+  function config($routeProvider) {
+      $routeProvider
+          .when('/avengers', {
+              templateUrl: 'avengers.html',
+              controller: 'Avengers',
+              controllerAs: 'vm'
+          });
+  }
+</code></pre>
+
+<pre><code class="language-html">  &lt;!-- avengers.html --&gt;
+  &lt;div&gt;
+  &lt;/div&gt;
+</code></pre>
+
+                    </div> 
+                    </section> 
+                </div> 
+                <div class="row-nav-next col-md-1">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/services">
+                    <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+              </div>
+              
+          </section>
+      </section>
+     
+  </section>
+  
+    <script src="http://bguiz.github.io/js-standards/js/jquery-2.1.1.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/jquery.scrollTo.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/bootstrap.min.js"></script>
+    <script src="http://bguiz.github.io/js-standards/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="http://bguiz.github.io/js-standards/js/scripts.js"></script>
+    <script async defer id="github-bjs" src="http://bguiz.github.io/js-standards/js/buttons.js"></script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-37884921-1', 'bguiz.com');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
+

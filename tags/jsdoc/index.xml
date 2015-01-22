@@ -9,13 +9,13 @@
     
     
     
-    <lastBuildDate>Fri, 19 Dec 2014 21:36:34 AEDT</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/jsdoc/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Comments</title>
       <link>http://bguiz.github.io/js-standards/es5/comments/</link>
-      <pubDate>Fri, 19 Dec 2014 21:36:34 AEDT</pubDate>
+      <pubDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
       <description>&lt;p&gt;Comment your code generously.
@@ -75,7 +75,7 @@ return arr[y * width + x];
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multiline comments instead of single line comments,
 for comments that are three lines or more.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/* 
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/*
  * This comment is quite long,
  * and it spans multiple lines,
  * so we use a different type of syntax
