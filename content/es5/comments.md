@@ -1,6 +1,7 @@
 ---
 title: ES5 Comments
-linktitle: Comments JS
+linktitle: Comments (JS)
+identifier: comments-js
 date: 2014-12-19T21:36:34+11:00
 tags:
   - ES5
@@ -8,7 +9,7 @@ tags:
   - JSDoc
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /intro
 next: /es5/files
 notoc: true

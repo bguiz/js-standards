@@ -31,12 +31,9 @@ menu:
     - Name: Getting Started
       Weight: 1000
       Identifier: top
-    - Name: ES5
+    - Name: Javascript
       Weight: 2000
-      Identifier: es5
-    - Name: ES6
-      Weight: 3000
-      Identifier: es6
+      Identifier: js
     - Name: AngularJs
       Weight: 4000
       Identifier: angularjs

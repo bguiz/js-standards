@@ -19,6 +19,11 @@ weight: 4001
 ### JavaScript Closures
 ###### [Style [Y010](#style-y010)]
 
+> **NOTE**
+>
+> Using IIFEs is **not** necessary when using a bundling system which understands Javascript modules,
+> such as **angualrity**, **browserify**, or **require.js**.
+
   - Wrap AngularJS components in an Immediately Invoked Function Expression (IIFE).
 
   *Why?*: An IIFE removes variables from the global scope. This helps prevent variables and function declarations from living longer than expected in the global scope, which also helps avoid variable collisions.

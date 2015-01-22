@@ -22,48 +22,48 @@ weight: 4020
 
   - If planning to produce documentation, use [`jsDoc`](http://usejsdoc.org/) syntax to document function names, description, params and returns. Use `@namespace` and `@memberOf` to match your app structure.
 
-    *Why?*: You can generate (and regenerate) documentation from your code, instead of writing it from scratch.
+  *Why?*: You can generate (and regenerate) documentation from your code, instead of writing it from scratch.
 
-    *Why?*: Provides consistency using a common industry tool.
+  *Why?*: Provides consistency using a common industry tool.
 
-    ```javascript
+  ```javascript
+  /**
+   * Logger Factory
+   * @namespace Factories
+   */
+  (function() {
+    angular
+        .module('app')
+        .factory('logger', logger);
+
     /**
-     * Logger Factory
-     * @namespace Factories
+     * @namespace Logger
+     * @desc Application wide logger
+     * @memberOf Factories
      */
-    (function() {
-      angular
-          .module('app')
-          .factory('logger', logger);
+    function logger($log) {
+        var service = {
+           logError: logError
+        };
+        return service;
 
-      /**
-       * @namespace Logger
-       * @desc Application wide logger
-       * @memberOf Factories
-       */
-      function logger($log) {
-          var service = {
-             logError: logError
-          };
-          return service;
+        ////////////
 
-          ////////////
-
-          /**
-           * @name logError
-           * @desc Logs errors
-           * @param {String} msg Message to log
-           * @returns {String}
-           * @memberOf Factories.Logger
-           */
-          function logError(msg) {
-              var loggedMsg = 'Error: ' + msg;
-              $log.error(loggedMsg);
-              return loggedMsg;
-          };
-      }
-    })();
-    ```
+        /**
+         * @name logError
+         * @desc Logs errors
+         * @param {String} msg Message to log
+         * @returns {String}
+         * @memberOf Factories.Logger
+         */
+        function logError(msg) {
+            var loggedMsg = 'Error: ' + msg;
+            $log.error(loggedMsg);
+            return loggedMsg;
+        };
+    }
+  })();
+  ```
 
 
 

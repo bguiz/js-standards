@@ -7,7 +7,7 @@ tags:
   - Functions
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/hoisting
 next: /es5/naming
 notoc: true
@@ -36,7 +36,7 @@ function () {
 
 ```javascript
 var namedFunctionReference = function () {
-	/* This is an anonymous function, and it does not have a name 
+	/* This is an anonymous function, and it does not have a name
 	   "namedFunctionReference" is *not* its name.
 	*/
 }
@@ -78,7 +78,7 @@ function doStuff(param, param2) {
 
 ### IIFEs
 
-Immediately invoked function expressions (IIFEs) 
+Immediately invoked function expressions (IIFEs)
 are anonymous functions that are surrounded by parentheses,
 and called as soon as they are declared;
 and thus by definition can only ever be called once:

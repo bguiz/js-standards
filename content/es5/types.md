@@ -12,7 +12,7 @@ tags:
   - Prototype
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/equality
 next: /es5/lint
 notoc: true
@@ -43,5 +43,5 @@ weight: 2080
 ### Modifying the prototypes of built in types
 
 - Don't!
-- It may be convenient to add your own custom implementation of `Array.prototype.forEach`, and the like, 
+- It may be convenient to add your own custom implementation of `Array.prototype.forEach`, and the like,
   but generally speaking, unless you are developing a low level library, this is a bad idea

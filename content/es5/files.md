@@ -7,7 +7,7 @@ tags:
   - Files
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/comments
 next: /es5/hoisting
 notoc: true
@@ -60,7 +60,7 @@ and the Javascript execution.
 Instead, use the `DOMContentLoaded` event:
 
 ```javascript
-document.addEventListener("DOMContentLoaded", function(event) { 
+document.addEventListener("DOMContentLoaded", function(event) {
   //initialise stuff
 });
 ```
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 or jQuery:
 
 ```javascript
-jQuery(document).ready(function(event) { 
+jQuery(document).ready(function(event) {
   //initialise stuff
 });
 ```

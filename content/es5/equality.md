@@ -7,7 +7,7 @@ tags:
   - Equality
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/control
 next: /es5/types
 notoc: true
@@ -16,10 +16,10 @@ weight: 2070
 
 Do not use `==` or `!=`. Use `===` or `!==` instead!
 
-This is because the former (double equals) attempts to do type coercion before comparison, 
+This is because the former (double equals) attempts to do type coercion before comparison,
 whereas the latter (triple equals) simply compares as-is.
 
-The equality comparison which occurs with a type coercion is 
+The equality comparison which occurs with a type coercion is
 [notoriously difficult to comprehend](http://dorey.github.io/JavaScript-Equality-Table/)
 so it is best to avoid it!
 

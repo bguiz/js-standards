@@ -1,6 +1,7 @@
 ---
 title: ES5 Naming Conventions
-linktitle: Naming Conventions
+linktitle: Naming (JS)
+identifier: naming-js
 date: 2015-01-14T22:13:18+11:00
 tags:
   - ES5
@@ -9,7 +10,7 @@ tags:
   - Naming
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/functions
 next: /es5/control
 notoc: true

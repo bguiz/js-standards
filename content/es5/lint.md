@@ -8,7 +8,7 @@ tags:
   - JsHint
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/types
 next: /es5/comments
 notoc: true

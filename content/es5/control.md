@@ -11,7 +11,7 @@ tags:
   - Switch
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/naming
 next: /es5/equality
 notoc: true
@@ -23,7 +23,7 @@ weight: 2060
 The following keywords control the flow of execution in a program:
 `if`, `for`, `while`, `do`, `switch`
 
-The code block which follows these keywords 
+The code block which follows these keywords
 (sometimes with a set of instructions enclosed in parentheses in between)
 must be surrounded with `{` and `}`.
 

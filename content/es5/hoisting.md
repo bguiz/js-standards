@@ -8,7 +8,7 @@ tags:
   - Variables
 menu:
   main:
-    parent: es5
+    parent: js
 prev: /es5/files
 next: /es5/functions
 notoc: true
