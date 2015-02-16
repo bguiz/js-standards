@@ -16,7 +16,7 @@ notoc: true
 weight: 2010
 ---
 
-Comment your code generously.
+Comment your code **generously**.
 As a rule of thumb, you should *not* have a comment for every line of code.
 Rather you should have a comment per function,
 where the function is non-trivial.
@@ -54,7 +54,7 @@ that function needs a comment
 When a function is commented, adhere to a standard format throughout the code base.
 The standard should be decided based on the choice of documentation pre-processor chosen.
 If no documentation pre-processor has been chosen,
-default to adhering to the format expeected by
+default to adhering to the format expected by
 [JSDoc](http://usejsdoc.org/about-getting-started.html)
 
 ```javascript
@@ -74,7 +74,7 @@ function Person(first, last) { /* implementation goes here */ }
 return arr[y * width + x];
 ```
 
-**Do** use multiline comments instead of single line comments,
+**Do** use multi-line comments instead of single line comments,
 for comments that are three lines or more.
 
 ```javascript
@@ -89,9 +89,9 @@ for comments that are three lines or more.
 
 Note that subtle difference such as the number of `*`s
 is significant.
-JSDoc interpret multiline comments that begin with exactly two `*`s
-as a commnet that should be parsed and added to the documentation,
-and ignores any other multiline commnents
+JSDoc interprets multi-line comments that begin with exactly two `*`s
+as a comment that should be parsed and added to the documentation,
+and ignores any other multi-line comments.
 
 **Avoid** checking in commented out lines of code.
 
@@ -128,3 +128,22 @@ However, if it happens that leaving in the disabled or commented out code
 improves the ability of the next developer to comprehend what is going on
 or the original intent of the code,
 then these are permissible.
+
+## Self Documenting Code
+
+Comments are not the only means of documenting your code.
+A *superior* means of doing so would be through
+
+- how you name your variables
+- how you name your functions
+- how you name your function parameters
+- breaking up large or complex functions by decomposing them into smaller,
+  single-purpose functions
+
+The idea is to strive for your code to be **self documenting**.
+See the section on [naming](/es5/naming) for more details.
+
+Comments should be used to fill in the gaps when
+any of the above are not appropriate,
+and in addition to them.
+

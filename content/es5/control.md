@@ -61,9 +61,9 @@ default:
 	console.log('Nothing special about myVar');
 }
 ```
-The fopllwoing example illustrates what *not* to do in a switch statement:
+The following example illustrates what *not* to do in a switch statement:
 
-```javscript
+```javascript
 switch (myVar) {
 case 2:
 	console.log('myVar is two');

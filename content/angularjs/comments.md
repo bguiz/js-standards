@@ -9,7 +9,7 @@ menu:
     parent: angularjs
 
 prev: /angularjs/animations
-next: /angularjs/js-hint
+next: /angularjs/constants
 notoc: true
 weight: 4020
 ---

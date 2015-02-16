@@ -29,12 +29,12 @@ They should also be the last tags within the `<body>` tag.
 This is because browsers load script tags synchronously,
 and makes the HTML document appear to load more slowly to the end user.
 
-**Do not** place any Javascript inline within HTML.
+**Do not** place any Javascript in-line within HTML.
 
 `<script>` tags containing Javascript are a bad idea,
 as it fails to separate the concerns of behaviour and content.
 This in a similar vein to why we should place CSS in a separate
-file instead of inline within DOM elements.
+file instead of in-line within DOM elements.
 
 Another place that Javascript is commonly found in HTML
 is within `on*` attribute tags on DOM elements,
@@ -84,7 +84,7 @@ This visual indicator will help you to avoid lines that are way too long.
 
 Many others will recommend that 80 character columns should be used here,
 however, that is a little outdated with current day screen sizes and resolutions,
-and is unnecesarily restrictive.
+and is unnecessarily restrictive.
 
 Another reason for placing a restriction on the maximum line length,
 is that it is a great indicator of pyramid of doom -

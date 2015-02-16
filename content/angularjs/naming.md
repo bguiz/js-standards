@@ -7,6 +7,7 @@ tags:
 menu:
   main:
     parent: angularjs
+    identifier: naming-ng
 
 prev: /angularjs/exception-handling
 next: /angularjs/application-structure-lift-principle

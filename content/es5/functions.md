@@ -58,6 +58,18 @@ function doStuff(param, param2) {
 }
 ```
 
+### Avoid Anonymous Functions
+
+While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:
+
+- Self documenting code: It is a good idea to give your functions descriptive names
+- Stack traces: When an error or exception is raised in the scope of the function,l
+  the function's name will be displayed in the stack trace.
+  If that function is anonymous, however, its name does **not** get displayed,
+  even where the function was assigned to a variable.
+
 ### Trailing semicolons
 
 For functions assigned to variables, place a `;` after the closing `}`:
@@ -97,11 +109,10 @@ For example, when one is writing a tool or pre-processor that outputs generated 
 
 ### Function hoisting
 
-Hoistiong was covered in detail previously,
+Hoisting was covered in detail previously,
 however, it was done in terms of hoisting of variable declarations.
-Hoisting of function declarations works in very much the same way
-as hoisting of variables.
-This is most pertinent when considering inner functions.
+Hoisting of function declarations works in very much the same way.
+This is most pertinent when considering **inner functions**.
 
 Inner functions are functions that are declared within another function.
 In this scenario, variables within the scope of the outer function
