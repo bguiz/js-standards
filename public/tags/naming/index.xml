@@ -41,6 +41,47 @@ use instead what would be normal variable naming conventions other C-style synta
 &lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&#34;abbreviations:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Abbreviations&lt;/h3&gt;
+
+&lt;p&gt;With the exception of temporary variables,
+such as the occasional &lt;code&gt;i&lt;/code&gt; and &lt;code&gt;j&lt;/code&gt; that you might use as the iterator index in a for loop,
+avoid abbreviating or otherwise obfuscating your variable and function names.&lt;/p&gt;
+
+&lt;p&gt;Spell them out in full!
+After all, abbreviations are the job for a &lt;strong&gt;minifier&lt;/strong&gt;,
+which will minimise the length of all of your Javascript variables anyway!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function a(b) {
+  return b.last || bar.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is &lt;code&gt;a&lt;/code&gt;?
+What is &lt;code&gt;b&lt;/code&gt;?
+If you were to look at this in three months time,
+would you not wish that you had written this instead?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function selectDefaultName(person) {
+  return person.last || person.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the same vein, avoid giving ambiguous names to variables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;pos&lt;/code&gt;, call it &lt;code&gt;boxPosition&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;num&lt;/code&gt;, call it &lt;code&gt;numBoxes&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;prefixes-and-suffixes:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Prefixes and Suffixes&lt;/h3&gt;
+
+&lt;p&gt;Avoid prefixing or suffixing variables names with the types that they contain.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;studentArray&lt;/code&gt; or &lt;code&gt;studentArr&lt;/code&gt;, simply use &lt;code&gt;students&lt;/code&gt; instead.&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;objWallet&lt;/code&gt; or &lt;code&gt;walletObj&lt;/code&gt;, simply use &lt;code&gt;wallet&lt;/code&gt; instead.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
 
 &lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
@@ -57,7 +98,7 @@ many developers adopt conventions such as:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;These additional naming conventions are not necessary,
-but can be beneficial to adopt acorss the entire project,
+but can be beneficial to adopt across the entire project,
 in addition to the ones described here.&lt;/p&gt;
 </description>
     </item>

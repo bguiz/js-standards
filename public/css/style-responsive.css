@@ -1,7 +1,21 @@
+@media (max-width: 1024px) {
+
+
+}
+
 @media (max-width: 768px) {
 
     .header {
         position: absolute;
+    }
+
+    .title-row {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .black-bg {
+        border-bottom: none;
     }
 
     /*sidebar*/
@@ -10,15 +24,16 @@
         height: auto;
         overflow: hidden;
         position: absolute;
+        bottom: inherit;
         width: 100%;
         z-index: 1001;
+        margin: 0px !important;
     }
 
-
-    /* body container */
-    #main-content {
-        margin: 0px!important;
-        position: none !important;
+    #sidebar ul.sidebar-menu {
+        padding: 0 15px;
+        border: 5px solid rgba(20,20,20,0.9);
+        border-top: none;
     }
 
     #sidebar > ul > li > a > span {
@@ -26,7 +41,7 @@
     }
 
     #sidebar > ul > li {
-        margin: 0 10px 5px 10px;
+        margin: 5px 10px 5px 10px;
     }
     #sidebar > ul > li > a {
         height:35px;
@@ -42,9 +57,31 @@
         background: transparent !important ;
     }
 
-    /* sidebar */
-    #sidebar {
-        margin: 0px !important;
+    /*--sidebar toggle---*/
+    .toggle-nav {
+        display:block;
+        position: static;
+        color: #bbbbbb;
+        float: right;
+        margin: 10px 5px;
+        background: none;
+        border: none;
+        -webkit-transition: none;
+        -moz-transition: none;
+        -o-transition: none;
+        -ms-transition: none;
+        transition: none;
+    }
+
+    /* body container */
+    #main-content {
+        margin: 0px!important;
+        position: none !important;
+        left: 0;
+    }
+
+    .row-content {
+        width: 100%;
     }
 
     .btn {
@@ -53,7 +90,7 @@
 
 }
 
-@media (max-width: 480px) {
+@media (max-width: 470px) {
 
     .notification-row {
         display: none;

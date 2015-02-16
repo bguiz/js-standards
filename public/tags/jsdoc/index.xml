@@ -18,7 +18,9 @@
       <pubDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
-      <description>&lt;p&gt;Comment your code generously.
+      <description>
+
+&lt;p&gt;Comment your code &lt;strong&gt;generously&lt;/strong&gt;.
 As a rule of thumb, you should &lt;em&gt;not&lt;/em&gt; have a comment for every line of code.
 Rather you should have a comment per function,
 where the function is non-trivial.&lt;/p&gt;
@@ -54,7 +56,7 @@ that function needs a comment&lt;/p&gt;
 &lt;p&gt;When a function is commented, adhere to a standard format throughout the code base.
 The standard should be decided based on the choice of documentation pre-processor chosen.
 If no documentation pre-processor has been chosen,
-default to adhering to the format expeected by
+default to adhering to the format expected by
 &lt;a href=&#34;http://usejsdoc.org/about-getting-started.html&#34;&gt;JSDoc&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
@@ -72,7 +74,7 @@ function Person(first, last) { /* implementation goes here */ }
 return arr[y * width + x];
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multiline comments instead of single line comments,
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multi-line comments instead of single line comments,
 for comments that are three lines or more.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/*
@@ -86,9 +88,9 @@ for comments that are three lines or more.&lt;/p&gt;
 
 &lt;p&gt;Note that subtle difference such as the number of &lt;code&gt;*&lt;/code&gt;s
 is significant.
-JSDoc interpret multiline comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
-as a commnet that should be parsed and added to the documentation,
-and ignores any other multiline commnents&lt;/p&gt;
+JSDoc interprets multi-line comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
+as a comment that should be parsed and added to the documentation,
+and ignores any other multi-line comments.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Avoid&lt;/strong&gt; checking in commented out lines of code.&lt;/p&gt;
 
@@ -123,6 +125,26 @@ However, if it happens that leaving in the disabled or commented out code
 improves the ability of the next developer to comprehend what is going on
 or the original intent of the code,
 then these are permissible.&lt;/p&gt;
+
+&lt;h2 id=&#34;self-documenting-code:03e7713c1e56da666eeab8dfbbf51091&#34;&gt;Self Documenting Code&lt;/h2&gt;
+
+&lt;p&gt;Comments are not the only means of documenting your code.
+A &lt;em&gt;superior&lt;/em&gt; means of doing so would be through&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;how you name your variables&lt;/li&gt;
+&lt;li&gt;how you name your functions&lt;/li&gt;
+&lt;li&gt;how you name your function parameters&lt;/li&gt;
+&lt;li&gt;breaking up large or complex functions by decomposing them into smaller,
+single-purpose functions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The idea is to strive for your code to be &lt;strong&gt;self documenting&lt;/strong&gt;.
+See the section on &lt;a href=&#34;http://bguiz.github.io/js-standards/es5/naming&#34;&gt;naming&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;Comments should be used to fill in the gaps when
+any of the above are not appropriate,
+and in addition to them.&lt;/p&gt;
 </description>
     </item>
     

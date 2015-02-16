@@ -42,7 +42,9 @@ and are designed to be integrated into front end web development toolchains.&lt;
       <pubDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
-      <description>&lt;p&gt;Comment your code generously.
+      <description>
+
+&lt;p&gt;Comment your code &lt;strong&gt;generously&lt;/strong&gt;.
 As a rule of thumb, you should &lt;em&gt;not&lt;/em&gt; have a comment for every line of code.
 Rather you should have a comment per function,
 where the function is non-trivial.&lt;/p&gt;
@@ -78,7 +80,7 @@ that function needs a comment&lt;/p&gt;
 &lt;p&gt;When a function is commented, adhere to a standard format throughout the code base.
 The standard should be decided based on the choice of documentation pre-processor chosen.
 If no documentation pre-processor has been chosen,
-default to adhering to the format expeected by
+default to adhering to the format expected by
 &lt;a href=&#34;http://usejsdoc.org/about-getting-started.html&#34;&gt;JSDoc&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/**
@@ -96,7 +98,7 @@ function Person(first, last) { /* implementation goes here */ }
 return arr[y * width + x];
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multiline comments instead of single line comments,
+&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multi-line comments instead of single line comments,
 for comments that are three lines or more.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;/*
@@ -110,9 +112,9 @@ for comments that are three lines or more.&lt;/p&gt;
 
 &lt;p&gt;Note that subtle difference such as the number of &lt;code&gt;*&lt;/code&gt;s
 is significant.
-JSDoc interpret multiline comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
-as a commnet that should be parsed and added to the documentation,
-and ignores any other multiline commnents&lt;/p&gt;
+JSDoc interprets multi-line comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
+as a comment that should be parsed and added to the documentation,
+and ignores any other multi-line comments.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Avoid&lt;/strong&gt; checking in commented out lines of code.&lt;/p&gt;
 
@@ -147,6 +149,26 @@ However, if it happens that leaving in the disabled or commented out code
 improves the ability of the next developer to comprehend what is going on
 or the original intent of the code,
 then these are permissible.&lt;/p&gt;
+
+&lt;h2 id=&#34;self-documenting-code:03e7713c1e56da666eeab8dfbbf51091&#34;&gt;Self Documenting Code&lt;/h2&gt;
+
+&lt;p&gt;Comments are not the only means of documenting your code.
+A &lt;em&gt;superior&lt;/em&gt; means of doing so would be through&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;how you name your variables&lt;/li&gt;
+&lt;li&gt;how you name your functions&lt;/li&gt;
+&lt;li&gt;how you name your function parameters&lt;/li&gt;
+&lt;li&gt;breaking up large or complex functions by decomposing them into smaller,
+single-purpose functions&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The idea is to strive for your code to be &lt;strong&gt;self documenting&lt;/strong&gt;.
+See the section on &lt;a href=&#34;http://bguiz.github.io/js-standards/es5/naming&#34;&gt;naming&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;Comments should be used to fill in the gaps when
+any of the above are not appropriate,
+and in addition to them.&lt;/p&gt;
 </description>
     </item>
     
@@ -170,12 +192,12 @@ They should also be the last tags within the &lt;code&gt;&amp;lt;body&amp;gt;&lt
 This is because browsers load script tags synchronously,
 and makes the HTML document appear to load more slowly to the end user.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript inline within HTML.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript in-line within HTML.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags containing Javascript are a bad idea,
 as it fails to separate the concerns of behaviour and content.
 This in a similar vein to why we should place CSS in a separate
-file instead of inline within DOM elements.&lt;/p&gt;
+file instead of in-line within DOM elements.&lt;/p&gt;
 
 &lt;p&gt;Another place that Javascript is commonly found in HTML
 is within &lt;code&gt;on*&lt;/code&gt; attribute tags on DOM elements,
@@ -220,7 +242,7 @@ This visual indicator will help you to avoid lines that are way too long.&lt;/p&
 
 &lt;p&gt;Many others will recommend that 80 character columns should be used here,
 however, that is a little outdated with current day screen sizes and resolutions,
-and is unnecesarily restrictive.&lt;/p&gt;
+and is unnecessarily restrictive.&lt;/p&gt;
 
 &lt;p&gt;Another reason for placing a restriction on the maximum line length,
 is that it is a great indicator of pyramid of doom -
@@ -369,6 +391,20 @@ A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id=&#34;avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Avoid Anonymous Functions&lt;/h3&gt;
+
+&lt;p&gt;While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Self documenting code: It is a good idea to give your functions descriptive names&lt;/li&gt;
+&lt;li&gt;Stack traces: When an error or exception is raised in the scope of the function,l
+the function&amp;rsquo;s name will be displayed in the stack trace.
+If that function is anonymous, however, its name does &lt;strong&gt;not&lt;/strong&gt; get displayed,
+even where the function was assigned to a variable.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;trailing-semicolons:904d9cf85d985550c869e6d9741448cc&#34;&gt;Trailing semicolons&lt;/h3&gt;
 
 &lt;p&gt;For functions assigned to variables, place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
@@ -405,11 +441,10 @@ For example, when one is writing a tool or pre-processor that outputs generated 
 
 &lt;h3 id=&#34;function-hoisting:904d9cf85d985550c869e6d9741448cc&#34;&gt;Function hoisting&lt;/h3&gt;
 
-&lt;p&gt;Hoistiong was covered in detail previously,
+&lt;p&gt;Hoisting was covered in detail previously,
 however, it was done in terms of hoisting of variable declarations.
-Hoisting of function declarations works in very much the same way
-as hoisting of variables.
-This is most pertinent when considering inner functions.&lt;/p&gt;
+Hoisting of function declarations works in very much the same way.
+This is most pertinent when considering &lt;strong&gt;inner functions&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Inner functions are functions that are declared within another function.
 In this scenario, variables within the scope of the outer function
@@ -469,6 +504,47 @@ use instead what would be normal variable naming conventions other C-style synta
 &lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&#34;abbreviations:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Abbreviations&lt;/h3&gt;
+
+&lt;p&gt;With the exception of temporary variables,
+such as the occasional &lt;code&gt;i&lt;/code&gt; and &lt;code&gt;j&lt;/code&gt; that you might use as the iterator index in a for loop,
+avoid abbreviating or otherwise obfuscating your variable and function names.&lt;/p&gt;
+
+&lt;p&gt;Spell them out in full!
+After all, abbreviations are the job for a &lt;strong&gt;minifier&lt;/strong&gt;,
+which will minimise the length of all of your Javascript variables anyway!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function a(b) {
+  return b.last || bar.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is &lt;code&gt;a&lt;/code&gt;?
+What is &lt;code&gt;b&lt;/code&gt;?
+If you were to look at this in three months time,
+would you not wish that you had written this instead?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function selectDefaultName(person) {
+  return person.last || person.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the same vein, avoid giving ambiguous names to variables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;pos&lt;/code&gt;, call it &lt;code&gt;boxPosition&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;num&lt;/code&gt;, call it &lt;code&gt;numBoxes&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;prefixes-and-suffixes:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Prefixes and Suffixes&lt;/h3&gt;
+
+&lt;p&gt;Avoid prefixing or suffixing variables names with the types that they contain.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;studentArray&lt;/code&gt; or &lt;code&gt;studentArr&lt;/code&gt;, simply use &lt;code&gt;students&lt;/code&gt; instead.&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;objWallet&lt;/code&gt; or &lt;code&gt;walletObj&lt;/code&gt;, simply use &lt;code&gt;wallet&lt;/code&gt; instead.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
 
 &lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
@@ -485,7 +561,7 @@ many developers adopt conventions such as:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;These additional naming conventions are not necessary,
-but can be beneficial to adopt acorss the entire project,
+but can be beneficial to adopt across the entire project,
 in addition to the ones described here.&lt;/p&gt;
 </description>
     </item>
@@ -540,9 +616,9 @@ default:
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The fopllwoing example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
+&lt;p&gt;The following example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javscript&#34;&gt;switch (myVar) {
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;switch (myVar) {
 case 2:
 	console.log(&#39;myVar is two&#39;);
 case 1:
@@ -571,12 +647,119 @@ Avoid this!&lt;/p&gt;
       <pubDate>Wed, 14 Jan 2015 22:41:41 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
-      <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
+      <description>
+
+&lt;h3 id=&#34;if-boolean-equals-true:7460868d589b9e4ee4572b91ad850532&#34;&gt;If (Boolean) equals true&lt;/h3&gt;
+
+&lt;p&gt;Avoid comparing a Boolean value to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if ((score &amp;gt;= 50) === true) {
+  console.log(&#39;pass&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above would be more succinctly stated as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (score &amp;gt;= 50) {
+  console.log(&#39;pass&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In a similar vein, avoid assigning Boolean values by means of a ternary operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pass = (score &amp;gt;= 50) ? true : false;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead, this can be expressed more succinctly,
+like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pass = (score &amp;gt;= 50);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that when doing this, the operator precedence means that &lt;code&gt;score &amp;gt;= 50&lt;/code&gt;
+does &lt;strong&gt;not&lt;/strong&gt; need to be surrounded by parentheses,
+however, doing so makes the code easier to understand at first glance.&lt;/p&gt;
+
+&lt;h3 id=&#34;testing-for-null-and-undefined:7460868d589b9e4ee4572b91ad850532&#34;&gt;Testing for &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;undefined&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Quite often you will find yourself testing whether a variable has been set.
+In Javascript, this means that you want to check if it has been set to either
+&lt;code&gt;null&lt;/code&gt; or &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A simple way of testing whether a variable is &lt;code&gt;null&lt;/code&gt; or &lt;code&gt;undefined&lt;/code&gt; could be simply:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isNull = (myVar === null); //OK
+var isUndefined = (myVar === undefined); //NOT OK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first statement is OK, because &lt;code&gt;null&lt;/code&gt; is &lt;strong&gt;immutable&lt;/strong&gt;.
+However, one of Javascript&amp;rsquo;s quirks is that &lt;code&gt;undefined&lt;/code&gt; is,
+for some reason, &lt;strong&gt;mutable&lt;/strong&gt;.
+This means that someone could assign a value to &lt;code&gt;undefined&lt;/code&gt;,
+even a &lt;em&gt;&amp;ldquo;truthy&amp;rdquo;&lt;/em&gt; one,
+thus impacting any other comparisons.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;undefined = 2; //Do NOT do this - Javascript quirk demo only
+var isUndefined = (myVar === undefined);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the example above, if the value of &lt;code&gt;myVar&lt;/code&gt; was &lt;code&gt;2&lt;/code&gt;,
+&lt;code&gt;isUndefined&lt;/code&gt; will be equal to &lt;code&gt;true&lt;/code&gt;,
+which is confusing, to say the least.&lt;/p&gt;
+
+&lt;p&gt;The correct way to test if a variable is &lt;code&gt;undefined&lt;/code&gt;,
+is to use the &lt;code&gt;typeof&lt;/code&gt; operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isUndefined = (typeof myVar === &#39;undefined&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, often times, you do not really care if any variable is
+exactly &lt;code&gt;undefined&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;,
+and you want to do the same thing in either case.&lt;/p&gt;
+
+&lt;p&gt;Both of these values
+are special values which are considered &lt;em&gt;&amp;ldquo;falsey&amp;rdquo;&lt;/em&gt;,
+meaning that they are loosely equal to &lt;code&gt;false&lt;/code&gt;
+(more on strict and loose equality below).&lt;/p&gt;
+
+&lt;p&gt;Thus, a simplified test can be done instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isFalsey = (!myVar);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that &lt;code&gt;isFalsey&lt;/code&gt; will be true when &lt;code&gt;myVar&lt;/code&gt; is one of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;null&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;any other values which are &lt;em&gt;&amp;ldquo;falsey&amp;rdquo;&lt;/em&gt;, e.g. &lt;code&gt;0&lt;/code&gt; or an empty string.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;strict-equality:7460868d589b9e4ee4572b91ad850532&#34;&gt;Strict Equality&lt;/h3&gt;
+
+&lt;p&gt;Most of the time, you want to know if the values stored in two variables are exactly the same.
+Sometimes, however, you simply want to know if they are roughly the same thing.
+In Javascript, there are &lt;strong&gt;two&lt;/strong&gt; forms of equality comparison:
+strict equality and loose equality:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; : loose equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!=&lt;/code&gt; : loose not equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;===&lt;/code&gt; : strict equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!==&lt;/code&gt; : strict not equals&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;If&lt;/em&gt; your intent is to determine whether two variable are &lt;strong&gt;exactly&lt;/strong&gt; the same,
+do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;.
+Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
 
 &lt;p&gt;This is because the former (double equals) attempts to do type coercion before comparison,
 whereas the latter (triple equals) simply compares as-is.&lt;/p&gt;
 
-&lt;p&gt;The equality comparison which occurs with a type coercion is
+&lt;p&gt;For example, and empty string and &lt;code&gt;0&lt;/code&gt; are not strictly equal,
+but they are indeed loosely equal.
+Javascript is full of little surprises like that -
+making the equality comparison which occurs with a type coercion is
 &lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;notoriously difficult to comprehend&lt;/a&gt;
 so it is best to avoid it!&lt;/p&gt;
 

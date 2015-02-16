@@ -18,12 +18,119 @@
       <pubDate>Wed, 14 Jan 2015 22:41:41 &#43;1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
-      <description>&lt;p&gt;Do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;. Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
+      <description>
+
+&lt;h3 id=&#34;if-boolean-equals-true:7460868d589b9e4ee4572b91ad850532&#34;&gt;If (Boolean) equals true&lt;/h3&gt;
+
+&lt;p&gt;Avoid comparing a Boolean value to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if ((score &amp;gt;= 50) === true) {
+  console.log(&#39;pass&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above would be more succinctly stated as:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (score &amp;gt;= 50) {
+  console.log(&#39;pass&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In a similar vein, avoid assigning Boolean values by means of a ternary operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pass = (score &amp;gt;= 50) ? true : false;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead, this can be expressed more succinctly,
+like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var pass = (score &amp;gt;= 50);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that when doing this, the operator precedence means that &lt;code&gt;score &amp;gt;= 50&lt;/code&gt;
+does &lt;strong&gt;not&lt;/strong&gt; need to be surrounded by parentheses,
+however, doing so makes the code easier to understand at first glance.&lt;/p&gt;
+
+&lt;h3 id=&#34;testing-for-null-and-undefined:7460868d589b9e4ee4572b91ad850532&#34;&gt;Testing for &lt;code&gt;null&lt;/code&gt; and &lt;code&gt;undefined&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;Quite often you will find yourself testing whether a variable has been set.
+In Javascript, this means that you want to check if it has been set to either
+&lt;code&gt;null&lt;/code&gt; or &lt;code&gt;undefined&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A simple way of testing whether a variable is &lt;code&gt;null&lt;/code&gt; or &lt;code&gt;undefined&lt;/code&gt; could be simply:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isNull = (myVar === null); //OK
+var isUndefined = (myVar === undefined); //NOT OK
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first statement is OK, because &lt;code&gt;null&lt;/code&gt; is &lt;strong&gt;immutable&lt;/strong&gt;.
+However, one of Javascript&amp;rsquo;s quirks is that &lt;code&gt;undefined&lt;/code&gt; is,
+for some reason, &lt;strong&gt;mutable&lt;/strong&gt;.
+This means that someone could assign a value to &lt;code&gt;undefined&lt;/code&gt;,
+even a &lt;em&gt;&amp;ldquo;truthy&amp;rdquo;&lt;/em&gt; one,
+thus impacting any other comparisons.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;undefined = 2; //Do NOT do this - Javascript quirk demo only
+var isUndefined = (myVar === undefined);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the example above, if the value of &lt;code&gt;myVar&lt;/code&gt; was &lt;code&gt;2&lt;/code&gt;,
+&lt;code&gt;isUndefined&lt;/code&gt; will be equal to &lt;code&gt;true&lt;/code&gt;,
+which is confusing, to say the least.&lt;/p&gt;
+
+&lt;p&gt;The correct way to test if a variable is &lt;code&gt;undefined&lt;/code&gt;,
+is to use the &lt;code&gt;typeof&lt;/code&gt; operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isUndefined = (typeof myVar === &#39;undefined&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;However, often times, you do not really care if any variable is
+exactly &lt;code&gt;undefined&lt;/code&gt; or &lt;code&gt;null&lt;/code&gt;,
+and you want to do the same thing in either case.&lt;/p&gt;
+
+&lt;p&gt;Both of these values
+are special values which are considered &lt;em&gt;&amp;ldquo;falsey&amp;rdquo;&lt;/em&gt;,
+meaning that they are loosely equal to &lt;code&gt;false&lt;/code&gt;
+(more on strict and loose equality below).&lt;/p&gt;
+
+&lt;p&gt;Thus, a simplified test can be done instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var isFalsey = (!myVar);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that &lt;code&gt;isFalsey&lt;/code&gt; will be true when &lt;code&gt;myVar&lt;/code&gt; is one of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;null&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;any other values which are &lt;em&gt;&amp;ldquo;falsey&amp;rdquo;&lt;/em&gt;, e.g. &lt;code&gt;0&lt;/code&gt; or an empty string.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;strict-equality:7460868d589b9e4ee4572b91ad850532&#34;&gt;Strict Equality&lt;/h3&gt;
+
+&lt;p&gt;Most of the time, you want to know if the values stored in two variables are exactly the same.
+Sometimes, however, you simply want to know if they are roughly the same thing.
+In Javascript, there are &lt;strong&gt;two&lt;/strong&gt; forms of equality comparison:
+strict equality and loose equality:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt; : loose equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!=&lt;/code&gt; : loose not equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;===&lt;/code&gt; : strict equals&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!==&lt;/code&gt; : strict not equals&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;If&lt;/em&gt; your intent is to determine whether two variable are &lt;strong&gt;exactly&lt;/strong&gt; the same,
+do not use &lt;code&gt;==&lt;/code&gt; or &lt;code&gt;!=&lt;/code&gt;.
+Use &lt;code&gt;===&lt;/code&gt; or &lt;code&gt;!==&lt;/code&gt; instead!&lt;/p&gt;
 
 &lt;p&gt;This is because the former (double equals) attempts to do type coercion before comparison,
 whereas the latter (triple equals) simply compares as-is.&lt;/p&gt;
 
-&lt;p&gt;The equality comparison which occurs with a type coercion is
+&lt;p&gt;For example, and empty string and &lt;code&gt;0&lt;/code&gt; are not strictly equal,
+but they are indeed loosely equal.
+Javascript is full of little surprises like that -
+making the equality comparison which occurs with a type coercion is
 &lt;a href=&#34;http://dorey.github.io/JavaScript-Equality-Table/&#34;&gt;notoriously difficult to comprehend&lt;/a&gt;
 so it is best to avoid it!&lt;/p&gt;
 
