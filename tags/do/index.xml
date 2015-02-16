@@ -62,9 +62,9 @@ default:
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The fopllwoing example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
+&lt;p&gt;The following example illustrates what &lt;em&gt;not&lt;/em&gt; to do in a switch statement:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javscript&#34;&gt;switch (myVar) {
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;switch (myVar) {
 case 2:
 	console.log(&#39;myVar is two&#39;);
 case 1:

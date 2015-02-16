@@ -59,6 +59,20 @@ A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3 id=&#34;avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Avoid Anonymous Functions&lt;/h3&gt;
+
+&lt;p&gt;While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Self documenting code: It is a good idea to give your functions descriptive names&lt;/li&gt;
+&lt;li&gt;Stack traces: When an error or exception is raised in the scope of the function,l
+the function&amp;rsquo;s name will be displayed in the stack trace.
+If that function is anonymous, however, its name does &lt;strong&gt;not&lt;/strong&gt; get displayed,
+even where the function was assigned to a variable.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;trailing-semicolons:904d9cf85d985550c869e6d9741448cc&#34;&gt;Trailing semicolons&lt;/h3&gt;
 
 &lt;p&gt;For functions assigned to variables, place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
@@ -95,11 +109,10 @@ For example, when one is writing a tool or pre-processor that outputs generated 
 
 &lt;h3 id=&#34;function-hoisting:904d9cf85d985550c869e6d9741448cc&#34;&gt;Function hoisting&lt;/h3&gt;
 
-&lt;p&gt;Hoistiong was covered in detail previously,
+&lt;p&gt;Hoisting was covered in detail previously,
 however, it was done in terms of hoisting of variable declarations.
-Hoisting of function declarations works in very much the same way
-as hoisting of variables.
-This is most pertinent when considering inner functions.&lt;/p&gt;
+Hoisting of function declarations works in very much the same way.
+This is most pertinent when considering &lt;strong&gt;inner functions&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;Inner functions are functions that are declared within another function.
 In this scenario, variables within the scope of the outer function
@@ -159,6 +172,47 @@ use instead what would be normal variable naming conventions other C-style synta
 &lt;li&gt;Avoid all Unicode characters&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h3 id=&#34;abbreviations:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Abbreviations&lt;/h3&gt;
+
+&lt;p&gt;With the exception of temporary variables,
+such as the occasional &lt;code&gt;i&lt;/code&gt; and &lt;code&gt;j&lt;/code&gt; that you might use as the iterator index in a for loop,
+avoid abbreviating or otherwise obfuscating your variable and function names.&lt;/p&gt;
+
+&lt;p&gt;Spell them out in full!
+After all, abbreviations are the job for a &lt;strong&gt;minifier&lt;/strong&gt;,
+which will minimise the length of all of your Javascript variables anyway!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function a(b) {
+  return b.last || bar.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What is &lt;code&gt;a&lt;/code&gt;?
+What is &lt;code&gt;b&lt;/code&gt;?
+If you were to look at this in three months time,
+would you not wish that you had written this instead?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function selectDefaultName(person) {
+  return person.last || person.first;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the same vein, avoid giving ambiguous names to variables:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;pos&lt;/code&gt;, call it &lt;code&gt;boxPosition&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;num&lt;/code&gt;, call it &lt;code&gt;numBoxes&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;prefixes-and-suffixes:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Prefixes and Suffixes&lt;/h3&gt;
+
+&lt;p&gt;Avoid prefixing or suffixing variables names with the types that they contain.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Instead of &lt;code&gt;studentArray&lt;/code&gt; or &lt;code&gt;studentArr&lt;/code&gt;, simply use &lt;code&gt;students&lt;/code&gt; instead.&lt;/li&gt;
+&lt;li&gt;Instead of &lt;code&gt;objWallet&lt;/code&gt; or &lt;code&gt;walletObj&lt;/code&gt;, simply use &lt;code&gt;wallet&lt;/code&gt; instead.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&#34;project-level-consistency:c71c34a7bb0db96f87def312ae0a673e&#34;&gt;Project level consistency&lt;/h3&gt;
 
 &lt;p&gt;There are a number of other naming conventions that you may choose to adopt,
@@ -175,7 +229,7 @@ many developers adopt conventions such as:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;These additional naming conventions are not necessary,
-but can be beneficial to adopt acorss the entire project,
+but can be beneficial to adopt across the entire project,
 in addition to the ones described here.&lt;/p&gt;
 </description>
     </item>

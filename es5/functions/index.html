@@ -88,11 +88,11 @@
                     
                     <li class="active"><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -173,16 +173,16 @@
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/es5/functions.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/es5/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -247,6 +247,20 @@ A function&rsquo;s name is the word in between the <code>function</code> keyword
 }
 </code></pre>
 
+<h3 id="avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc">Avoid Anonymous Functions</h3>
+
+<p>While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:</p>
+
+<ul>
+<li>Self documenting code: It is a good idea to give your functions descriptive names</li>
+<li>Stack traces: When an error or exception is raised in the scope of the function,l
+the function&rsquo;s name will be displayed in the stack trace.
+If that function is anonymous, however, its name does <strong>not</strong> get displayed,
+even where the function was assigned to a variable.</li>
+</ul>
+
 <h3 id="trailing-semicolons:904d9cf85d985550c869e6d9741448cc">Trailing semicolons</h3>
 
 <p>For functions assigned to variables, place a <code>;</code> after the closing <code>}</code>:</p>
@@ -283,11 +297,10 @@ For example, when one is writing a tool or pre-processor that outputs generated 
 
 <h3 id="function-hoisting:904d9cf85d985550c869e6d9741448cc">Function hoisting</h3>
 
-<p>Hoistiong was covered in detail previously,
+<p>Hoisting was covered in detail previously,
 however, it was done in terms of hoisting of variable declarations.
-Hoisting of function declarations works in very much the same way
-as hoisting of variables.
-This is most pertinent when considering inner functions.</p>
+Hoisting of function declarations works in very much the same way.
+This is most pertinent when considering <strong>inner functions</strong>.</p>
 
 <p>Inner functions are functions that are declared within another function.
 In this scenario, variables within the scope of the outer function

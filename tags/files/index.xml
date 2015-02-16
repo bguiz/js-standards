@@ -32,12 +32,12 @@ They should also be the last tags within the &lt;code&gt;&amp;lt;body&amp;gt;&lt
 This is because browsers load script tags synchronously,
 and makes the HTML document appear to load more slowly to the end user.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript inline within HTML.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; place any Javascript in-line within HTML.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt; tags containing Javascript are a bad idea,
 as it fails to separate the concerns of behaviour and content.
 This in a similar vein to why we should place CSS in a separate
-file instead of inline within DOM elements.&lt;/p&gt;
+file instead of in-line within DOM elements.&lt;/p&gt;
 
 &lt;p&gt;Another place that Javascript is commonly found in HTML
 is within &lt;code&gt;on*&lt;/code&gt; attribute tags on DOM elements,
@@ -82,7 +82,7 @@ This visual indicator will help you to avoid lines that are way too long.&lt;/p&
 
 &lt;p&gt;Many others will recommend that 80 character columns should be used here,
 however, that is a little outdated with current day screen sizes and resolutions,
-and is unnecesarily restrictive.&lt;/p&gt;
+and is unnecessarily restrictive.&lt;/p&gt;
 
 &lt;p&gt;Another reason for placing a restriction on the maximum line length,
 is that it is a great indicator of pyramid of doom -
