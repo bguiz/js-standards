@@ -117,9 +117,13 @@ weight: 4007
 ### Provide a Unique Directive Prefix
 ###### [Style [Y073](#style-y073)]
 
-  - Provide a short, unique and descriptive directive prefix such as `acmeSalesCustomerInfo` which is declared in HTML as `acme-sales-customer-info`.
+  - The name of the module that the directives belong to is sufficient namespacing
+  - There is no need to prefix the name of every directive in a project with a prefix
 
-    *Why?*: The unique short prefix identifies the directive's context and origin. For example a prefix of `cc-` may indicate that the directive is part of a CodeCamper app while `acme-` may indicate a directive for the Acme company.
+    *Why?*: Use unique short prefixes to identify the directive's context and origin.
+    This is only necessary when there is more than one similar directive in the same module.
+    For example a prefix of `cc-` may indicate that the directive is part of a CodeCamper app
+    while `acme-` may indicate a directive for the Acme company.
 
     Note: Avoid `ng-` as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as `ion-` for the [Ionic Framework](http://ionicframework.com/).
 
