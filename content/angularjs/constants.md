@@ -8,7 +8,7 @@ menu:
   main:
     parent: angularjs
 
-prev: /angularjs/js-hint
+prev: /angularjs/comments
 next: /angularjs/file-templates-and-snippets
 notoc: true
 weight: 4022

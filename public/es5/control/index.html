@@ -88,11 +88,11 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li class="active"><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -167,22 +167,24 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/es5/control.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/es5/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -250,9 +252,9 @@ default:
 }
 </code></pre>
 
-<p>The fopllwoing example illustrates what <em>not</em> to do in a switch statement:</p>
+<p>The following example illustrates what <em>not</em> to do in a switch statement:</p>
 
-<pre><code class="language-javscript">switch (myVar) {
+<pre><code class="language-javascript">switch (myVar) {
 case 2:
 	console.log('myVar is two');
 case 1:
@@ -272,6 +274,26 @@ but after executing its only statement,
 there was no <code>break</code> statement,
 and therefore, the execution <em>fell through</em> to the next case.
 Avoid this!</p>
+
+<h4 id="intentional-fall-through:5d2e0676ba15eb6f59fd1e1e3e2fbeab">Intentional fall through</h4>
+
+<p>Sometimes you want multiple switches to execute the same set of statements.
+In this case, intentional fall through is allowed,
+albeit with one condition:
+That in this case, consecutive labels are used,
+meaning that there are no statements in between consecutive labels.</p>
+
+<pre><code class="language-javascript">switch (myVar) {
+case 2:
+case 3:
+  console.log('myVar is two or three');
+case 1:
+  console.log('myVar is one');
+}
+</code></pre>
+
+<p>Note how between <code>case 2:</code> and <code>case 3:</code> above,
+there was only white space - not executable statements.</p>
 
                     </div> 
                     </section> 

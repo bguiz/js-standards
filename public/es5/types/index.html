@@ -88,11 +88,11 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li class="active"><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -167,22 +167,24 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/es5/types.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/es5/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -220,14 +222,46 @@
 <li>Use <code>{ key: 'val', key2: 'val2' }</code> instead of <code>new Object()</code>, as it is less verbose</li>
 <li>Do not quote keys of object literals, unless they must contain non-alphabet characters</li>
 <li>Try to use keys in objects which conform to variable naming conventions</li>
-<li>When iterating over all properties in an object, and accessing keys from the object&rsquo;s prototype is undesirable, be sure to use the <code>hasOwnProperty</code> check</li>
+<li>When iterating over all properties in an object,
+and accessing keys from the object&rsquo;s prototype is undesirable,
+be sure to use the <code>hasOwnProperty</code> check</li>
 </ul>
+
+<p>Without <code>hasOwnProperty</code> check:</p>
+
+<pre><code class="language-javascript">for (key in myObject) {
+  var value = myObject[key];
+  //do stuff with key and value
+}
+</code></pre>
+
+<p>With the <code>hasOwnProperty</code> check:</p>
+
+<pre><code class="language-javascript">for (key in myObject) {
+  if (myObject.hasOwnProperty(key)) {
+    var value = myObject[key];
+    //do stuff with key and value
+  }
+}
+</code></pre>
+
+<p>Use the former variation, without the <code>hasOwnProperty</code> check,
+only when you are absolutely certain that there cannot be any properties
+present on the object that come from its prototype.</p>
+
+<p>A better way than rolling your own would be to use functions in libraries such as
+UnderscoreJs or LoDash.
+If you are using ES6 Javascript, you have even more powerful
+<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/for...of">object iteration means</a>
+at your disposal.</p>
 
 <h3 id="booleans:3d59665407ad3f08f6bcaef4686926f7">Booleans</h3>
 
 <ul>
-<li>Do not compare to <code>true</code> or <code>false</code>, simply use the value of the value directly: Either <code>if (myBool) { /*...*/ }</code>, or <code>if (!myBool) { /*...*/ }</code></li>
-<li>Be aware of the difference between <code>true</code> and <em>truthy</em>. <a href="http://james.padolsey.com/javascript/truthy-falsey/">Reference</a></li>
+<li>Do not compare to <code>true</code> or <code>false</code>, simply use the value of the value directly:
+Either <code>if (myBool) { /*...*/ }</code>, or <code>if (!myBool) { /*...*/ }</code></li>
+<li>Be aware of the difference between <code>true</code> and <em>truthy</em>.
+<a href="http://james.padolsey.com/javascript/truthy-falsey/">Reference</a></li>
 </ul>
 
 <h3 id="strings:3d59665407ad3f08f6bcaef4686926f7">Strings</h3>
@@ -241,8 +275,9 @@
 
 <ul>
 <li>Don&rsquo;t!</li>
-<li>It may be convenient to add your own custom implementation of <code>Array.prototype.forEach</code>, and the like,
-but generally speaking, unless you are developing a low level library, this is a bad idea</li>
+<li>It may be convenient to add your own custom implementation of <code>Array.prototype.forEach</code>,
+and the like, but generally speaking,
+unless you are developing a low level library, this is a bad idea</li>
 </ul>
 
                     </div> 

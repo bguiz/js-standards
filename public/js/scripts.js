@@ -24,7 +24,7 @@ function initializeJS() {
             jQuery(sub).removeClass("open")
         } else {
             jQuery('.menu-arrow', this).addClass('fa-angle-down');
-			jQuery('.menu-arrow', this).removeClass('fa-angle-right');
+			      jQuery('.menu-arrow', this).removeClass('fa-angle-right');
             sub.slideDown(200);
             jQuery(sub).addClass("open")
         }
@@ -38,46 +38,39 @@ function initializeJS() {
             jQuery("#sidebar").scrollTo("+="+Math.abs(diff),500);
     });
 
-
     // sidebar menu toggle
+    var isWideLast;
     jQuery(function() {
         function responsiveView() {
-            var wSize = jQuery(window).width();
-            if (wSize <= 768) {
-                jQuery('#container').addClass('sidebar-close');
-                jQuery('#sidebar > ul').hide();
+            var isWide = (jQuery(window).width() >= 768);
+            if ((isWideLast === undefined) || (isWideLast !== isWide)) {
+              isMenu = isWide;
             }
-
-            if (wSize > 768) {
-                jQuery('#container').removeClass('sidebar-close');
-                jQuery('#sidebar > ul').show();
-            }
+            isWideLast = isWide;
+            showHideNav(isMenu);
         }
         jQuery(window).on('load', responsiveView);
         jQuery(window).on('resize', responsiveView);
     });
 
     jQuery('.toggle-nav').click(function () {
-        if (jQuery('#sidebar > ul').is(":visible") === true) {
-            jQuery('#main-content').css({
-                'margin-left': '0px'
-            });
-            jQuery('#sidebar').css({
-                'margin-left': '-180px'
-            });
-            jQuery('#sidebar > ul').hide();
-            jQuery("#container").addClass("sidebar-closed");
-        } else {
-            jQuery('#main-content').css({
-                'margin-left': '180px'
-            });
-            jQuery('#sidebar > ul').show();
-            jQuery('#sidebar').css({
-                'margin-left': '0'
-            });
-            jQuery("#container").removeClass("sidebar-closed");
-        }
+        isMenu = !isMenu;
+        showHideNav(isMenu);
     });
+
+    function showHideNav(isShow) {
+        if (isShow) {
+            jQuery('#sidebar').show();
+            jQuery('#container')
+                .addClass('sidebar-open')
+                .removeClass('sidebar-closed');
+        } else {
+            jQuery('#sidebar').hide();
+            jQuery('#container')
+                .removeClass('sidebar-open')
+                .addClass('sidebar-closed');
+        }
+    }
 
     //bar chart
     if (jQuery(".custom-custom-bar-chart")) {

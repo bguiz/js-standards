@@ -76,6 +76,66 @@ function doStuff(param, param2) {
 }
 ```
 
+### Avoid Anonymous Functions
+
+While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:
+
+- Self documenting code: It is a good idea to give your functions descriptive names
+- Stack traces: When an error or exception is raised in the scope of the function,l
+  the function's name will be displayed in the stack trace.
+  If that function is anonymous, however, its name does **not** get displayed,
+  even where the function was assigned to a variable.
+
+For these reasons, we should strive to avoid using anonymous functions.
+By extension of this logic, assigning an anonymous function to a variable is,
+therefore, considered an antipattern.
+If you find yourself doing this, simply name the function
+the same as the name of the variable.
+
+```javascript
+// Avoid doing this ...
+var doesFoo = function() {
+  /* do foo */
+};
+```
+
+```javascript
+// ... and do this instead
+var doesFoo = function doesFoo() {
+  /* do foo */
+};
+```
+
+If this seems repetitive, another alternative:
+
+
+```javascript
+// ... simply define a function
+function doesFoo() {
+  /* do foo */
+}
+```
+
+The more astute might point out that the last form is less desirable,
+as that will mean that the function, `doesFoo`, will pollute the global scope.
+
+That is indeed true in the default scope, however,
+if placed within an outer function,
+the scope will be restricted to within just that outer function.
+This gives us an excellent segue to IIFEs!
+
+Before discussing IIFEs, however,
+it is worth pointing out that IIFEs should only be used when necessary.
+If the platform that you are developing for automatically restricts scope
+for each file, such as with NodeJs, then there is no need.
+If you are using a build tool such as RequireJs, Browserify, or Webpack,
+then there is similarly no need either.
+If you are not using any of the above,
+writing Javascript executed in the browser,
+then consider using IIFEs.
+
 ### IIFEs
 
 Immediately invoked function expressions (IIFEs)
@@ -97,11 +157,10 @@ For example, when one is writing a tool or pre-processor that outputs generated 
 
 ### Function hoisting
 
-Hoistiong was covered in detail previously,
+Hoisting was covered in detail previously,
 however, it was done in terms of hoisting of variable declarations.
-Hoisting of function declarations works in very much the same way
-as hoisting of variables.
-This is most pertinent when considering inner functions.
+Hoisting of function declarations works in very much the same way.
+This is most pertinent when considering **inner functions**.
 
 Inner functions are functions that are declared within another function.
 In this scenario, variables within the scope of the outer function
@@ -128,3 +187,54 @@ The sequence should be:
 1. All variable declarations
 1. All inner function declarations
 1. Outer function instructions
+
+### Pyramid of Doom
+
+Also known as Callback Hell.
+This occurs when functions next other callback functions within each other,
+one time too many.
+After a certain level of nesting, it becomes heard to understand
+what the original intent of the code was.
+It also makes the code look like it has a triangle/ pyramid on its side doing the indentation.
+
+Ensure that the maximum level of nesting is **four** functions.
+
+Before:
+
+```javascript
+function foo() {
+  bar(123, function() {
+    baz(456, function() {
+      quux(789, function() {
+        // complete
+        // But this bad, it is nested five levels deep
+      });
+    });
+  });
+}
+```
+
+Refactor to remove some levels of nesting,
+by extracting on of the nested function and placing them outside:
+
+```javascript
+function innerFoo() {
+  quux(789, function() {
+    // complete
+    // This is much better, as this function is only nested two levels deep
+  });
+}
+
+function foo() {
+  bar(123, function() {
+    baz(456, innerFoo);
+    // ... and this function is only nested three levels deep
+  });
+}
+```
+
+Extracting the functions and placing them outside of their original
+containing function is the most basic and straightforward means
+of avoiding the pyramid of doom.
+There are more advanced ways to solve this problem,
+for example, using promises.

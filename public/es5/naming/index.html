@@ -88,11 +88,11 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li class="active"><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -167,22 +167,24 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/es5/naming.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/es5/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -229,6 +231,47 @@ use instead what would be normal variable naming conventions other C-style synta
 <li>Avoid all Unicode characters</li>
 </ul>
 
+<h3 id="abbreviations:c71c34a7bb0db96f87def312ae0a673e">Abbreviations</h3>
+
+<p>With the exception of temporary variables,
+such as the occasional <code>i</code> and <code>j</code> that you might use as the iterator index in a for loop,
+avoid abbreviating or otherwise obfuscating your variable and function names.</p>
+
+<p>Spell them out in full!
+After all, abbreviations are the job for a <strong>minifier</strong>,
+which will minimise the length of all of your Javascript variables anyway!</p>
+
+<pre><code class="language-javascript">function a(b) {
+  return b.last || bar.first;
+}
+</code></pre>
+
+<p>What is <code>a</code>?
+What is <code>b</code>?
+If you were to look at this in three months time,
+would you not wish that you had written this instead?</p>
+
+<pre><code class="language-javascript">function selectDefaultName(person) {
+  return person.last || person.first;
+}
+</code></pre>
+
+<p>In the same vein, avoid giving ambiguous names to variables:</p>
+
+<ul>
+<li>Instead of <code>pos</code>, call it <code>boxPosition</code></li>
+<li>Instead of <code>num</code>, call it <code>numBoxes</code></li>
+</ul>
+
+<h3 id="prefixes-and-suffixes:c71c34a7bb0db96f87def312ae0a673e">Prefixes and Suffixes</h3>
+
+<p>Avoid prefixing or suffixing variables names with the types that they contain.</p>
+
+<ul>
+<li>Instead of <code>studentArray</code> or <code>studentArr</code>, simply use <code>students</code> instead.</li>
+<li>Instead of <code>objWallet</code> or <code>walletObj</code>, simply use <code>wallet</code> instead.</li>
+</ul>
+
 <h3 id="project-level-consistency:c71c34a7bb0db96f87def312ae0a673e">Project level consistency</h3>
 
 <p>There are a number of other naming conventions that you may choose to adopt,
@@ -245,7 +288,7 @@ many developers adopt conventions such as:</p>
 </ul>
 
 <p>These additional naming conventions are not necessary,
-but can be beneficial to adopt acorss the entire project,
+but can be beneficial to adopt across the entire project,
 in addition to the ones described here.</p>
 
                     </div> 

@@ -88,11 +88,11 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -167,22 +167,24 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/directives.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/angularjs/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -316,9 +318,14 @@
 <h6 id="style-y073-style-y073:a3dfdd458318385288a3855f48586dfe">[Style <a href="#style-y073">Y073</a>]</h6>
 
 <ul>
-<li><p>Provide a short, unique and descriptive directive prefix such as <code>acmeSalesCustomerInfo</code> which is declared in HTML as <code>acme-sales-customer-info</code>.</p>
+<li>The name of the module that the directives belong to is sufficient namespacing</li>
 
-<p><em>Why?</em>: The unique short prefix identifies the directive&rsquo;s context and origin. For example a prefix of <code>cc-</code> may indicate that the directive is part of a CodeCamper app while <code>acme-</code> may indicate a directive for the Acme company.</p>
+<li><p>There is no need to prefix the name of every directive in a project with a prefix</p>
+
+<p><em>Why?</em>: Use unique short prefixes to identify the directive&rsquo;s context and origin.
+This is only necessary when there is more than one similar directive in the same module.
+For example a prefix of <code>cc-</code> may indicate that the directive is part of a CodeCamper app
+while <code>acme-</code> may indicate a directive for the Acme company.</p>
 
 <p>Note: Avoid <code>ng-</code> as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as <code>ion-</code> for the <a href="http://ionicframework.com/">Ionic Framework</a>.</p></li>
 </ul>

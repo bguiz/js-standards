@@ -1175,9 +1175,14 @@ such as &lt;strong&gt;angualrity&lt;/strong&gt;, &lt;strong&gt;browserify&lt;/st
 &lt;h6 id=&#34;style-y073-style-y073:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y073&#34;&gt;Y073&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Provide a short, unique and descriptive directive prefix such as &lt;code&gt;acmeSalesCustomerInfo&lt;/code&gt; which is declared in HTML as &lt;code&gt;acme-sales-customer-info&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;The name of the module that the directives belong to is sufficient namespacing&lt;/li&gt;
 
-&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The unique short prefix identifies the directive&amp;rsquo;s context and origin. For example a prefix of &lt;code&gt;cc-&lt;/code&gt; may indicate that the directive is part of a CodeCamper app while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme company.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;There is no need to prefix the name of every directive in a project with a prefix&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Use unique short prefixes to identify the directive&amp;rsquo;s context and origin.
+This is only necessary when there is more than one similar directive in the same module.
+For example a prefix of &lt;code&gt;cc-&lt;/code&gt; may indicate that the directive is part of a CodeCamper app
+while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme company.&lt;/p&gt;
 
 &lt;p&gt;Note: Avoid &lt;code&gt;ng-&lt;/code&gt; as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as &lt;code&gt;ion-&lt;/code&gt; for the &lt;a href=&#34;http://ionicframework.com/&#34;&gt;Ionic Framework&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;

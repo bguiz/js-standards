@@ -32,14 +32,46 @@
 &lt;li&gt;Use &lt;code&gt;{ key: &#39;val&#39;, key2: &#39;val2&#39; }&lt;/code&gt; instead of &lt;code&gt;new Object()&lt;/code&gt;, as it is less verbose&lt;/li&gt;
 &lt;li&gt;Do not quote keys of object literals, unless they must contain non-alphabet characters&lt;/li&gt;
 &lt;li&gt;Try to use keys in objects which conform to variable naming conventions&lt;/li&gt;
-&lt;li&gt;When iterating over all properties in an object, and accessing keys from the object&amp;rsquo;s prototype is undesirable, be sure to use the &lt;code&gt;hasOwnProperty&lt;/code&gt; check&lt;/li&gt;
+&lt;li&gt;When iterating over all properties in an object,
+and accessing keys from the object&amp;rsquo;s prototype is undesirable,
+be sure to use the &lt;code&gt;hasOwnProperty&lt;/code&gt; check&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Without &lt;code&gt;hasOwnProperty&lt;/code&gt; check:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;for (key in myObject) {
+  var value = myObject[key];
+  //do stuff with key and value
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the &lt;code&gt;hasOwnProperty&lt;/code&gt; check:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;for (key in myObject) {
+  if (myObject.hasOwnProperty(key)) {
+    var value = myObject[key];
+    //do stuff with key and value
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use the former variation, without the &lt;code&gt;hasOwnProperty&lt;/code&gt; check,
+only when you are absolutely certain that there cannot be any properties
+present on the object that come from its prototype.&lt;/p&gt;
+
+&lt;p&gt;A better way than rolling your own would be to use functions in libraries such as
+UnderscoreJs or LoDash.
+If you are using ES6 Javascript, you have even more powerful
+&lt;a href=&#34;https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/for...of&#34;&gt;object iteration means&lt;/a&gt;
+at your disposal.&lt;/p&gt;
 
 &lt;h3 id=&#34;booleans:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Booleans&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Do not compare to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;, simply use the value of the value directly: Either &lt;code&gt;if (myBool) { /*...*/ }&lt;/code&gt;, or &lt;code&gt;if (!myBool) { /*...*/ }&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Be aware of the difference between &lt;code&gt;true&lt;/code&gt; and &lt;em&gt;truthy&lt;/em&gt;. &lt;a href=&#34;http://james.padolsey.com/javascript/truthy-falsey/&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Do not compare to &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt;, simply use the value of the value directly:
+Either &lt;code&gt;if (myBool) { /*...*/ }&lt;/code&gt;, or &lt;code&gt;if (!myBool) { /*...*/ }&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Be aware of the difference between &lt;code&gt;true&lt;/code&gt; and &lt;em&gt;truthy&lt;/em&gt;.
+&lt;a href=&#34;http://james.padolsey.com/javascript/truthy-falsey/&#34;&gt;Reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;strings:3d59665407ad3f08f6bcaef4686926f7&#34;&gt;Strings&lt;/h3&gt;
@@ -53,8 +85,9 @@
 
 &lt;ul&gt;
 &lt;li&gt;Don&amp;rsquo;t!&lt;/li&gt;
-&lt;li&gt;It may be convenient to add your own custom implementation of &lt;code&gt;Array.prototype.forEach&lt;/code&gt;, and the like,
-but generally speaking, unless you are developing a low level library, this is a bad idea&lt;/li&gt;
+&lt;li&gt;It may be convenient to add your own custom implementation of &lt;code&gt;Array.prototype.forEach&lt;/code&gt;,
+and the like, but generally speaking,
+unless you are developing a low level library, this is a bad idea&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -88,11 +88,11 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/functions/"> Functions </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming (JS) </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/control/"> Control </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Strict Equality </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/es5/equality/"> Equality </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/es5/types/"> Types </a> </li>
                     
@@ -167,22 +167,24 @@
                     
                     <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
             
               </li>
           
-            <li> 
+            <li>
                 <a href="https://github.com/bguiz/js-standards/issues" target="blank">
-                    <i class='fa fa-life-ring'></i>Issues &amp; Help
-                </a> 
+                    <i class='fa fa-life-ring'></i> Issues
+                </a>
             </li>
             
                 <li>
-                    <a href="https://github.com/bguiz/js-standards/edit/master/content/angularjs/folder-structure.md" target="blank">
-                        <i class='fa fa-edit'></i> Refine this Page
-                    </a> 
+                    <a href="http://bguiz.github.io/js-standards/angularjs/" target="blank">
+                        <i class='fa fa-edit'></i> Edit
+                    </a>
                 </li>
             
         </ul>
@@ -198,7 +200,7 @@
 
               <div class="row">
                   <div class="row-nav-prev col-md-1">
-                      <a class="navigation prev" href="">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/startup-logic">
                       <i class="fa fa-angle-left"></i>
                       </a>
                   </div>
@@ -223,33 +225,81 @@ The directory for each feature should contain sub-directories for:</p>
 
 <pre><code>my-project/
   login/
-    (...)
+    login-form-directive.js
+    login-form-directive.spec.js
+    login-form-directive.html
+    login-service.js
+    login-service.spec.js
+    login-view.html
   todo/
-    directive/
-      todo-item-directive.js
-      todo-item-directive.html
-      todo-item-directive.spec.js
-    controller/
-      todo-controller.js
-      todo-controller.spec.js
-    view/
-      todo-page.html
-    service/
-      (...)
-    factory/
-      (...)
+    todo-item-directive.js
+    todo-item-directive.html
+    todo-item-directive.spec.js
+    todo-controller.js
+    todo-controller.spec.js
+    todo-view.html
   app.js
   index.html
 </code></pre>
 
-<p>Take a look at <a href="https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06">this article</a>,
-which explains this concept in greater detail.</p>
+<p>Organise the source code of your AngularJs project such that they are organised by feature
+rather than file type.</p>
+
+<ul>
+<li>Do not create folders named <code>controllers</code>, <code>directives</code>, et cetera.
+
+<ul>
+<li>You can tell what type of file it is by looking at the suffix and extension of the file names</li>
+</ul></li>
+<li>Instead create folders with the intent to group features
+
+<ul>
+<li>When a feature gets too large or complex, requiring many different files,
+simply create subfolders for each feature.</li>
+<li>For example, if the login feature, which previously has one directive for <code>form</code>,
+now wants to add a new directive for displaying <code>error</code>s,
+simply create <code>form</code> and <code>error</code> subfolders within the <code>login</code> folder,
+and move the files accordingly.</li>
+</ul></li>
+</ul>
+
+<pre><code>my-project/
+  login/
+    form/
+      login-form-directive.js
+      login-form-directive.spec.js
+      login-form-directive.html
+    error/
+      login-error-directive.js
+      login-error-directive.spec.js
+      login-error-directive.html
+    login-service.js
+    login-service.spec.js
+    login-view.html
+  todo/
+    todo-item-directive.js
+    todo-item-directive.html
+    todo-item-directive.spec.js
+    todo-controller.js
+    todo-controller.spec.js
+    todo-view.html
+  app.js
+  index.html
+</code></pre>
+
+<p>The intent here is that files which need each other and are closely related are
+the most likely to be colocated with the same folder or in sibling folders.</p>
+
+<p>If files were organised into folders determined by their type instead,
+quite often you find that files need to reference each other by longer paths,
+and as a developer, you will often find yourself thinking about
+parallel/ equivalent folder paths.</p>
 
                     </div> 
                     </section> 
                 </div> 
                 <div class="row-nav-next col-md-1">
-                    <a class="navigation prev" href="">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/testing">
                     <i class="fa fa-angle-right"></i>
                     </a>
                 </div>

@@ -1109,9 +1109,14 @@ angular
 &lt;h6 id=&#34;style-y073-style-y073:a3dfdd458318385288a3855f48586dfe&#34;&gt;[Style &lt;a href=&#34;#style-y073&#34;&gt;Y073&lt;/a&gt;]&lt;/h6&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Provide a short, unique and descriptive directive prefix such as &lt;code&gt;acmeSalesCustomerInfo&lt;/code&gt; which is declared in HTML as &lt;code&gt;acme-sales-customer-info&lt;/code&gt;.&lt;/p&gt;
+&lt;li&gt;The name of the module that the directives belong to is sufficient namespacing&lt;/li&gt;
 
-&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: The unique short prefix identifies the directive&amp;rsquo;s context and origin. For example a prefix of &lt;code&gt;cc-&lt;/code&gt; may indicate that the directive is part of a CodeCamper app while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme company.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;There is no need to prefix the name of every directive in a project with a prefix&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: Use unique short prefixes to identify the directive&amp;rsquo;s context and origin.
+This is only necessary when there is more than one similar directive in the same module.
+For example a prefix of &lt;code&gt;cc-&lt;/code&gt; may indicate that the directive is part of a CodeCamper app
+while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme company.&lt;/p&gt;
 
 &lt;p&gt;Note: Avoid &lt;code&gt;ng-&lt;/code&gt; as these are reserved for AngularJS directives. Research widely used directives to avoid naming conflicts, such as &lt;code&gt;ion-&lt;/code&gt; for the &lt;a href=&#34;http://ionicframework.com/&#34;&gt;Ionic Framework&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1702,27 +1707,75 @@ The directory for each feature should contain sub-directories for:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;my-project/
   login/
-    (...)
+    login-form-directive.js
+    login-form-directive.spec.js
+    login-form-directive.html
+    login-service.js
+    login-service.spec.js
+    login-view.html
   todo/
-    directive/
-      todo-item-directive.js
-      todo-item-directive.html
-      todo-item-directive.spec.js
-    controller/
-      todo-controller.js
-      todo-controller.spec.js
-    view/
-      todo-page.html
-    service/
-      (...)
-    factory/
-      (...)
+    todo-item-directive.js
+    todo-item-directive.html
+    todo-item-directive.spec.js
+    todo-controller.js
+    todo-controller.spec.js
+    todo-view.html
   app.js
   index.html
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Take a look at &lt;a href=&#34;https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06&#34;&gt;this article&lt;/a&gt;,
-which explains this concept in greater detail.&lt;/p&gt;
+&lt;p&gt;Organise the source code of your AngularJs project such that they are organised by feature
+rather than file type.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Do not create folders named &lt;code&gt;controllers&lt;/code&gt;, &lt;code&gt;directives&lt;/code&gt;, et cetera.
+
+&lt;ul&gt;
+&lt;li&gt;You can tell what type of file it is by looking at the suffix and extension of the file names&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Instead create folders with the intent to group features
+
+&lt;ul&gt;
+&lt;li&gt;When a feature gets too large or complex, requiring many different files,
+simply create subfolders for each feature.&lt;/li&gt;
+&lt;li&gt;For example, if the login feature, which previously has one directive for &lt;code&gt;form&lt;/code&gt;,
+now wants to add a new directive for displaying &lt;code&gt;error&lt;/code&gt;s,
+simply create &lt;code&gt;form&lt;/code&gt; and &lt;code&gt;error&lt;/code&gt; subfolders within the &lt;code&gt;login&lt;/code&gt; folder,
+and move the files accordingly.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;my-project/
+  login/
+    form/
+      login-form-directive.js
+      login-form-directive.spec.js
+      login-form-directive.html
+    error/
+      login-error-directive.js
+      login-error-directive.spec.js
+      login-error-directive.html
+    login-service.js
+    login-service.spec.js
+    login-view.html
+  todo/
+    todo-item-directive.js
+    todo-item-directive.html
+    todo-item-directive.spec.js
+    todo-controller.js
+    todo-controller.spec.js
+    todo-view.html
+  app.js
+  index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The intent here is that files which need each other and are closely related are
+the most likely to be colocated with the same folder or in sibling folders.&lt;/p&gt;
+
+&lt;p&gt;If files were organised into folders determined by their type instead,
+quite often you find that files need to reference each other by longer paths,
+and as a developer, you will often find yourself thinking about
+parallel/ equivalent folder paths.&lt;/p&gt;
 </description>
     </item>
     
