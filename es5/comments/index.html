@@ -167,6 +167,8 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
@@ -218,9 +220,9 @@ where the function is non-trivial.</p>
 <p><strong>Do not</strong> comment every line,
 especially when it is obvious what is happening.</p>
 
-<pre><code class="language-javascript">//declare a new variable called x, and assign its initial value
+<pre><code class="language-javascript">// declare a new variable called x, and assign its initial value
 var x = 0;
-//increment x by one
+// increment x by one
 ++x;
 </code></pre>
 
@@ -228,7 +230,7 @@ var x = 0;
 
 <pre><code class="language-javascript">var x = 0;
 
-//gets value of x
+// gets value of x
 function getX() {
 	return x;
 }
@@ -259,7 +261,7 @@ function Person(first, last) { /* implementation goes here */ }
 <p><strong>Do</strong> comment complex code snippets</p>
 
 <pre><code class="language-javascript">//allows us to use a 1D array to store a 2D grid of data
-return arr[y * width + x];
+return grid[y * width + x];
 </code></pre>
 
 <p><strong>Do</strong> use multi-line comments instead of single line comments,
@@ -279,6 +281,9 @@ is significant.
 JSDoc interprets multi-line comments that begin with exactly two <code>*</code>s
 as a comment that should be parsed and added to the documentation,
 and ignores any other multi-line comments.</p>
+
+<p><strong>Alternatively</strong>, consider breaking this complex logic out into its own function,
+if this aids making the overall code become easier to read and comprehend.</p>
 
 <p><strong>Avoid</strong> checking in commented out lines of code.</p>
 
