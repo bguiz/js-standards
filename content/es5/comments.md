@@ -27,9 +27,9 @@ Examples:
 especially when it is obvious what is happening.
 
 ```javascript
-//declare a new variable called x, and assign its initial value
+// declare a new variable called x, and assign its initial value
 var x = 0;
-//increment x by one
+// increment x by one
 ++x;
 ```
 
@@ -38,7 +38,7 @@ var x = 0;
 ```javascript
 var x = 0;
 
-//gets value of x
+// gets value of x
 function getX() {
 	return x;
 }
@@ -71,7 +71,7 @@ function Person(first, last) { /* implementation goes here */ }
 
 ```javascript
 //allows us to use a 1D array to store a 2D grid of data
-return arr[y * width + x];
+return grid[y * width + x];
 ```
 
 **Do** use multi-line comments instead of single line comments,
@@ -92,6 +92,9 @@ is significant.
 JSDoc interprets multi-line comments that begin with exactly two `*`s
 as a comment that should be parsed and added to the documentation,
 and ignores any other multi-line comments.
+
+**Alternatively**, consider breaking this complex logic out into its own function,
+if this aids making the overall code become easier to read and comprehend.
 
 **Avoid** checking in commented out lines of code.
 

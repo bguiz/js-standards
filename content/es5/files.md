@@ -41,7 +41,7 @@ is within `on*` attribute tags on DOM elements,
 for example:
 
 ```html
-<div onclick="myclicklistener();">Click Me</div>
+<div id="clickme" onclick="myclicklistener();">Click Me</div>
 ```
 
 Instead of doing this, use pure Javascript to bind to events on the DOM element.
@@ -53,6 +53,31 @@ Instead of doing this, use pure Javascript to bind to events on the DOM element.
 ```javascript
 document.getElementById('clickme').addEventListener('click', myclicklistener);
 ```
+
+It is worth pointing out that while these two may appear to be doing the same thing,
+they are in fact quite different.
+In the first variant, where the `onclick` attribute is specified on the DOM element,
+that sets a special listener on the DOM element.
+Later on, one might come along with some Javascript like this:
+
+```javascript
+document.getElementById('clickme').onclick = myalternateclicklistener;
+```
+
+Now, when the element gets clicked, only `myalternateclicklistener` gets invoked,
+and the original one, `myclicklistener` is completely forgotten about.
+
+In the second variant however,
+where `addEventListener` is invoked,
+the same is not true - multiple listeners are attached to the same DOM element.
+For example:
+
+```javascript
+document.getElementById('clickme').addEventListener('click', myalternateclicklistener);
+```
+
+Now, when the element gets clicked, both listeners get invoked:
+`myalternateclicklistener` as well as the original `myclicklistener`.
 
 **Do not** make assumptions about the order in which the DOM is rendered
 and the Javascript execution.
@@ -87,8 +112,5 @@ however, that is a little outdated with current day screen sizes and resolutions
 and is unnecessarily restrictive.
 
 Another reason for placing a restriction on the maximum line length,
-is that it is a great indicator of pyramid of doom -
-when there is an overly high level of nesting of callback functions.
-Extract the innermost callback functions to somewhere outside.
-Better yet, use promises.
-
+is that it is a great indicator of the pyramid of doom or callback hell.
+See the page on "Functions" for more information about this.

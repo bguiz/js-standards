@@ -85,3 +85,24 @@ but after executing its only statement,
 there was no `break` statement,
 and therefore, the execution *fell through* to the next case.
 Avoid this!
+
+#### Intentional fall through
+
+Sometimes you want multiple switches to execute the same set of statements.
+In this case, intentional fall through is allowed,
+albeit with one condition:
+That in this case, consecutive labels are used,
+meaning that there are no statements in between consecutive labels.
+
+```javascript
+switch (myVar) {
+case 2:
+case 3:
+  console.log('myVar is two or three');
+case 1:
+  console.log('myVar is one');
+}
+```
+
+Note how between `case 2:` and `case 3:` above,
+there was only white space - not executable statements.

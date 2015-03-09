@@ -28,7 +28,33 @@ weight: 2080
 - Use `{ key: 'val', key2: 'val2' }` instead of `new Object()`, as it is less verbose
 - Do not quote keys of object literals, unless they must contain non-alphabet characters
 - Try to use keys in objects which conform to variable naming conventions
-- When iterating over all properties in an object, and accessing keys from the object's prototype is undesirable, be sure to use the `hasOwnProperty` check
+- When iterating over all properties in an object,
+  and accessing keys from the object's prototype is undesirable,
+  be sure to use the `hasOwnProperty` check
+
+Without `hasOwnProperty` check:
+
+```javascript
+for (key in myObject) {
+  var value = myObject[key];
+  //do stuff with key and value
+}
+```
+
+With the `hasOwnProperty` check:
+
+```javascript
+for (key in myObject) {
+  if (myObject.hasOwnProperty(key)) {
+    var value = myObject[key];
+    //do stuff with key and value
+  }
+}
+```
+
+Use the former variation, without the `hasOwnProperty` check,
+only when you are absolutely certain that there cannot be any properties
+present on the object that come from its prototype.
 
 ### Booleans
 
