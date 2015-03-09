@@ -43,7 +43,7 @@ file instead of in-line within DOM elements.&lt;/p&gt;
 is within &lt;code&gt;on*&lt;/code&gt; attribute tags on DOM elements,
 for example:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div onclick=&amp;quot;myclicklistener();&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div id=&amp;quot;clickme&amp;quot; onclick=&amp;quot;myclicklistener();&amp;quot;&amp;gt;Click Me&amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Instead of doing this, use pure Javascript to bind to events on the DOM element.&lt;/p&gt;
@@ -53,6 +53,29 @@ for example:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.getElementById(&#39;clickme&#39;).addEventListener(&#39;click&#39;, myclicklistener);
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It is worth pointing out that while these two may appear to be doing the same thing,
+they are in fact quite different.
+In the first variant, where the &lt;code&gt;onclick&lt;/code&gt; attribute is specified on the DOM element,
+that sets a special listener on the DOM element.
+Later on, one might come along with some Javascript like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.getElementById(&#39;clickme&#39;).onclick = myalternateclicklistener;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, when the element gets clicked, only &lt;code&gt;myalternateclicklistener&lt;/code&gt; gets invoked,
+and the original one, &lt;code&gt;myclicklistener&lt;/code&gt; is completely forgotten about.&lt;/p&gt;
+
+&lt;p&gt;In the second variant however,
+where &lt;code&gt;addEventListener&lt;/code&gt; is invoked,
+the same is not true - multiple listeners are attached to the same DOM element.
+For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.getElementById(&#39;clickme&#39;).addEventListener(&#39;click&#39;, myalternateclicklistener);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now, when the element gets clicked, both listeners get invoked:
+&lt;code&gt;myalternateclicklistener&lt;/code&gt; as well as the original &lt;code&gt;myclicklistener&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; make assumptions about the order in which the DOM is rendered
 and the Javascript execution.&lt;/p&gt;
@@ -85,10 +108,8 @@ however, that is a little outdated with current day screen sizes and resolutions
 and is unnecessarily restrictive.&lt;/p&gt;
 
 &lt;p&gt;Another reason for placing a restriction on the maximum line length,
-is that it is a great indicator of pyramid of doom -
-when there is an overly high level of nesting of callback functions.
-Extract the innermost callback functions to somewhere outside.
-Better yet, use promises.&lt;/p&gt;
+is that it is a great indicator of the pyramid of doom or callback hell.
+See the page on &amp;ldquo;Functions&amp;rdquo; for more information about this.&lt;/p&gt;
 </description>
     </item>
     

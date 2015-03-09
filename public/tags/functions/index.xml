@@ -59,20 +59,6 @@ A function&amp;rsquo;s name is the word in between the &lt;code&gt;function&lt;/
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Avoid Anonymous Functions&lt;/h3&gt;
-
-&lt;p&gt;While anonymous functions might be a convenient way to save an extra few keystrokes,
-it is advisable to name all but the most trivial of functions,
-for these reasons:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Self documenting code: It is a good idea to give your functions descriptive names&lt;/li&gt;
-&lt;li&gt;Stack traces: When an error or exception is raised in the scope of the function,l
-the function&amp;rsquo;s name will be displayed in the stack trace.
-If that function is anonymous, however, its name does &lt;strong&gt;not&lt;/strong&gt; get displayed,
-even where the function was assigned to a variable.&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&#34;trailing-semicolons:904d9cf85d985550c869e6d9741448cc&#34;&gt;Trailing semicolons&lt;/h3&gt;
 
 &lt;p&gt;For functions assigned to variables, place a &lt;code&gt;;&lt;/code&gt; after the closing &lt;code&gt;}&lt;/code&gt;:&lt;/p&gt;
@@ -88,6 +74,64 @@ even where the function was assigned to a variable.&lt;/li&gt;
 	/* do stuff */
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc&#34;&gt;Avoid Anonymous Functions&lt;/h3&gt;
+
+&lt;p&gt;While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Self documenting code: It is a good idea to give your functions descriptive names&lt;/li&gt;
+&lt;li&gt;Stack traces: When an error or exception is raised in the scope of the function,l
+the function&amp;rsquo;s name will be displayed in the stack trace.
+If that function is anonymous, however, its name does &lt;strong&gt;not&lt;/strong&gt; get displayed,
+even where the function was assigned to a variable.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For these reasons, we should strive to avoid using anonymous functions.
+By extension of this logic, assigning an anonymous function to a variable is,
+therefore, considered an antipattern.
+If you find yourself doing this, simply name the function
+the same as the name of the variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Avoid doing this ...
+var doesFoo = function() {
+  /* do foo */
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// ... and do this instead
+var doesFoo = function doesFoo() {
+  /* do foo */
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If this seems repetitive, another alternative:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// ... simply define a function
+function doesFoo() {
+  /* do foo */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The more astute might point out that the last form is less desirable,
+as that will mean that the function, &lt;code&gt;doesFoo&lt;/code&gt;, will pollute the global scope.&lt;/p&gt;
+
+&lt;p&gt;That is indeed true in the default scope, however,
+if placed within an outer function,
+the scope will be restricted to within just that outer function.
+This gives us an excellent segue to IIFEs!&lt;/p&gt;
+
+&lt;p&gt;Before discussing IIFEs, however,
+it is worth pointing out that IIFEs should only be used when necessary.
+If the platform that you are developing for automatically restricts scope
+for each file, such as with NodeJs, then there is no need.
+If you are using a build tool such as RequireJs, Browserify, or Webpack,
+then there is similarly no need either.
+If you are not using any of the above,
+writing Javascript executed in the browser,
+then consider using IIFEs.&lt;/p&gt;
 
 &lt;h3 id=&#34;iifes:904d9cf85d985550c869e6d9741448cc&#34;&gt;IIFEs&lt;/h3&gt;
 
@@ -140,6 +184,55 @@ but immediately below these variable declarations for clarity.&lt;/p&gt;
 &lt;li&gt;All inner function declarations&lt;/li&gt;
 &lt;li&gt;Outer function instructions&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&#34;pyramid-of-doom:904d9cf85d985550c869e6d9741448cc&#34;&gt;Pyramid of Doom&lt;/h3&gt;
+
+&lt;p&gt;Also known as Callback Hell.
+This occurs when functions next other callback functions within each other,
+one time too many.
+After a certain level of nesting, it becomes heard to understand
+what the original intent of the code was.
+It also makes the code look like it has a triangle/ pyramid on its side doing the indentation.&lt;/p&gt;
+
+&lt;p&gt;Ensure that the maximum level of nesting is &lt;strong&gt;four&lt;/strong&gt; functions.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function foo() {
+  bar(123, function() {
+    baz(456, function() {
+      quux(789, function() {
+        // complete
+        // But this bad, it is nested five levels deep
+      });
+    });
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Refactor to remove some levels of nesting,
+by extracting on of the nested function and placing them outside:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function innerFoo() {
+  quux(789, function() {
+    // complete
+    // This is much better, as this function is only nested two levels deep
+  });
+}
+
+function foo() {
+  bar(123, function() {
+    baz(456, innerFoo);
+    // ... and this function is only nested three levels deep
+  });
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Extracting the functions and placing them outside of their original
+containing function is the most basic and straightforward means
+of avoiding the pyramid of doom.
+There are more advanced ways to solve this problem,
+for example, using promises.&lt;/p&gt;
 </description>
     </item>
     

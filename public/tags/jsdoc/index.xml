@@ -30,9 +30,9 @@ where the function is non-trivial.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Do not&lt;/strong&gt; comment every line,
 especially when it is obvious what is happening.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//declare a new variable called x, and assign its initial value
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// declare a new variable called x, and assign its initial value
 var x = 0;
-//increment x by one
+// increment x by one
 ++x;
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -40,7 +40,7 @@ var x = 0;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var x = 0;
 
-//gets value of x
+// gets value of x
 function getX() {
 	return x;
 }
@@ -71,7 +71,7 @@ function Person(first, last) { /* implementation goes here */ }
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; comment complex code snippets&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;//allows us to use a 1D array to store a 2D grid of data
-return arr[y * width + x];
+return grid[y * width + x];
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; use multi-line comments instead of single line comments,
@@ -91,6 +91,9 @@ is significant.
 JSDoc interprets multi-line comments that begin with exactly two &lt;code&gt;*&lt;/code&gt;s
 as a comment that should be parsed and added to the documentation,
 and ignores any other multi-line comments.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Alternatively&lt;/strong&gt;, consider breaking this complex logic out into its own function,
+if this aids making the overall code become easier to read and comprehend.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Avoid&lt;/strong&gt; checking in commented out lines of code.&lt;/p&gt;
 

@@ -10,7 +10,7 @@
     <meta name="keyword" content="">
     <link rel="shortcut icon" href="http://bguiz.github.io/js-standards/favicon.ico" type="image/x-icon" />
 
-    <title>AngularJs Naming</title>
+    <title>AngularJs Logging</title>
 
     <link href="http://bguiz.github.io/js-standards/css/bootstrap-theme.css" rel="stylesheet">
     <link href="http://bguiz.github.io/js-standards/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -44,7 +44,7 @@
             </div>
 
             <div class="nav title-row" id="top_menu">
-                <h1 class="nav top-menu"> AngularJs Naming </h1>
+                <h1 class="nav top-menu"> AngularJs Logging </h1>
             </div>
       </header>
       
@@ -135,7 +135,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/exception-handling/"> Exception Handling </a> </li>
                     
-                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/naming/"> Naming </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/"> Application Structure LIFT Principle </a> </li>
                     
@@ -167,7 +167,7 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
-                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    <li class="active"><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
@@ -200,7 +200,7 @@
 
               <div class="row">
                   <div class="row-nav-prev col-md-1">
-                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/exception-handling">
+                      <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/folder-structure">
                       <i class="fa fa-angle-left"></i>
                       </a>
                   </div>
@@ -210,258 +210,26 @@
 
 
 
-<h2 id="naming:c71c34a7bb0db96f87def312ae0a673e">Naming</h2>
+<h1 id="logging:3f3af53408cff75953b33723c0b061bb">Logging</h1>
 
-<h3 id="naming-guidelines:c71c34a7bb0db96f87def312ae0a673e">Naming Guidelines</h3>
-
-<h6 id="style-y120-style-y120:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y120">Y120</a>]</h6>
+<h2 id="console-log-versus-log:3f3af53408cff75953b33723c0b061bb"><code>console.log</code> versus <code>$log</code></h2>
 
 <ul>
-<li><p>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>. There are 2 names for most assets:</p>
-
-<ul>
-<li>the file name (<code>avengers.controller.js</code>)</li>
-<li>the registered component name with Angular (<code>AvengersController</code>)</li>
-</ul>
-
-<p><em>Why?</em>: Naming conventions help provide a consistent way to find content at a glance. Consistency within the project is vital. Consistency with a team is important. Consistency across a company provides tremendous efficiency.</p>
-
-<p><em>Why?</em>: The naming conventions should simply help you find your code faster and make it easier to understand.</p></li>
-</ul>
-
-<h3 id="feature-file-names:c71c34a7bb0db96f87def312ae0a673e">Feature File Names</h3>
-
-<h6 id="style-y121-style-y121:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y121">Y121</a>]</h6>
-
-<ul>
-<li>Use consistent names for all components following a pattern that describes the component&rsquo;s feature then (optionally) its type. My recommended pattern is <code>feature.type.js</code>.</li>
-</ul>
-
-<p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
-
-<p><em>Why?</em>: Provides pattern matching for any automated tasks.</p>
-
-<pre><code class="language-javascript">  /**
-   * common options
-   */
-
-  // Controllers
-  avengers.js
-  avengers.controller.js
-  avengersController.js
-
-  // Services/Factories
-  logger.js
-  logger.service.js
-  loggerService.js
-</code></pre>
-
-<pre><code class="language-javascript">  /**
-   * recommended
-   */
-
-  // controllers
-  avengers.controller.js
-  avengers.controller.spec.js
-
-  // services/factories
-  logger.service.js
-  logger.service.spec.js
-
-  // constants
-  constants.js
-
-  // module definition
-  avengers.module.js
-
-  // routes
-  avengers.routes.js
-  avengers.routes.spec.js
-
-  // configuration
-  avengers.config.js
-
-  // directives
-  avenger-profile.directive.js
-  avenger-profile.directive.spec.js
-</code></pre>
-
-<p>Note: Another common convention is naming controller files without the word <code>controller</code> in the file name such as <code>avengers.js</code> instead of <code>avengers.controller.js</code>. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team.</p>
-
-<pre><code>```javascript
-/**
- * recommended
- */
-// Controllers
-avengers.js
-avengers.spec.js
-```
-</code></pre>
-
-<h3 id="test-file-names:c71c34a7bb0db96f87def312ae0a673e">Test File Names</h3>
-
-<h6 id="style-y122-style-y122:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y122">Y122</a>]</h6>
-
-<ul>
-<li>Name test specifications similar to the component they test with a suffix of <code>spec</code>.</li>
-</ul>
-
-<p><em>Why?</em>: Provides a consistent way to quickly identify components.</p>
-
-<p><em>Why?</em>: Provides pattern matching for <a href="http://karma-runner.github.io/">karma</a> or other test runners.</p>
-
-<pre><code class="language-javascript">  /**
-   * recommended
-   */
-  avengers.controller.spec.js
-  logger.service.spec.js
-  avengers.routes.spec.js
-  avenger-profile.directive.spec.js
-</code></pre>
-
-<h3 id="controller-names:c71c34a7bb0db96f87def312ae0a673e">Controller Names</h3>
-
-<h6 id="style-y123-style-y123:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y123">Y123</a>]</h6>
-
-<ul>
-<li>Use consistent names for all controllers named after their feature. Use UpperCamelCase for controllers, as they are constructors.</li>
-</ul>
-
-<p><em>Why?</em>: Provides a consistent way to quickly identify and reference controllers.</p>
-
-<p><em>Why?</em>: UpperCamelCase is conventional for identifying object that can be instantiated using a constructor.</p>
-
-<pre><code class="language-javascript">  /**
-   * recommended
-   */
-
-  // avengers.controller.js
-  angular
-      .module
-      .controller('HeroAvengers', HeroAvengers);
-
-  function HeroAvengers() { }
-</code></pre>
-
-<h3 id="controller-name-suffix:c71c34a7bb0db96f87def312ae0a673e">Controller Name Suffix</h3>
-
-<h6 id="style-y124-style-y124:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y124">Y124</a>]</h6>
-
-<ul>
-<li>Append the controller name with the suffix <code>Controller</code> or with no suffix. Choose 1, not both.</li>
-</ul>
-
-<p><em>Why?</em>: The <code>Controller</code> suffix is more commonly used and is more explicitly descriptive.</p>
-
-<p><em>Why?</em>: Omitting the suffix is more succinct and the controller is often easily identifiable even without the suffix.</p>
-
-<pre><code class="language-javascript">  /**
-   * recommended: Option 1
-   */
-
-  // avengers.controller.js
-  angular
-      .module
-      .controller('Avengers', Avengers);
-
-  function Avengers() { }
-</code></pre>
-
-<pre><code class="language-javascript">  /**
-   * recommended: Option 2
-   */
-
-  // avengers.controller.js
-  angular
-      .module
-      .controller('AvengersController', AvengersController);
-
-  function AvengersController() { }
-</code></pre>
-
-<h3 id="factory-names:c71c34a7bb0db96f87def312ae0a673e">Factory Names</h3>
-
-<h6 id="style-y125-style-y125:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y125">Y125</a>]</h6>
-
-<ul>
-<li>Use consistent names for all factories named after their feature. Use camel-casing for services and factories.</li>
-</ul>
-
-<p><em>Why?</em>: Provides a consistent way to quickly identify and reference factories.</p>
-
-<pre><code class="language-javascript">  /**
-   * recommended
-   */
-
-  // logger.service.js
-  angular
-      .module
-      .factory('logger', logger);
-
-  function logger() { }
-</code></pre>
-
-<h3 id="directive-component-names:c71c34a7bb0db96f87def312ae0a673e">Directive Component Names</h3>
-
-<h6 id="style-y126-style-y126:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y126">Y126</a>]</h6>
-
-<ul>
-<li>Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).</li>
-</ul>
-
-<p><em>Why?</em>: Provides a consistent way to quickly identify and reference components.</p>
-
-<pre><code class="language-javascript">  /**
-   * recommended
-   */
-
-  // avenger-profile.directive.js
-  angular
-      .module
-      .directive('xxAvengerProfile', xxAvengerProfile);
-
-  // usage is &lt;xx-avenger-profile&gt; &lt;/xx-avenger-profile&gt;
-
-  function xxAvengerProfile() { }
-</code></pre>
-
-<h3 id="modules:c71c34a7bb0db96f87def312ae0a673e">Modules</h3>
-
-<h6 id="style-y127-style-y127:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y127">Y127</a>]</h6>
-
-<ul>
-<li><p>When there are multiple modules, the main module file is named <code>app.module.js</code> while other dependent modules are named after what they represent. For example, an admin module is named <code>admin.module.js</code>. The respective registered module names would be <code>app</code> and <code>admin</code>.</p>
-
-<p><em>Why?</em>: Provides consistency for multiple module apps, and for expanding to large applications.</p>
-
-<p><em>Why?</em>: Provides easy way to use task automation to load all module definitions first, then all other angular files (for bundling).</p></li>
-</ul>
-
-<h3 id="configuration:c71c34a7bb0db96f87def312ae0a673e">Configuration</h3>
-
-<h6 id="style-y128-style-y128:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y128">Y128</a>]</h6>
-
-<ul>
-<li><p>Separate configuration for a module into its own file named after the module. A configuration file for the main <code>app</code> module is named <code>app.config.js</code> (or simply <code>config.js</code>). A configuration for a module named <code>admin.module.js</code> is named <code>admin.config.js</code>.</p>
-
-<p><em>Why?</em>: Separates configuration from module definition, components, and active code.</p>
-
-<p><em>Why?</em>: Provides a identifiable place to set configuration for a module.</p></li>
-</ul>
-
-<h3 id="routes:c71c34a7bb0db96f87def312ae0a673e">Routes</h3>
-
-<h6 id="style-y129-style-y129:c71c34a7bb0db96f87def312ae0a673e">[Style <a href="#style-y129">Y129</a>]</h6>
-
-<ul>
-<li>Separate route configuration into its own file. Examples might be <code>app.route.js</code> for the main module and <code>admin.route.js</code> for the <code>admin</code> module. Even in smaller apps I prefer this separation from the rest of the configuration.</li>
+<li>Use <code>console.log</code> as liberally as needed during development,
+for debugging purposes or otherwise</li>
+<li>However do not commit/ push any code containing <code>console.log</code> statements
+to your version control system (git/ svn, et cetera)</li>
+<li>In most cases you should simply delete the <code>console.log</code>s</li>
+<li>However, if you want to keep some of these log statements,
+replace their usages with <code>$log</code> instead,
+as it provides a more robust and more easily extendible logging solution.</li>
 </ul>
 
                     </div> 
                     </section> 
                 </div> 
                 <div class="row-nav-next col-md-1">
-                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle">
+                    <a class="navigation prev" href="http://bguiz.github.io/js-standards/angularjs/credit">
                     <i class="fa fa-angle-right"></i>
                     </a>
                 </div>

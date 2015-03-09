@@ -167,6 +167,8 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
@@ -272,6 +274,26 @@ but after executing its only statement,
 there was no <code>break</code> statement,
 and therefore, the execution <em>fell through</em> to the next case.
 Avoid this!</p>
+
+<h4 id="intentional-fall-through:5d2e0676ba15eb6f59fd1e1e3e2fbeab">Intentional fall through</h4>
+
+<p>Sometimes you want multiple switches to execute the same set of statements.
+In this case, intentional fall through is allowed,
+albeit with one condition:
+That in this case, consecutive labels are used,
+meaning that there are no statements in between consecutive labels.</p>
+
+<pre><code class="language-javascript">switch (myVar) {
+case 2:
+case 3:
+  console.log('myVar is two or three');
+case 1:
+  console.log('myVar is one');
+}
+</code></pre>
+
+<p>Note how between <code>case 2:</code> and <code>case 3:</code> above,
+there was only white space - not executable statements.</p>
 
                     </div> 
                     </section> 

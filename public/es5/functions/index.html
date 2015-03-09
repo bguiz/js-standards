@@ -167,6 +167,8 @@
                     
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/folder-structure/"> Angular Folder Structure </a> </li>
                     
+                    <li><a href="http://bguiz.github.io/js-standards/angularjs/logging/"> Logging </a> </li>
+                    
                     <li><a href="http://bguiz.github.io/js-standards/angularjs/credit/"> Credits </a> </li>
                     
                 </ul>
@@ -247,20 +249,6 @@ A function&rsquo;s name is the word in between the <code>function</code> keyword
 }
 </code></pre>
 
-<h3 id="avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc">Avoid Anonymous Functions</h3>
-
-<p>While anonymous functions might be a convenient way to save an extra few keystrokes,
-it is advisable to name all but the most trivial of functions,
-for these reasons:</p>
-
-<ul>
-<li>Self documenting code: It is a good idea to give your functions descriptive names</li>
-<li>Stack traces: When an error or exception is raised in the scope of the function,l
-the function&rsquo;s name will be displayed in the stack trace.
-If that function is anonymous, however, its name does <strong>not</strong> get displayed,
-even where the function was assigned to a variable.</li>
-</ul>
-
 <h3 id="trailing-semicolons:904d9cf85d985550c869e6d9741448cc">Trailing semicolons</h3>
 
 <p>For functions assigned to variables, place a <code>;</code> after the closing <code>}</code>:</p>
@@ -276,6 +264,64 @@ even where the function was assigned to a variable.</li>
 	/* do stuff */
 }
 </code></pre>
+
+<h3 id="avoid-anonymous-functions:904d9cf85d985550c869e6d9741448cc">Avoid Anonymous Functions</h3>
+
+<p>While anonymous functions might be a convenient way to save an extra few keystrokes,
+it is advisable to name all but the most trivial of functions,
+for these reasons:</p>
+
+<ul>
+<li>Self documenting code: It is a good idea to give your functions descriptive names</li>
+<li>Stack traces: When an error or exception is raised in the scope of the function,l
+the function&rsquo;s name will be displayed in the stack trace.
+If that function is anonymous, however, its name does <strong>not</strong> get displayed,
+even where the function was assigned to a variable.</li>
+</ul>
+
+<p>For these reasons, we should strive to avoid using anonymous functions.
+By extension of this logic, assigning an anonymous function to a variable is,
+therefore, considered an antipattern.
+If you find yourself doing this, simply name the function
+the same as the name of the variable.</p>
+
+<pre><code class="language-javascript">// Avoid doing this ...
+var doesFoo = function() {
+  /* do foo */
+};
+</code></pre>
+
+<pre><code class="language-javascript">// ... and do this instead
+var doesFoo = function doesFoo() {
+  /* do foo */
+};
+</code></pre>
+
+<p>If this seems repetitive, another alternative:</p>
+
+<pre><code class="language-javascript">// ... simply define a function
+function doesFoo() {
+  /* do foo */
+}
+</code></pre>
+
+<p>The more astute might point out that the last form is less desirable,
+as that will mean that the function, <code>doesFoo</code>, will pollute the global scope.</p>
+
+<p>That is indeed true in the default scope, however,
+if placed within an outer function,
+the scope will be restricted to within just that outer function.
+This gives us an excellent segue to IIFEs!</p>
+
+<p>Before discussing IIFEs, however,
+it is worth pointing out that IIFEs should only be used when necessary.
+If the platform that you are developing for automatically restricts scope
+for each file, such as with NodeJs, then there is no need.
+If you are using a build tool such as RequireJs, Browserify, or Webpack,
+then there is similarly no need either.
+If you are not using any of the above,
+writing Javascript executed in the browser,
+then consider using IIFEs.</p>
 
 <h3 id="iifes:904d9cf85d985550c869e6d9741448cc">IIFEs</h3>
 
@@ -328,6 +374,55 @@ but immediately below these variable declarations for clarity.</p>
 <li>All inner function declarations</li>
 <li>Outer function instructions</li>
 </ol>
+
+<h3 id="pyramid-of-doom:904d9cf85d985550c869e6d9741448cc">Pyramid of Doom</h3>
+
+<p>Also known as Callback Hell.
+This occurs when functions next other callback functions within each other,
+one time too many.
+After a certain level of nesting, it becomes heard to understand
+what the original intent of the code was.
+It also makes the code look like it has a triangle/ pyramid on its side doing the indentation.</p>
+
+<p>Ensure that the maximum level of nesting is <strong>four</strong> functions.</p>
+
+<p>Before:</p>
+
+<pre><code class="language-javascript">function foo() {
+  bar(123, function() {
+    baz(456, function() {
+      quux(789, function() {
+        // complete
+        // But this bad, it is nested five levels deep
+      });
+    });
+  });
+}
+</code></pre>
+
+<p>Refactor to remove some levels of nesting,
+by extracting on of the nested function and placing them outside:</p>
+
+<pre><code class="language-javascript">function innerFoo() {
+  quux(789, function() {
+    // complete
+    // This is much better, as this function is only nested two levels deep
+  });
+}
+
+function foo() {
+  bar(123, function() {
+    baz(456, innerFoo);
+    // ... and this function is only nested three levels deep
+  });
+}
+</code></pre>
+
+<p>Extracting the functions and placing them outside of their original
+containing function is the most basic and straightforward means
+of avoiding the pyramid of doom.
+There are more advanced ways to solve this problem,
+for example, using promises.</p>
 
                     </div> 
                     </section> 

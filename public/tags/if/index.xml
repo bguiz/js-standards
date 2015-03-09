@@ -84,6 +84,26 @@ but after executing its only statement,
 there was no &lt;code&gt;break&lt;/code&gt; statement,
 and therefore, the execution &lt;em&gt;fell through&lt;/em&gt; to the next case.
 Avoid this!&lt;/p&gt;
+
+&lt;h4 id=&#34;intentional-fall-through:5d2e0676ba15eb6f59fd1e1e3e2fbeab&#34;&gt;Intentional fall through&lt;/h4&gt;
+
+&lt;p&gt;Sometimes you want multiple switches to execute the same set of statements.
+In this case, intentional fall through is allowed,
+albeit with one condition:
+That in this case, consecutive labels are used,
+meaning that there are no statements in between consecutive labels.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;switch (myVar) {
+case 2:
+case 3:
+  console.log(&#39;myVar is two or three&#39;);
+case 1:
+  console.log(&#39;myVar is one&#39;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note how between &lt;code&gt;case 2:&lt;/code&gt; and &lt;code&gt;case 3:&lt;/code&gt; above,
+there was only white space - not executable statements.&lt;/p&gt;
 </description>
     </item>
     
