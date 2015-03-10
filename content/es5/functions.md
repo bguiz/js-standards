@@ -238,3 +238,50 @@ containing function is the most basic and straightforward means
 of avoiding the pyramid of doom.
 There are more advanced ways to solve this problem,
 for example, using promises.
+
+#### Other Nesting
+
+Apart from nesting of function scope,
+in Javascript, it is also possible to nest block scope.
+This is undesirable for similar reasons.
+
+```javascript
+function foo() {
+  for (var i = 0; i < 10; ++i) {
+    if (i > 5) {
+      for (var j = 0; j < 10; ++j) {
+        if (j > 5) {
+          for (var k = 0; k < 10; ++k) {
+            // do stuff with `i`, `j`, and `k`
+            // This is bad, because this block is nested six levels deep
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+In a situation like this,
+one possible solution is to simply split the innermost blocks into its own function,
+and call the function as above.
+Another possible solution would be to avoid logic
+that requires this level of nesting to begin with -
+this level of nesting is indiocative of a need to simplify the program flow logic.
+
+```javascript
+function foo() {
+  for (var i = 6; i < 10; ++i) {
+    for (var j = 6; j < 10; ++j) {
+      for (var k = 0; k < 10; ++k) {
+        // do stuff with `i`, `j`, and `k`
+        // This is better, because the levels of nesting have decreased
+      }
+    }
+  }
+}
+```
+
+The - admittedly, contrived - contrived example above can be simplified greatly,
+by simply removing all of the `if` statements,
+and modifyiong the bounds used by the `for` loops.
