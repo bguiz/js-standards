@@ -565,6 +565,51 @@ containing function is the most basic and straightforward means
 of avoiding the pyramid of doom.
 There are more advanced ways to solve this problem,
 for example, using promises.&lt;/p&gt;
+
+&lt;h4 id=&#34;other-nesting:904d9cf85d985550c869e6d9741448cc&#34;&gt;Other Nesting&lt;/h4&gt;
+
+&lt;p&gt;Apart from nesting of function scope,
+in Javascript, it is also possible to nest block scope.
+This is undesirable for similar reasons.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function foo() {
+  for (var i = 0; i &amp;lt; 10; ++i) {
+    if (i &amp;gt; 5) {
+      for (var j = 0; j &amp;lt; 10; ++j) {
+        if (j &amp;gt; 5) {
+          for (var k = 0; k &amp;lt; 10; ++k) {
+            // do stuff with `i`, `j`, and `k`
+            // This is bad, because this block is nested six levels deep
+          }
+        }
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In a situation like this,
+one possible solution is to simply split the innermost blocks into its own function,
+and call the function as above.
+Another possible solution would be to avoid logic
+that requires this level of nesting to begin with -
+this level of nesting is indiocative of a need to simplify the program flow logic.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function foo() {
+  for (var i = 6; i &amp;lt; 10; ++i) {
+    for (var j = 6; j &amp;lt; 10; ++j) {
+      for (var k = 0; k &amp;lt; 10; ++k) {
+        // do stuff with `i`, `j`, and `k`
+        // This is better, because the levels of nesting have decreased
+      }
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The - admittedly, contrived - contrived example above can be simplified greatly,
+by simply removing all of the &lt;code&gt;if&lt;/code&gt; statements,
+and modifyiong the bounds used by the &lt;code&gt;for&lt;/code&gt; loops.&lt;/p&gt;
 </description>
     </item>
     
