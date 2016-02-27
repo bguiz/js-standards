@@ -45,6 +45,7 @@ weight: 4014
     *Why?*: When there are a lot of files (10+) locating them is easier with a consistent folder structures and more difficult in flat structures.
 
     ```javascript
+    
     /**
      * recommended
      */
