@@ -46,7 +46,8 @@ which usually sits at the root directory of a project.
 A sample `.jshintrc` file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.
 
-[ES5 `.jshintrc`](/downloads/es5/.jshintrc)
+- [ES5 `.jshintrc`](/downloads/es5/.jshintrc)
+- [ES6 `.jshintrc`](/downloads/es6/.jshintrc)
 
 Essentially all the default JsHint options are used,
 with a few exceptions.
