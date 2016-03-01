@@ -5,17 +5,13 @@
     <link>http://bguiz.github.io/js-standards/es5/</link>
     <description>Recent content in Es5s on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-    
-    
-    
-    <lastBuildDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2014 21:36:34 +1100</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/es5/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Comments</title>
       <link>http://bguiz.github.io/js-standards/es5/comments/</link>
-      <pubDate>Fri, 19 Dec 2014 21:36:34 &#43;1100</pubDate>
+      <pubDate>Fri, 19 Dec 2014 21:36:34 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/comments/</guid>
       <description>
@@ -154,7 +150,7 @@ and in addition to them.&lt;/p&gt;
     <item>
       <title>ES5 Files</title>
       <link>http://bguiz.github.io/js-standards/es5/files/</link>
-      <pubDate>Sun, 21 Dec 2014 11:38:22 &#43;1100</pubDate>
+      <pubDate>Sun, 21 Dec 2014 11:38:22 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/files/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Do&lt;/strong&gt; name an include Javascript files in a standard way.&lt;/p&gt;
@@ -255,7 +251,7 @@ See the page on &amp;ldquo;Functions&amp;rdquo; for more information about this.
     <item>
       <title>ES5 Variable Hoisting</title>
       <link>http://bguiz.github.io/js-standards/es5/hoisting/</link>
-      <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
+      <pubDate>Fri, 02 Jan 2015 10:33:51 +0800</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/hoisting/</guid>
       <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
@@ -347,7 +343,7 @@ and will not confuse developers with a background in another C-style language.&l
     <item>
       <title>ES5 Functions</title>
       <link>http://bguiz.github.io/js-standards/es5/functions/</link>
-      <pubDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</pubDate>
+      <pubDate>Fri, 02 Jan 2015 11:15:48 +0800</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/functions/</guid>
       <description>
@@ -616,7 +612,7 @@ and modifyiong the bounds used by the &lt;code&gt;for&lt;/code&gt; loops.&lt;/p&
     <item>
       <title>ES5 Naming Conventions</title>
       <link>http://bguiz.github.io/js-standards/es5/naming/</link>
-      <pubDate>Wed, 14 Jan 2015 22:13:18 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>
@@ -707,7 +703,7 @@ in addition to the ones described here.&lt;/p&gt;
     <item>
       <title>ES5 Control Structures</title>
       <link>http://bguiz.github.io/js-standards/es5/control/</link>
-      <pubDate>Wed, 14 Jan 2015 22:25:16 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:25:16 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/control/</guid>
       <description>
@@ -802,7 +798,7 @@ there was only white space - not executable statements.&lt;/p&gt;
     <item>
       <title>ES5 Equality</title>
       <link>http://bguiz.github.io/js-standards/es5/equality/</link>
-      <pubDate>Wed, 14 Jan 2015 22:41:41 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:41:41 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/equality/</guid>
       <description>
@@ -932,7 +928,7 @@ you are probably much better off using the triple equals form.&lt;/p&gt;
     <item>
       <title>ES5 Built In Types</title>
       <link>http://bguiz.github.io/js-standards/es5/types/</link>
-      <pubDate>Wed, 14 Jan 2015 22:52:22 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:52:22 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/types/</guid>
       <description>
@@ -1012,7 +1008,7 @@ unless you are developing a low level library, this is a bad idea&lt;/li&gt;
     <item>
       <title>ES5 Linting</title>
       <link>http://bguiz.github.io/js-standards/es5/lint/</link>
-      <pubDate>Thu, 15 Jan 2015 17:20:09 &#43;1100</pubDate>
+      <pubDate>Thu, 15 Jan 2015 17:20:09 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/lint/</guid>
       <description>

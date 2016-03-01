@@ -5,17 +5,13 @@
     <link>http://bguiz.github.io/js-standards/tags/variables/</link>
     <description>Recent content in Variables on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-    
-    
-    
-    <lastBuildDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2015 10:33:51 +0800</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/variables/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Variable Hoisting</title>
       <link>http://bguiz.github.io/js-standards/es5/hoisting/</link>
-      <pubDate>Fri, 02 Jan 2015 10:33:51 &#43;0800</pubDate>
+      <pubDate>Fri, 02 Jan 2015 10:33:51 +0800</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/hoisting/</guid>
       <description>&lt;p&gt;Javascript is a programming language whose syntax is quite similar to
@@ -107,7 +103,7 @@ and will not confuse developers with a background in another C-style language.&l
     <item>
       <title>ES5 Naming Conventions</title>
       <link>http://bguiz.github.io/js-standards/es5/naming/</link>
-      <pubDate>Wed, 14 Jan 2015 22:13:18 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>
