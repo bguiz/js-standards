@@ -1044,7 +1044,10 @@ which usually sits at the root directory of a project.&lt;/p&gt;
 &lt;p&gt;A sample &lt;code&gt;.jshintrc&lt;/code&gt; file which conforms to the rules
 that have been described in the ES5 specifications will be made available soon.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://bguiz.github.io/js-standards/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bguiz.github.io/js-standards/downloads/es5/.jshintrc&#34;&gt;ES5 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://bguiz.github.io/js-standards/downloads/es6/.jshintrc&#34;&gt;ES6 &lt;code&gt;.jshintrc&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Essentially all the default JsHint options are used,
 with a few exceptions.&lt;/p&gt;
