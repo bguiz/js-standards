@@ -5,17 +5,13 @@
     <link>http://bguiz.github.io/js-standards/tags/angularjs/</link>
     <description>Recent content in Angularjs on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-    
-    
-    
-    <lastBuildDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</lastBuildDate>
+    <lastBuildDate>Wed, 21 Jan 2015 10:34:04 +1100</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/angularjs/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AngularJs Angular $ Wrapper Services</title>
       <link>http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/angular-wrapper-services/</guid>
       <description>
@@ -47,7 +43,7 @@
     <item>
       <title>AngularJs AngularJS docs</title>
       <link>http://bguiz.github.io/js-standards/angularjs/angularjs-docs/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/angularjs-docs/</guid>
       <description>
@@ -61,7 +57,7 @@
     <item>
       <title>AngularJs Animations</title>
       <link>http://bguiz.github.io/js-standards/angularjs/animations/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/animations/</guid>
       <description>
@@ -111,7 +107,7 @@
     <item>
       <title>AngularJs Application Structure</title>
       <link>http://bguiz.github.io/js-standards/angularjs/application-structure/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/application-structure/</guid>
       <description>
@@ -153,8 +149,9 @@
 
 &lt;p&gt;&lt;em&gt;Why?&lt;/em&gt;: When there are a lot of files (10+) locating them is easier with a consistent folder structures and more difficult in flat structures.&lt;/p&gt;
 
-&lt;p&gt;```javascript
-/**&lt;/p&gt;
+&lt;p&gt;```javascript&lt;/p&gt;
+
+&lt;p&gt;/**&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;recommended
@@ -244,7 +241,7 @@ app/
     <item>
       <title>AngularJs Application Structure LIFT Principle</title>
       <link>http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/application-structure-lift-principle/</guid>
       <description>
@@ -332,7 +329,7 @@ app/
     <item>
       <title>AngularJs Comments</title>
       <link>http://bguiz.github.io/js-standards/angularjs/comments/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/comments/</guid>
       <description>
@@ -394,7 +391,7 @@ app/
     <item>
       <title>AngularJs Constants</title>
       <link>http://bguiz.github.io/js-standards/angularjs/constants/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/constants/</guid>
       <description>
@@ -458,7 +455,7 @@ angular
     <item>
       <title>AngularJs Controllers</title>
       <link>http://bguiz.github.io/js-standards/angularjs/controllers/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/controllers/</guid>
       <description>
@@ -859,7 +856,7 @@ angular
     <item>
       <title>AngularJs Data Services</title>
       <link>http://bguiz.github.io/js-standards/angularjs/data-services/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/data-services/</guid>
       <description>
@@ -996,7 +993,7 @@ angular
     <item>
       <title>AngularJs Directives</title>
       <link>http://bguiz.github.io/js-standards/angularjs/directives/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/directives/</guid>
       <description>
@@ -1300,7 +1297,7 @@ while &lt;code&gt;acme-&lt;/code&gt; may indicate a directive for the Acme compa
     <item>
       <title>AngularJs Exception Handling</title>
       <link>http://bguiz.github.io/js-standards/angularjs/exception-handling/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/exception-handling/</guid>
       <description>
@@ -1429,7 +1426,7 @@ function handleRoutingErrors() {
     <item>
       <title>AngularJs Factories</title>
       <link>http://bguiz.github.io/js-standards/angularjs/factories/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/factories/</guid>
       <description>
@@ -1617,7 +1614,7 @@ function handleRoutingErrors() {
     <item>
       <title>AngularJs File Templates and Snippets</title>
       <link>http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/file-templates-and-snippets/</guid>
       <description>
@@ -1687,7 +1684,7 @@ ng-m // creates an Angular module
     <item>
       <title>AngularJs Folder Structure</title>
       <link>http://bguiz.github.io/js-standards/angularjs/folder-structure/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/folder-structure/</guid>
       <description>
@@ -1782,7 +1779,7 @@ parallel/ equivalent folder paths.&lt;/p&gt;
     <item>
       <title>AngularJs IIFE</title>
       <link>http://bguiz.github.io/js-standards/angularjs/iife/</link>
-      <pubDate>Wed, 21 Jan 2015 10:34:04 &#43;1100</pubDate>
+      <pubDate>Wed, 21 Jan 2015 10:34:04 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/angularjs/iife/</guid>
       <description>

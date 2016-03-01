@@ -5,17 +5,13 @@
     <link>http://bguiz.github.io/js-standards/tags/functions/</link>
     <description>Recent content in Functions on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-    
-    
-    
-    <lastBuildDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Jan 2015 11:15:48 +0800</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/functions/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ES5 Functions</title>
       <link>http://bguiz.github.io/js-standards/es5/functions/</link>
-      <pubDate>Fri, 02 Jan 2015 11:15:48 &#43;0800</pubDate>
+      <pubDate>Fri, 02 Jan 2015 11:15:48 +0800</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/functions/</guid>
       <description>
@@ -284,7 +280,7 @@ and modifyiong the bounds used by the &lt;code&gt;for&lt;/code&gt; loops.&lt;/p&
     <item>
       <title>ES5 Naming Conventions</title>
       <link>http://bguiz.github.io/js-standards/es5/naming/</link>
-      <pubDate>Wed, 14 Jan 2015 22:13:18 &#43;1100</pubDate>
+      <pubDate>Wed, 14 Jan 2015 22:13:18 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/es5/naming/</guid>
       <description>

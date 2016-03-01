@@ -5,17 +5,13 @@
     <link>http://bguiz.github.io/js-standards/tags/es6/</link>
     <description>Recent content in Es6 on Javascript Standards</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-    
-    
-    
-    <lastBuildDate>Fri, 19 Dec 2014 20:58:42 &#43;1100</lastBuildDate>
+    <lastBuildDate>Fri, 19 Dec 2014 20:58:42 +1100</lastBuildDate>
     <atom:link href="http://bguiz.github.io/js-standards/tags/es6/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ECMAScript 5.1 and ECMAScript 6</title>
       <link>http://bguiz.github.io/js-standards/intro/</link>
-      <pubDate>Fri, 19 Dec 2014 20:58:42 &#43;1100</pubDate>
+      <pubDate>Fri, 19 Dec 2014 20:58:42 +1100</pubDate>
       
       <guid>http://bguiz.github.io/js-standards/intro/</guid>
       <description>&lt;p&gt;ECMAScript 5.1, or ES5, is currently the older version of the specification
